@@ -11,15 +11,16 @@
 #import "AnimatedAnnotation.h"
 #import "AnimatedAnnotationView.h"
 #import "CustomAnnotationView.h"
-#import "IObserver.h"
-#import "NetworkAdapter.h"
+#import "PomeloWS.h"
 
-@interface PacManMainGameViewController:UIViewController<MAMapViewDelegate,IObserver>
+@interface PacManMainGameViewController:UIViewController<MAMapViewDelegate>
 {
     MAMapView *_mapView;
     bool bSetUserLocation;
     bool bInitSelfPresentation;
     AnimatedAnnotation* mySelfAnnotation;
+    PomeloWS* pomelo;
+    NSString* userID;
 }
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;

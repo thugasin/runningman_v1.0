@@ -122,54 +122,47 @@
     
 }
 
+
 -(IBAction)OnStartGame:(id)sender
 {
-    NSString * command = @"creategame 6\r\n";
-    NSString * gameName = [NSString stringWithFormat:@"%@\r\n", self.GameText.text];
-    NSString * maxPlayerNumber = [NSString stringWithFormat:@"%@\r\n", self.MaxPlayerNumber.text];
-    NSString * cityName = [NSString stringWithFormat:@"%@\r\n", self.playerCity];
-    NSString * locationPoint1 = [NSString stringWithFormat:@"%f:%f\r\n", self.playerLocation.coordinate.latitude+0.001543-0.001, playerLocation.coordinate.longitude+0.005866-0.001];
-    NSString * locationPoint2 = [NSString stringWithFormat:@"%f:%f\r\n", self.playerLocation.coordinate.latitude+0.001543+0.001, playerLocation.coordinate.longitude+0.005866+0.001];
-    NSString * gameType = [NSString stringWithFormat:@"%@\r\n", gameTypeNumber];
-    
-    NSString * createGameMessage = [NSString stringWithFormat:@"%@%@%@%@%@%@%@", command, gameName, maxPlayerNumber, cityName, locationPoint1, locationPoint2, gameType];
-    
-    NetworkAdapter *na = [NetworkAdapter InitNetwork];
-    [na SubscribeMessage:CREATE_GAME Instance:self];
-    
-    [na sendData:createGameMessage];
-    NSLog([NSString stringWithFormat:@"游戏创建信息发送：%@", createGameMessage]);
-}
-
--(void) ONMessageCome:(SocketMessage*)socketMsg
-{
-    if (socketMsg.Type == CREATE_GAME)
-    {
-        if ([socketMsg.argumentList[0] isEqualToString:@"0"])
-        {
-            NSLog(@"游戏创建失败!");
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"游戏创建失败" message:@"服务器执行失败" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:okAction];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-            return;
-        }
-        
-        NetworkAdapter *na = [NetworkAdapter InitNetwork];
-        [na UnsubscribeMessage:CREATE_GAME Instance:self];
-        
-        NSLog(@"游戏创建成功!");
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GameWaitingView"];
-        [(GameWaitingViewController*)mainViewController SetGameID:socketMsg.argumentList[0]];
-        [(GameWaitingViewController*)mainViewController SetGameName:socketMsg.argumentList[0]];
-        [self presentViewController:mainViewController animated:YES completion:^{
-        }];
-        
-    }
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSDictionary *params = @{@"userid":[userDefault objectForKey:@"name"],
+                                        @"gamename":self.GameText.text,
+                                        @"maxplayer":self.MaxPlayerNumber.text,
+                             @"city":self.playerCity,
+                             @"x1":[NSString stringWithFormat:@"%f", self.playerLocation.coordinate.latitude+0.001543-0.001],
+                             @"y1":[NSString stringWithFormat:@"%f", playerLocation.coordinate.longitude+0.005866-0.001],
+                             @"x2":[NSString stringWithFormat:@"%f", self.playerLocation.coordinate.latitude+0.001543+0.001],
+                             @"y2":[NSString stringWithFormat:@"%f",playerLocation.coordinate.longitude+0.005866+0.001],
+                             @"gametype":[NSString stringWithFormat:@"%@\r\n", gameTypeNumber]};
+    pomelo = [PomeloWS GetPomelo];
+    [pomelo requestWithRoute:@"game.gameHandler.create"
+                   andParams:params andCallback:^(NSDictionary *result){
+                       
+                       if ([[result objectForKey:@"success"]  isEqual: @"1"])
+                       {
+                           NSLog(@"游戏创建成功!");
+                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                           id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GameWaitingView"];
+                           [(GameWaitingViewController*)mainViewController SetGameID:[result objectForKey:@"Game"]];
+                           [(GameWaitingViewController*)mainViewController SetGameName:[result objectForKey:@"GameName"]];
+                           [self presentViewController:mainViewController animated:YES completion:^{
+                           }];
+                       }
+                       else
+                       {
+                           
+                           NSLog(@"游戏创建失败!");
+                           
+                           UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"游戏创建失败" message:@"服务器执行失败" preferredStyle:UIAlertControllerStyleAlert];
+                           
+                           UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                           [alertController addAction:okAction];
+                           
+                           [self presentViewController:alertController animated:YES completion:nil];
+                           return;
+                       }
+                   }];
 }
 
 

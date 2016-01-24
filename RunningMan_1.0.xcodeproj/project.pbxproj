@@ -23,6 +23,7 @@
 		363F1E811C19C5A1009B5730 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F1E791C19C5A1009B5730 /* SocketIOPacket.m */; };
 		363F1E821C19C5A1009B5730 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F1E7C1C19C5A1009B5730 /* SocketIOTransportWebsocket.m */; };
 		363F1E831C19C5A1009B5730 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F1E7E1C19C5A1009B5730 /* SocketIOTransportXHR.m */; };
+		3642F9DF1C53D8B500B06D92 /* GameNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */; };
 		365EB4281BC7CAEF001F3303 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB4271BC7CAEF001F3303 /* main.m */; };
 		365EB42B1BC7CAEF001F3303 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42A1BC7CAEF001F3303 /* AppDelegate.m */; };
 		365EB42E1BC7CAEF001F3303 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42D1BC7CAEF001F3303 /* ViewController.m */; };
@@ -58,6 +59,8 @@
 		36D3EFC51C3977D300E98B2F /* PomeloWSProtobuf.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D3EFC01C3977D300E98B2F /* PomeloWSProtobuf.m */; };
 		36D982341C3782FB0040BC4A /* Pomelo.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D982311C3782FB0040BC4A /* Pomelo.m */; };
 		36D982351C3782FB0040BC4A /* PomeloProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D982331C3782FB0040BC4A /* PomeloProtocol.m */; };
+		36E82E111C4B29A9000A5633 /* GameInfoTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E82E101C4B29A9000A5633 /* GameInfoTableCellView.m */; };
+		36E82E151C4BE378000A5633 /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E82E141C4BE378000A5633 /* GameInfoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		30C8903E16BFC6AFF291DD15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		360E92101C3E5C8B005E2C89 /* ImageHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageHandler.h; sourceTree = "<group>"; };
 		361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController_swift.swift; sourceTree = "<group>"; };
 		363DA9991C19B8CE002AA5CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		363DA99B1C19B8E1002AA5CC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -104,6 +108,8 @@
 		363F1E7C1C19C5A1009B5730 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportWebsocket.m; path = SocketIO/SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
 		363F1E7D1C19C5A1009B5730 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportXHR.h; path = SocketIO/SocketIOTransportXHR.h; sourceTree = "<group>"; };
 		363F1E7E1C19C5A1009B5730 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = SocketIO/SocketIOTransportXHR.m; sourceTree = "<group>"; };
+		3642F9DD1C53D8B500B06D92 /* GameNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameNavigationViewController.h; sourceTree = "<group>"; };
+		3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameNavigationViewController.m; sourceTree = "<group>"; };
 		365EB4231BC7CAEF001F3303 /* RunningMan_1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningMan_1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		365EB4271BC7CAEF001F3303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		365EB4291BC7CAEF001F3303 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -175,6 +181,9 @@
 		36D982311C3782FB0040BC4A /* Pomelo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pomelo.m; path = pomelo/Pomelo.m; sourceTree = SOURCE_ROOT; };
 		36D982321C3782FB0040BC4A /* PomeloProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PomeloProtocol.h; path = pomelo/PomeloProtocol.h; sourceTree = SOURCE_ROOT; };
 		36D982331C3782FB0040BC4A /* PomeloProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PomeloProtocol.m; path = pomelo/PomeloProtocol.m; sourceTree = SOURCE_ROOT; };
+		36E82E0F1C4B29A9000A5633 /* GameInfoTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfoTableCellView.h; sourceTree = "<group>"; };
+		36E82E101C4B29A9000A5633 /* GameInfoTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfoTableCellView.m; sourceTree = "<group>"; };
+		36E82E141C4BE378000A5633 /* GameInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
 		4FFD415640F981341B86FD48 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A224219B536B7F209CAA4833 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -327,6 +336,9 @@
 				36C24FF31BCE5B4E00BE028B /* GameWaitingViewController.m */,
 				36B2AC201BE7B4DD00F9DE01 /* UncaughtExceptionHandler.h */,
 				36B2AC211BE7B51500F9DE01 /* UncaughtExceptionHandler.m */,
+				360E92101C3E5C8B005E2C89 /* ImageHandler.h */,
+				3642F9DD1C53D8B500B06D92 /* GameNavigationViewController.h */,
+				3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */,
 			);
 			name = RunningMan_1.0;
 			path = RunningMan_0.5;
@@ -367,6 +379,9 @@
 				36D0749D1BC7DB2E00032359 /* GameSelectionViewController.m */,
 				366FDD6B1C1AD5A50033A57F /* GameInfoTableViewCell.swift */,
 				361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */,
+				36E82E0F1C4B29A9000A5633 /* GameInfoTableCellView.h */,
+				36E82E101C4B29A9000A5633 /* GameInfoTableCellView.m */,
+				36E82E141C4BE378000A5633 /* GameInfoCell.xib */,
 			);
 			name = GameList;
 			sourceTree = "<group>";
@@ -549,6 +564,7 @@
 				365EB4361BC7CAEF001F3303 /* LaunchScreen.storyboard in Resources */,
 				365EB4331BC7CAEF001F3303 /* Assets.xcassets in Resources */,
 				365EB4311BC7CAEF001F3303 /* Main.storyboard in Resources */,
+				36E82E151C4BE378000A5633 /* GameInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,8 +647,10 @@
 				36B6EA071BD5F6A800F59C7C /* CustomCalloutView.m in Sources */,
 				363F1E811C19C5A1009B5730 /* SocketIOPacket.m in Sources */,
 				365EB4281BC7CAEF001F3303 /* main.m in Sources */,
+				3642F9DF1C53D8B500B06D92 /* GameNavigationViewController.m in Sources */,
 				36D074991BC7D9CE00032359 /* IObserver.m in Sources */,
 				36B2AC221BE7B51500F9DE01 /* UncaughtExceptionHandler.m in Sources */,
+				36E82E111C4B29A9000A5633 /* GameInfoTableCellView.m in Sources */,
 				36D074A21BC7DB2E00032359 /* GameSelectionViewController.m in Sources */,
 				36D074A11BC7DB2E00032359 /* GameConfigurationViewController.m in Sources */,
 				363F1E701C19C561009B5730 /* base64.c in Sources */,

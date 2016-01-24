@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NetworkAdapter.h"
 #import "IObserver.h"
+#import "pomelows.h"
 
 @interface GameWaitingViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, IObserver>
+{
+    PomeloWS * pomelo;
+    PomeloWSCallback onJoinCallback;
+}
 
 @property (strong, nonatomic) NSArray *list;
 @property (strong, nonatomic) IBOutlet UITableView *tableview;

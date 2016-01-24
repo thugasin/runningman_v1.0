@@ -22,25 +22,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     InstallUncaughtExceptionHandler();
     
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSString *cokieName = [userDefault objectForKey:@"name"];
-    NSString *cokiePassword = [userDefault objectForKey:@"password"];
-    
-    pomelo = [[PomeloWS alloc] initWithDelegate:self];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    if (cokieName == nil)
-    {
-        id view = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        self.window.rootViewController = view;
-        ((LoginViewController*)view).pomelo = pomelo;
-        
-    }
-    else
-    {
-        id view = [storyboard instantiateViewControllerWithIdentifier:@"GameSelectionView"];
-        self.window.rootViewController = view;
-        ((GameSelectionViewController*)view).pomelo = pomelo;
-    }
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    NSString *cokieName = [userDefault objectForKey:@"name"];
+//    NSString *cokiePassword = [userDefault objectForKey:@"password"];
+//    
+//    pomelo = [[PomeloWS alloc] initWithDelegate:self];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    if (cokieName == nil)
+//    {
+//        id view = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//        self.window.rootViewController = view;
+//        ((LoginViewController*)view).pomelo = pomelo;
+//        
+//    }
+//    else
+//    {
+//        id view = [storyboard instantiateViewControllerWithIdentifier:@"GameSelectionView"];
+//        self.window.rootViewController = view;
+//        ((GameSelectionViewController*)view).pomelo = pomelo;
+//    }
     
     return YES;
 }

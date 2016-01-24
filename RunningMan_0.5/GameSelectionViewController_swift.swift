@@ -13,6 +13,8 @@ class GameSelectionViewController_swift: UITableViewController,IObserver {
     @IBOutlet weak var Userlable: UILabel?
     @IBOutlet weak var tableview: UITableView?
     
+    var pomelo: PomeloWS?
+    
     var list: NSArray?
     var selectedGameID : String?
     
@@ -62,6 +64,22 @@ class GameSelectionViewController_swift: UITableViewController,IObserver {
         let name : String? = userDefault.objectForKey("name") as? String;
         
         Userlable!.text = "你好 " + "\(name)";
+        
+//        pomelo = PomeloWS.GetPomelo() as! PomeloWS?;
+//        if pomelo == nil {
+//            pomelo = PomeloWS(delegate: self as! PomeloWSDelegate)
+//        }
+//        pomelo.connectToHost("127.0.0.1", onPort: 3014, withCallback:{**p in**
+//            var params: [NSObject : AnyObject] = ["city": "-1"]
+//            pomelo(route: "game.gameHandler.list", andParams: params, andCallback: {(json: [NSObject : AnyObject]) -> Void in
+//                var gameInfoList: NSData = (json["games"] as! NSData).dataUsingEncoding(NSUTF8StringEncoding)
+//                list = NSJSONSerialization.JSONObjectWithData(gameInfoList, options: kNilOptions, error: nil)
+//                self.tableview.reloadData()
+//            })
+//        })
+
+
+        
         
         let command = "listgame 1\r\n";
         let sCity = "-1\r\n";

@@ -33,13 +33,13 @@
 
 -(void)GameUpdate
 {
-    NSString * Message = [NSString stringWithFormat:@"querymap 1\r\n%@\r\n",GameID];
-    
-    NetworkAdapter *na = [NetworkAdapter InitNetwork];
-    [na SubscribeMessage:QUERYMAP Instance:self];
-    [na sendData:Message];
+//    NSString * Message = [NSString stringWithFormat:@"querymap 1\r\n%@\r\n",GameID];
+//    
+//    NetworkAdapter *na = [NetworkAdapter InitNetwork];
+//    [na SubscribeMessage:QUERYMAP Instance:self];
+//    [na sendData:Message];
 }
-
+/*
 -(void)ONMessageCome:(SocketMessage *)socketMsg
 {
     if (socketMsg.Type == QUERYMAP)
@@ -156,7 +156,7 @@
         }
     }
 }
-
+*/
 
 -(MAPointAnnotation*)addAnnotationWithCooordinate:(CLLocationCoordinate2D)coordinate
 {
@@ -229,11 +229,15 @@
 
 -(IBAction) OnStopButtonClicked:(id)sender
 {
-    NSString * Message = [NSString stringWithFormat:@"stopgame 0"];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     
-    NetworkAdapter *na = [NetworkAdapter InitNetwork];
-    [na SubscribeMessage:QUERYMAP Instance:self];
-    [na sendData:Message];
+    NSDictionary *params = @{@"userid":[userDefault objectForKey:@"name"],@"gameid":GameID};
+    
+    [pomelo requestWithRoute:@"game.gameHandler.stop"
+                   andParams:params andCallback:^(NSDictionary *result){
+                       
+                       NSLog((NSString*)[result objectForKey:@"players"]);
+                   }];
 }
 
 #pragma mark - MAMapViewDelegate
@@ -340,8 +344,11 @@
         else
             mySelfAnnotation.coordinate = userLocation.coordinate;
         
-        NetworkAdapter *na = [NetworkAdapter InitNetwork];
-        [na sendData:Message];
+        NSDictionary *params = @{@"userid":UserName,
+                                 @"x":[NSString stringWithFormat:@"%f",userLocation.coordinate.latitude]
+                                 ,@"y":[NSString stringWithFormat:@"%f",userLocation.coordinate.longitude]};
+        
+        [pomelo notifyWithRoute:@"game.gameHandler.report" andParams:params];
         
     }
     

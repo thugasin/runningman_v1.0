@@ -11,15 +11,20 @@
 #import "IObserver.h"
 #import "NetworkAdapter.h"
 #import "GameWaitingViewController.h"
+#import "pomelows.h"
 
-@interface GameConfigurationViewController : UIViewController<CLLocationManagerDelegate, IObserver>
+@interface GameConfigurationViewController : UIViewController<CLLocationManagerDelegate>
 {
     NSArray *pickerArray;
+    PomeloWS *pomelo;
 }
 
 -(IBAction)SetGameArea:(id)sender;
 -(IBAction)OnStartGame:(id)sender;
 
+
+- (void)initBaseNavigationBar;
+- (void) returnAction;
 
 @property (strong, nonatomic) IBOutlet UIPickerView *GamePicker;
 @property (strong, nonatomic) IBOutlet UITextField *GameText;

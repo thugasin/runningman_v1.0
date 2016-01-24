@@ -38,8 +38,17 @@
     
     gametitle.text = GameName;
     
+    pomelo = [PomeloWS GetPomelo];
+    [pomelo onRoute:@"onJoin" withCallback:onJoinCallback];
+    
     self.Timmer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(RefreshPlayerInfo) userInfo:nil repeats:YES];
     [self.Timmer fire];
+}
+
+- (void)InitOnJoinCallback
+{
+    onJoinCallback = ^(id arg){
+    };
 }
 
 

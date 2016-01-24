@@ -5,3 +5,4 @@
 //#import "NetworkProtocal.h"
 #import "NetworkAdapter.h"
 #import "GameWaitingViewController.h"
+#import "PomeloWS.h"

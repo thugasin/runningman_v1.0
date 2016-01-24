@@ -10,17 +10,30 @@
 #import "IObserver.h"
 #import "NetworkAdapter.h"
 #import "GameWaitingViewController.h"
+#import <AMapLocationKit/AMapLocationKit.h>
 #import "PomeloWS.h"
 
-@interface GameSelectionViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, IObserver>
+@interface GameSelectionViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
+{
+    IBOutlet UINavigationItem *navigationBar;
+    __block UIActivityIndicatorView *indicator;
+    __block NSString* userCity;
+}
 
-@property (strong, nonatomic) IBOutlet UILabel *Userlable;
-@property (strong, nonatomic) NSArray *list;
+@property (strong, nonatomic) NSMutableArray *list;
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) NSString *selectedGameID;
 
 @property (strong, nonatomic) NSString* gameID;
 @property (strong, nonatomic) NSString* gameName;
-@property (weak, nonatomic) PomeloWS* pomelo;
+@property (retain, nonatomic) PomeloWS* pomelo;
+
+@property (nonatomic, strong) AMapLocationManager *locationManager;
+//@property (nonatomic, copy) AMapLocatingCompletionBlock completionBlock;
+@property (nonatomic) __block CLLocationCoordinate2D userLocation;
+
+-(void)StartWaitingAnimation;
+-(void)StopWaitingAnimation;
+-(void)CreateNewGame;
 
 @end
