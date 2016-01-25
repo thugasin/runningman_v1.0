@@ -11,127 +11,94 @@
 
 @interface GameWaitingViewController ()
 
+@property (nonatomic,copy) PomeloWSCallback onJoinCallback;
+@property (nonatomic,copy) PomeloWSCallback onLeaveCallback;
+@property (nonatomic,copy) PomeloWSCallback getUserListBlock;
+@property (nonatomic,copy) PomeloWSCallback onGameStartCallback;
+
 @end
 
 @implementation GameWaitingViewController
 @synthesize GameID;
 @synthesize GameName;
-@synthesize list;
 @synthesize tableview;
 @synthesize Timmer;
 @synthesize title;
 @synthesize gametitle;
+@synthesize list;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSString * command = @"showplayers 1\r\n";
-    NSString * arg = [NSString stringWithFormat:@"%@\r\n", self.GameID];
-    
-    NSString * msg = [NSString stringWithFormat:@"%@%@",command, arg];
-    
-    NetworkAdapter *na = [NetworkAdapter InitNetwork];
-    [na SubscribeMessage:SHOW_PLAYER Instance:self];
-    
-    [na sendData:msg];
-    
     gametitle.text = GameName;
     
     pomelo = [PomeloWS GetPomelo];
-    [pomelo onRoute:@"onJoin" withCallback:onJoinCallback];
     
-    self.Timmer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(RefreshPlayerInfo) userInfo:nil repeats:YES];
-    [self.Timmer fire];
+    [self InitGetUserListBlock];
+    
+    NSDictionary *params = @{@"gameid":GameID};
+//    [pomelo requestWithRoute:@"game.gameHandler.reportusersforgame"
+//                   andParams:params andCallback:self.getUserListBlock];
+    [self InitOnJoinCallback];
+    [self InitOnLeaveCallback];
+    [self InitGameStartCallback];
+    
+    [pomelo onRoute:@"onJoin" withCallback:self.onJoinCallback];
+    [pomelo onRoute:@"onLeave" withCallback:self.onLeaveCallback];
+    [pomelo onRoute:@"onStart" withCallback:self.onGameStartCallback];
+    
+}
+
+- (void)InitGetUserListBlock
+{
+    self.getUserListBlock = ^(NSDictionary *result){
+        
+        NSData * playerList = [[result objectForKey:@"players"] dataUsingEncoding:NSUTF8StringEncoding];
+        
+        list = [NSJSONSerialization JSONObjectWithData:playerList options:kNilOptions error:nil];
+        [self.tableview reloadData];
+    };
+
 }
 
 - (void)InitOnJoinCallback
 {
-    onJoinCallback = ^(id arg){
+    self.onJoinCallback = ^(NSDictionary *newPlayer)
+    {
+        [list addObject:[newPlayer objectForKey:@"user"]];
+        [self.tableview reloadData];
     };
 }
 
-
--(void) ONMessageCome:(SocketMessage*)socketMsg
+-(void)InitGameStartCallback
 {
-    if (socketMsg.Type == SHOW_PLAYER)
+    self.onGameStartCallback =^(NSDictionary *gameStartNotification)
     {
-        NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:10000];
-        if(socketMsg.argumentNumber != 0)
-        {
-            for (NSString *playerInfo in socketMsg.argumentList) {
-                [array addObject:playerInfo];
-            }
-            
-            self.list = array;
-            [self.tableview reloadData];
-        }
-    }
-    
-    if (socketMsg.Type == START_GAME) {
-        NetworkAdapter *na = [NetworkAdapter InitNetwork];
-        [na UnsubscribeMessage:SHOW_PLAYER Instance:self];
-        [na UnsubscribeMessage:QUERY_GAME Instance:self];
-        if ([socketMsg.argumentList[0] integerValue] == 1)
-        {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
-            [(PacManMainGameViewController*)mainViewController SetGameID:GameID];
-            [self presentViewController:mainViewController animated:YES completion:^{
-            }];
-        }
-    }
-    
-    if (socketMsg.Type == QUERY_GAME) {
-        if ([socketMsg.argumentList[0] integerValue] == 0)
-            return;
-        if ([socketMsg.argumentList[0] integerValue] == 1)
-        {
-            if (self.Timmer == nil) {
-                return;
-            }
-            
-            [self.Timmer invalidate];
-            self.Timmer = nil;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
-            [(PacManMainGameViewController*)mainViewController SetGameID:GameID];
-            [self presentViewController:mainViewController animated:YES completion:^{
-            }];
-        }
-    }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
+        [(PacManMainGameViewController*)mainViewController SetGameID:GameID];
+        [self presentViewController:mainViewController animated:YES completion:^{
+        }];
+    };
+
+}
+
+- (void)InitOnLeaveCallback
+{
+    self.onLeaveCallback = ^(NSDictionary *player)
+    {
+        [list removeObject:[player objectForKey:@"user"]];
+        [self.tableview reloadData];
+    };
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    self.list = nil;
+    list = nil;
 }
-
--(void)RefreshPlayerInfo
-{
-    NSString * command = @"showplayers 1\r\n";
-    NSString * arg = [NSString stringWithFormat:@"%@\r\n", self.GameID];
-    
-    NSString * msg = [NSString stringWithFormat:@"%@%@",command, arg];
-    
-    NetworkAdapter *na = [NetworkAdapter InitNetwork];
-    [na SubscribeMessage:SHOW_PLAYER Instance:self];
-    
-    [na sendData:msg];
-    
-    
-    NSString * command2 = @"querygame 1\r\n";
-    NSString * arg2 = [NSString stringWithFormat:@"%@\r\n", self.GameID];
-    
-    NSString * msg2 = [NSString stringWithFormat:@"%@%@",command2, arg2];
-    
-    [na SubscribeMessage:QUERY_GAME Instance:self];
-    
-    [na sendData:msg2];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -190,12 +157,9 @@
 
 -(IBAction)OnStartGameButtonClicked:(id)sender
 {
-    [self.Timmer invalidate];
-    self.Timmer = nil;
-    NetworkAdapter *na = [NetworkAdapter InitNetwork];
-    [na SubscribeMessage:START_GAME Instance:self];
-    
-    [na sendData:@"startgame 0\r\n"];
+    NSDictionary *params = @{@"gameid":GameID};
+    [pomelo requestWithRoute:@"game.gameHandler.start"
+                   andParams:params andCallback:self.getUserListBlock];
 }
 
 /*

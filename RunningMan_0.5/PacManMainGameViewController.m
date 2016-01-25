@@ -11,6 +11,10 @@
 
 @interface PacManMainGameViewController ()
 
+@property (nonatomic,copy) PomeloWSCallback onPlayerUpdateCallback;
+@property (nonatomic,copy) PomeloWSCallback onMapUpdateCallback;
+@property (nonatomic,copy) PomeloWSCallback drawMap;
+
 @end
 
 @implementation PacManMainGameViewController
@@ -29,6 +33,63 @@
     UserName = [userDefault objectForKey:@"name"];
     bSetUserLocation = false;
     bInitSelfPresentation = false;
+    
+    pomelo = [PomeloWS GetPomelo];
+    
+    [self InitDrawMap];
+    
+    NSDictionary *params = @{@"gameid":GameID};
+    [pomelo requestWithRoute:@"game.gameHandler.querymap"
+                   andParams:params andCallback:self.drawMap];
+
+    
+    [self InitPlayerUpdate];
+    [self InitMapUpdate];
+    
+    [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
+    [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
+    
+}
+
+-(void) InitPlayerUpdate
+{
+    self.onPlayerUpdateCallback = ^(NSDictionary* playerInfo)
+    {
+        
+    };
+}
+
+-(void) InitMapUpdate
+{
+    self.onMapUpdateCallback = ^(NSDictionary* mapInfo)
+    {
+        
+    };
+}
+
+-(void) InitDrawMap
+{
+    self.drawMap = ^(NSDictionary* mapInfo)
+    {
+        NSData * mapInfoData = [[mapInfo objectForKey:@"map"] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *maplist = [NSJSONSerialization JSONObjectWithData:mapInfoData options:kNilOptions error:nil];
+        
+        int row = (int)[maplist objectForKey:@"Row"];
+        int column = (int)[maplist objectForKey:@"column"];
+        
+        GameGridRow = [NSMutableArray arrayWithCapacity:row];
+        for (int i=0; i<row; i++)
+        {
+            NSMutableArray *GridColunm = [NSMutableArray arrayWithCapacity:column];
+            for (int j=0; j<column;j++)
+            {
+                [GridColunm addObject:@"*"];
+            }
+            
+            [GameGridRow addObject:GridColunm];
+            
+        }
+    };
 }
 
 -(void)GameUpdate

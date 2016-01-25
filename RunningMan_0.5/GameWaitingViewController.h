@@ -14,10 +14,9 @@
 @interface GameWaitingViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, IObserver>
 {
     PomeloWS * pomelo;
-    PomeloWSCallback onJoinCallback;
 }
 
-@property (strong, nonatomic) NSArray *list;
+@property (nonatomic,strong) __block NSMutableArray *list;
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) NSString* GameID;
 @property (strong, nonatomic) NSString* GameName;

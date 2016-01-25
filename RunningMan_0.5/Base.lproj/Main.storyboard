@@ -33,7 +33,7 @@
         <scene sceneID="LKq-26-5UM">
             <objects>
                 <navigationController storyboardIdentifier="Game" id="PE3-Gh-9NT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="游戏列表" image="navigation-game" id="aGR-CB-O1N"/>
+                    <tabBarItem key="tabBarItem" title="游戏列表" image="pacman-1" id="aGR-CB-O1N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GOn-yv-ywA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -134,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="3730" y="-733"/>
         </scene>
-        <!--Item 2-->
+        <!--我-->
         <scene sceneID="6YU-7g-yJF">
             <objects>
                 <viewController id="2mE-xM-MHN" sceneMemberID="viewController">
@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="akT-QK-Et2"/>
+                    <tabBarItem key="tabBarItem" title="我" id="akT-QK-Et2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luT-C0-hPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -341,6 +341,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="navigation-game" width="10" height="10"/>
+        <image name="pacman-1" width="9" height="9"/>
     </resources>
 </document>

@@ -22,7 +22,6 @@
 @synthesize pomelo;
 @synthesize locationManager;
 @synthesize userLocation;
-//@synthesize completionBlock;
 
 static NSString* CellTableIdentifier = @"CellTableIdentifier";
 
@@ -240,7 +239,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                    andParams:params andCallback:^(NSDictionary *result){
                        
                        NSLog((NSString*)[result objectForKey:@"message"]);
-                       if ([[result objectForKey:@"success"]  isEqual: @"true"])
+                       if ([[result objectForKey:@"sucess"] boolValue])
                        {
                            
                            

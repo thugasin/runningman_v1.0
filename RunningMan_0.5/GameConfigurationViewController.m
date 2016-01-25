@@ -139,13 +139,18 @@
     [pomelo requestWithRoute:@"game.gameHandler.create"
                    andParams:params andCallback:^(NSDictionary *result){
                        
-                       if ([[result objectForKey:@"success"]  isEqual: @"1"])
+                       if ([[result objectForKey:@"sucess"] boolValue])
                        {
                            NSLog(@"游戏创建成功!");
                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                           
+                           NSData * gameInfo = [[result objectForKey:@"game"] dataUsingEncoding:NSUTF8StringEncoding];
+                           
+                           NSDictionary *list = [NSJSONSerialization JSONObjectWithData:gameInfo options:kNilOptions error:nil];
+                           
                            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GameWaitingView"];
-                           [(GameWaitingViewController*)mainViewController SetGameID:[result objectForKey:@"Game"]];
-                           [(GameWaitingViewController*)mainViewController SetGameName:[result objectForKey:@"GameName"]];
+                           [(GameWaitingViewController*)mainViewController SetGameID:[list objectForKey:@"ID"]];
+                           [(GameWaitingViewController*)mainViewController SetGameName:[list objectForKey:@"GameName"]];
                            [self presentViewController:mainViewController animated:YES completion:^{
                            }];
                        }
