@@ -18,7 +18,6 @@
 @implementation GameSelectionViewController
 @synthesize list;
 @synthesize tableview;
-@synthesize selectedGameID;
 @synthesize pomelo;
 @synthesize locationManager;
 @synthesize userLocation;
@@ -130,9 +129,9 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                 pomelo = [[PomeloWS alloc] initWithDelegate:self];
             }
             
-//            [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
-             [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
-         //    [pomelo connectToHost:@"127.0.0.1" onPort:3014 withCallback:^(PomeloWS *p)
+ //           [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
+//             [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
+             [pomelo connectToHost:@"127.0.0.1" onPort:3014 withCallback:^(PomeloWS *p)
              {
                  [indicator stopAnimating];
                  NSDictionary *params = @{@"city":@"-1"};
@@ -233,19 +232,19 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 //    NSString* playerX = self.userLocation.latitude;
 //    NSString* playerY = userLocation.longitude;
     
-    NSDictionary *params = @{@"gameid":gameid, @"userid":[userDefault objectForKey:@"name"]};
+    NSDictionary *params = @{@"gameid":[NSString stringWithFormat:@"%@", gameid], @"userid":[userDefault objectForKey:@"name"]};
     
     [pomelo requestWithRoute:@"game.gameHandler.join"
                    andParams:params andCallback:^(NSDictionary *result){
                        
                        NSLog((NSString*)[result objectForKey:@"message"]);
-                       if ([[result objectForKey:@"sucess"] boolValue])
+                       if ([[result objectForKey:@"success"] boolValue])
                        {
                            
                            
                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GameWaitingView"];
-                           [(GameWaitingViewController*)mainViewController SetGameID:selectedGameID];
+                           [(GameWaitingViewController*)mainViewController SetGameID:[NSString stringWithFormat:@"%@", gameid]];
                            [self presentViewController:mainViewController animated:NO completion:^{
                            }];
                        }

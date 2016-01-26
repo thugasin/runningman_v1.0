@@ -22,7 +22,6 @@
 
 @property (strong, nonatomic) NSMutableArray *list;
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
-@property (strong, nonatomic) NSString *selectedGameID;
 
 @property (strong, nonatomic) NSString* gameID;
 @property (strong, nonatomic) NSString* gameName;

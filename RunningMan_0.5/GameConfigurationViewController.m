@@ -149,7 +149,7 @@
                            NSDictionary *list = [NSJSONSerialization JSONObjectWithData:gameInfo options:kNilOptions error:nil];
                            
                            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GameWaitingView"];
-                           [(GameWaitingViewController*)mainViewController SetGameID:[list objectForKey:@"ID"]];
+                           [(GameWaitingViewController*)mainViewController SetGameID:[NSString stringWithFormat:@"%@",[list objectForKey:@"ID"]]];
                            [(GameWaitingViewController*)mainViewController SetGameName:[list objectForKey:@"GameName"]];
                            [self presentViewController:mainViewController animated:YES completion:^{
                            }];

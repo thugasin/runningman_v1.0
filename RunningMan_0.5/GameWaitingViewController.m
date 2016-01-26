@@ -38,8 +38,8 @@
     [self InitGetUserListBlock];
     
     NSDictionary *params = @{@"gameid":GameID};
-//    [pomelo requestWithRoute:@"game.gameHandler.reportusersforgame"
-//                   andParams:params andCallback:self.getUserListBlock];
+    [pomelo requestWithRoute:@"game.gameHandler.reportusersforgame"
+                   andParams:params andCallback:self.getUserListBlock];
     [self InitOnJoinCallback];
     [self InitOnLeaveCallback];
     [self InitGameStartCallback];
@@ -54,10 +54,17 @@
 {
     self.getUserListBlock = ^(NSDictionary *result){
         
-        NSData * playerList = [[result objectForKey:@"players"] dataUsingEncoding:NSUTF8StringEncoding];
-        
-        list = [NSJSONSerialization JSONObjectWithData:playerList options:kNilOptions error:nil];
-        [self.tableview reloadData];
+        if ([[result objectForKey:@"success"] boolValue])
+        {
+            NSData * playerList = [[result objectForKey:@"players"] dataUsingEncoding:NSUTF8StringEncoding];
+            
+            list = [NSJSONSerialization JSONObjectWithData:playerList options:kNilOptions error:nil];
+            [self.tableview reloadData];
+        }
+        else
+        {
+            NSLog([result objectForKey:@"message"]);
+        }
     };
 
 }
@@ -159,7 +166,7 @@
 {
     NSDictionary *params = @{@"gameid":GameID};
     [pomelo requestWithRoute:@"game.gameHandler.start"
-                   andParams:params andCallback:self.getUserListBlock];
+                   andParams:params andCallback:self.onGameStartCallback];
 }
 
 /*
