@@ -37,6 +37,7 @@
     
     [self InitGetUserListBlock];
     
+    
     NSDictionary *params = @{@"gameid":GameID};
     [pomelo requestWithRoute:@"game.gameHandler.reportusersforgame"
                    andParams:params andCallback:self.getUserListBlock];
@@ -82,11 +83,18 @@
 {
     self.onGameStartCallback =^(NSDictionary *gameStartNotification)
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
-        [(PacManMainGameViewController*)mainViewController SetGameID:GameID];
-        [self presentViewController:mainViewController animated:YES completion:^{
-        }];
+        if ([[gameStartNotification objectForKey:@"success"] boolValue])
+        {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
+            [(PacManMainGameViewController*)mainViewController SetGameID:GameID];
+            [self presentViewController:mainViewController animated:YES completion:^{
+            }];
+        }
+        else
+        {
+            //should not start the game
+        }
     };
 
 }
@@ -164,7 +172,7 @@
 
 -(IBAction)OnStartGameButtonClicked:(id)sender
 {
-    NSDictionary *params = @{@"gameid":GameID};
+    NSDictionary *params = @{@"gameid":GameID,@"userid":[[NSUserDefaults standardUserDefaults] objectForKey:@"name"]};
     [pomelo requestWithRoute:@"game.gameHandler.start"
                    andParams:params andCallback:self.onGameStartCallback];
 }

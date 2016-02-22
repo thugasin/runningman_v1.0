@@ -144,8 +144,8 @@
         pomelo = [[PomeloWS alloc] initWithDelegate:self];
     }
     
-  //  [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p){
-    [pomelo connectToHost:@"127.0.0.1" onPort:3014 withCallback:^(PomeloWS *p){
+ //   [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p){
+    [pomelo connectToHost:@"192.168.1.111" onPort:3014 withCallback:^(PomeloWS *p){
         NSDictionary *params = @{@"userid":UserId.text,@"pwd":Password.text};
         [pomelo requestWithRoute:@"connector.entryHandler.enter"
                        andParams:params andCallback:^(NSDictionary *result){
@@ -167,7 +167,7 @@
                            [userDefaults synchronize];
                            //用模态跳转到主界面
                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-                           id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"Game"];
+                           id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainUI"];
                            [self presentViewController:mainViewController animated:YES completion:^{
                            }];
                            

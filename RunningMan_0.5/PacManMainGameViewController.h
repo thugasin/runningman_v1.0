@@ -15,12 +15,15 @@
 
 @interface PacManMainGameViewController:UIViewController<MAMapViewDelegate>
 {
-    MAMapView *_mapView;
+    __block MAMapView *_mapView;
     bool bSetUserLocation;
     bool bInitSelfPresentation;
     AnimatedAnnotation* mySelfAnnotation;
     PomeloWS* pomelo;
     NSString* userID;
+    
+    
+    __block NSMutableDictionary *mapInfolist;
 }
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;
@@ -34,7 +37,7 @@
 @property (nonatomic,strong) NSString* GameID;
 
 -(MAPointAnnotation*)addAnnotationWithCooordinate:(CLLocationCoordinate2D)coordinate;
--(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message;
+-(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSMutableArray*)annotationList forKey:(NSString*)key;
 -(IBAction) OnStopButtonClicked:(id)sender;
 -(void) SetGameID:(NSString*)gameID;
 

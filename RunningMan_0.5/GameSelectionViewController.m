@@ -131,7 +131,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
             
  //           [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
 //             [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
-             [pomelo connectToHost:@"127.0.0.1" onPort:3014 withCallback:^(PomeloWS *p)
+             [pomelo connectToHost:@"192.168.1.111" onPort:3014 withCallback:^(PomeloWS *p)
              {
                  [indicator stopAnimating];
                  NSDictionary *params = @{@"city":@"-1"};

@@ -139,7 +139,7 @@
     [pomelo requestWithRoute:@"game.gameHandler.create"
                    andParams:params andCallback:^(NSDictionary *result){
                        
-                       if ([[result objectForKey:@"sucess"] boolValue])
+                       if ([[result objectForKey:@"success"] boolValue])
                        {
                            NSLog(@"游戏创建成功!");
                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];

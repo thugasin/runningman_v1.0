@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1AD5EAB5EE18A6F299C24739 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C8903E16BFC6AFF291DD15 /* libPods.a */; };
 		361304411C26EB8700407D7B /* GameSelectionViewController_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */; };
+		361B30211C737313004F838D /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B30201C737313004F838D /* ImageHandler.swift */; };
 		363DA99A1C19B8CE002AA5CC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA9991C19B8CE002AA5CC /* Security.framework */; };
 		363DA99C1C19B8E1002AA5CC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA99B1C19B8E1002AA5CC /* CFNetwork.framework */; };
 		363DA99E1C19B8EE002AA5CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA99D1C19B8EE002AA5CC /* UIKit.framework */; };
@@ -84,6 +85,7 @@
 		30C8903E16BFC6AFF291DD15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		360E92101C3E5C8B005E2C89 /* ImageHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageHandler.h; sourceTree = "<group>"; };
 		361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController_swift.swift; sourceTree = "<group>"; };
+		361B30201C737313004F838D /* ImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = ../ImageHandler.swift; sourceTree = "<group>"; };
 		363DA9991C19B8CE002AA5CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		363DA99B1C19B8E1002AA5CC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		363DA99D1C19B8EE002AA5CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -304,6 +306,7 @@
 		365EB4251BC7CAEF001F3303 /* RunningMan_1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				361B30201C737313004F838D /* ImageHandler.swift */,
 				36D3EFB61C39779A00E98B2F /* PomeloWS */,
 				36D982361C3783080040BC4A /* Pomelo */,
 				363F1E731C19C587009B5730 /* SocketIO */,
@@ -659,6 +662,7 @@
 				366FDD6C1C1AD5A50033A57F /* GameInfoTableViewCell.swift in Sources */,
 				36D3EFC31C3977D300E98B2F /* PBEncoder.m in Sources */,
 				36D3EFC11C3977D300E98B2F /* PBCodec.m in Sources */,
+				361B30211C737313004F838D /* ImageHandler.swift in Sources */,
 				363F1E721C19C561009B5730 /* SRWebSocket.m in Sources */,
 				36D0748E1BC7D2F400032359 /* NetworkAdapter.m in Sources */,
 				363F1E821C19C5A1009B5730 /* SocketIOTransportWebsocket.m in Sources */,

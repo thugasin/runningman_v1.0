@@ -38,24 +38,15 @@
     
     [self InitDrawMap];
     
-    NSDictionary *params = @{@"gameid":GameID};
-    [pomelo requestWithRoute:@"game.gameHandler.querymap"
-                   andParams:params andCallback:self.drawMap];
-
-    
-    [self InitPlayerUpdate];
-    [self InitMapUpdate];
-    
-    [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
-    [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
-    
 }
 
 -(void) InitPlayerUpdate
 {
     self.onPlayerUpdateCallback = ^(NSDictionary* playerInfo)
     {
+        AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[playerInfo objectForKey:@"userid"]];
         
+        playerAnnotation.coordinate = CLLocationCoordinate2DMake([[playerInfo objectForKey:@"x"] doubleValue],[[playerInfo objectForKey:@"y"] doubleValue]);
     };
 }
 
@@ -63,7 +54,13 @@
 {
     self.onMapUpdateCallback = ^(NSDictionary* mapInfo)
     {
-        
+        if ([[mapInfo objectForKey:@"Role"]  isEqualToString: @"bean"] && ![[mapInfo objectForKey:@"State"]  isEqualToString:@"eaten"])
+        {
+            AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[mapInfo objectForKey:@"goid"]];
+            [_mapView removeAnnotation:playerAnnotation];
+            [PlayerList removeObjectForKey:[mapInfo objectForKey:@"goid"]];
+
+        }
     };
 }
 
@@ -71,28 +68,51 @@
 {
     self.drawMap = ^(NSDictionary* mapInfo)
     {
-        NSData * mapInfoData = [[mapInfo objectForKey:@"map"] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *maplist = [NSJSONSerialization JSONObjectWithData:mapInfoData options:kNilOptions error:nil];
-        
-        int row = (int)[maplist objectForKey:@"Row"];
-        int column = (int)[maplist objectForKey:@"column"];
-        
-        GameGridRow = [NSMutableArray arrayWithCapacity:row];
-        for (int i=0; i<row; i++)
+        if ([[mapInfo objectForKey:@"success"] boolValue])
         {
-            NSMutableArray *GridColunm = [NSMutableArray arrayWithCapacity:column];
-            for (int j=0; j<column;j++)
+            NSArray* mapInfoL = [mapInfo objectForKey:@"map"];
+            NSData * mapInfoData = [[mapInfo objectForKey:@"map"] dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray* mapInfoArray = [NSJSONSerialization JSONObjectWithData:mapInfoData options:kNilOptions error:nil];
+            
+            NSString * key = [[mapInfoArray objectAtIndex:0] objectAtIndex:0];
+            NSDictionary* info = [[mapInfoArray objectAtIndex:0] objectAtIndex:1];
+            
+            for (NSArray* mapInfo in mapInfoArray)
             {
-                [GridColunm addObject:@"*"];
+                NSString * key = [mapInfo objectAtIndex:0];
+                NSDictionary* info = [mapInfo objectAtIndex:1];
+                
+                if ([info objectForKey:@"DisplayName"] == UserName) {
+                    continue;
+                }
+                [mapInfolist setObject:info forKey:key];
+                
+                NSMutableArray *playerImages = [[NSMutableArray alloc] init];
+                if([[info objectForKey:@"Role"]  isEqualToString:@"pacman"])
+                {
+                    [playerImages addObject:[UIImage imageNamed:@"pacman1.png"]];
+                    [playerImages addObject:[UIImage imageNamed:@"pacman2.png"]];
+                    [playerImages addObject:[UIImage imageNamed:@"pacman3.png"]];
+                    
+                }
+                if([[info objectForKey:@"Role"]  isEqualToString:@"bean"])
+                {
+                    [playerImages addObject:[UIImage imageNamed:@"bean.png"]];
+                }
+                
+                [self addPlayerAnnotationWithCoordinate:CLLocationCoordinate2DMake([[info objectForKey:@"X"] doubleValue], [[info objectForKey:@"Y"] doubleValue]) DisplayMessage:[info objectForKey:@"DisplayName"] AnnotationList:playerImages forKey:key];
             }
             
-            [GameGridRow addObject:GridColunm];
-            
+        }
+        else
+        {
+            //get map info failed, should do something here
         }
     };
 }
 
 -(void)GameUpdate
+
 {
 //    NSString * Message = [NSString stringWithFormat:@"querymap 1\r\n%@\r\n",GameID];
 //    
@@ -241,27 +261,19 @@
     
 }
 
--(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message
+-(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSMutableArray*)annotationList forKey:(NSString*)key
 {
-    NSMutableArray *trainImages = [[NSMutableArray alloc] init];
-    
-    [trainImages addObject:[UIImage imageNamed:@"pacman1.png"]];
-    [trainImages addObject:[UIImage imageNamed:@"pacman2.png"]];
-    [trainImages addObject:[UIImage imageNamed:@"pacman3.png"]];
-
-    
     AnimatedAnnotation* PlayerAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:coordinate];
-    PlayerAnnotation.animatedImages = trainImages;
+    PlayerAnnotation.animatedImages = annotationList;
     PlayerAnnotation.title          = message;
     
-    NSCharacterSet* CharacterSet = [NSCharacterSet characterSetWithCharactersInString:@"\r\n"];
-    NSArray *playerMessageArray =[message componentsSeparatedByCharactersInSet:CharacterSet];
-    
-    [PlayerList setObject:PlayerAnnotation forKey:playerMessageArray[0]];
+    [PlayerList setObject:PlayerAnnotation forKey:key];
     
     [_mapView addAnnotation:PlayerAnnotation];
 //    [_mapView selectAnnotation:PlayerAnnotation animated:YES];
 }
+
+
 
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -285,6 +297,15 @@
     
     [self.view addSubview:StopGameButton];
     
+    NSDictionary *params = @{@"gameid":GameID,@"userid":UserName};
+    [pomelo requestWithRoute:@"game.gameHandler.querymap"
+                   andParams:params andCallback:self.drawMap];
+    
+    [self InitPlayerUpdate];
+    [self InitMapUpdate];
+    
+    [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
+    [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
 //    [self addAnnotationWithCooordinate:_mapView.centerCoordinate];
 }
 
@@ -395,7 +416,6 @@
             [trainImages addObject:[UIImage imageNamed:@"pacman1.png"]];
             [trainImages addObject:[UIImage imageNamed:@"pacman2.png"]];
             [trainImages addObject:[UIImage imageNamed:@"pacman3.png"]];
-            
             
             mySelfAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:userLocation.coordinate];
             mySelfAnnotation.animatedImages = trainImages;
