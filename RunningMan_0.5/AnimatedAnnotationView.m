@@ -19,6 +19,7 @@
 
 #pragma mark - Life Cycle
 
+//- (id)initWithAnnotation:(id<MAAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier width:(float)width height:(float)height
 - (id)initWithAnnotation:(id<MAAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];

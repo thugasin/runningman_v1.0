@@ -175,6 +175,11 @@
     NSDictionary *params = @{@"gameid":GameID,@"userid":[[NSUserDefaults standardUserDefaults] objectForKey:@"name"]};
     [pomelo requestWithRoute:@"game.gameHandler.start"
                    andParams:params andCallback:self.onGameStartCallback];
+    
+//    [pomelo requestWithRoute:@"game.gameHandler.start"
+//                   andParams:params andCallback:^(NSDictionary*result){}];
+
+    
 }
 
 /*

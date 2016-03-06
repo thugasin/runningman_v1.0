@@ -38,12 +38,17 @@
     
     [self InitDrawMap];
     
+    [self InitPlayerUpdate];
+    [self InitMapUpdate];
 }
 
 -(void) InitPlayerUpdate
 {
     self.onPlayerUpdateCallback = ^(NSDictionary* playerInfo)
     {
+        if ([playerInfo objectForKey:@"userid"] == UserName) {
+            return;
+        }
         AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[playerInfo objectForKey:@"userid"]];
         
         playerAnnotation.coordinate = CLLocationCoordinate2DMake([[playerInfo objectForKey:@"x"] doubleValue],[[playerInfo objectForKey:@"y"] doubleValue]);
@@ -54,11 +59,19 @@
 {
     self.onMapUpdateCallback = ^(NSDictionary* mapInfo)
     {
-        if ([[mapInfo objectForKey:@"Role"]  isEqualToString: @"bean"] && ![[mapInfo objectForKey:@"State"]  isEqualToString:@"eaten"])
+        if(![PlayerList objectForKey:[mapInfo objectForKey:@"goid"]])
+             return;
+             
+        NSDictionary * mapInfoData = [mapInfo objectForKey:@"go"];
+        if ([[mapInfoData objectForKey:@"Role"]  isEqualToString: @"bean"] && [[mapInfoData objectForKey:@"State"]  isEqualToString:@"eaten"])
         {
             AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[mapInfo objectForKey:@"goid"]];
             [_mapView removeAnnotation:playerAnnotation];
             [PlayerList removeObjectForKey:[mapInfo objectForKey:@"goid"]];
+            
+//            MAPointAnnotation* beanAnnotation =[PlayerList objectForKey:[mapInfo objectForKey:@"goid"]];
+//            [_mapView removeAnnotation:beanAnnotation];
+//            [PlayerList removeObjectForKey:[mapInfo objectForKey:@"goid"]];
 
         }
     };
@@ -94,13 +107,17 @@
                     [playerImages addObject:[UIImage imageNamed:@"pacman2.png"]];
                     [playerImages addObject:[UIImage imageNamed:@"pacman3.png"]];
                     
+                    
                 }
                 if([[info objectForKey:@"Role"]  isEqualToString:@"bean"])
                 {
                     [playerImages addObject:[UIImage imageNamed:@"bean.png"]];
+//                    MAPointAnnotation* beanAnnotation = [self addAnnotationWithCooordinate:CLLocationCoordinate2DMake([[info objectForKey:@"X"] doubleValue], [[info objectForKey:@"Y"] doubleValue])];
+//                    [PlayerList setObject:beanAnnotation forKey:key];
                 }
                 
                 [self addPlayerAnnotationWithCoordinate:CLLocationCoordinate2DMake([[info objectForKey:@"X"] doubleValue], [[info objectForKey:@"Y"] doubleValue]) DisplayMessage:[info objectForKey:@"DisplayName"] AnnotationList:playerImages forKey:key];
+        
             }
             
         }
@@ -275,8 +292,7 @@
 
 
 
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)StartTrackingUserLocation {
     // Do any additional setup after loading the view, typically from a nib. //配置用户 Key
     [MAMapServices sharedServices].apiKey = @"86a9ed1f4d39a5fd8f4843bece27c4ff";
     _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
@@ -285,15 +301,28 @@
     
     [_mapView setZoomLevel:30 animated:YES];
     
-    _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
+    _mapView.showsUserLocation = NO; //YES 为打开定位,NO 为关闭定位
     
     _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     
     GameGridRow = nil;
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    self.Timmer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(GameUpdate) userInfo:nil repeats:YES];
-    [self.Timmer fire];
-    PlayerList = [NSMutableDictionary dictionaryWithCapacity:100];
+//    self.Timmer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(GameUpdate) userInfo:nil repeats:YES];
+//    [self.Timmer fire];
+    PlayerList = [NSMutableDictionary dictionaryWithCapacity:100000];
+    
+    [self StartTrackingUserLocation];
+    
+    [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
+    [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
+    
+    _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
+    
+    _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     
     [self.view addSubview:StopGameButton];
     
@@ -301,11 +330,6 @@
     [pomelo requestWithRoute:@"game.gameHandler.querymap"
                    andParams:params andCallback:self.drawMap];
     
-    [self InitPlayerUpdate];
-    [self InitMapUpdate];
-    
-    [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
-    [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
 //    [self addAnnotationWithCooordinate:_mapView.centerCoordinate];
 }
 
