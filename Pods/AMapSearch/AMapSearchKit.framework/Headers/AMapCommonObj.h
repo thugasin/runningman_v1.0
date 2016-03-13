@@ -28,8 +28,8 @@
 /// 经纬度
 @interface AMapGeoPoint : AMapSearchObject<NSCopying>
 
-@property (nonatomic, assign) CGFloat latitude;
-@property (nonatomic, assign) CGFloat longitude;
+@property (nonatomic, assign) CGFloat latitude; //!< 纬度（垂直方向）
+@property (nonatomic, assign) CGFloat longitude; //!< 经度（水平方向）
 
 + (AMapGeoPoint *)locationWithLatitude:(CGFloat)lat longitude:(CGFloat)lon;
 
@@ -84,7 +84,8 @@
 @interface AMapIndoorData : AMapSearchObject
 
 @property (nonatomic, assign) NSInteger floor; // !< 楼层，为0时为POI本身。
-@property (nonatomic, copy)   NSString *pid; // !< 父ID
+@property (nonatomic, copy)   NSString  *floorName; // !< 楼层名称。
+@property (nonatomic, copy)   NSString  *pid; // !< 父ID
 
 @end
 
@@ -136,6 +137,17 @@
 @end
 
 #pragma mark - 逆地理编码 && 地理编码
+
+/// 兴趣区域
+@interface AMapAOI : AMapSearchObject
+
+@property (nonatomic, copy)   NSString     *uid; //!< AOI全局唯一ID
+@property (nonatomic, copy)   NSString     *name; //!< 名称
+@property (nonatomic, copy)   NSString     *adcode;   //!< 所在区域编码
+@property (nonatomic, copy)   AMapGeoPoint *location; //!< 中心点经纬度
+@property (nonatomic, assign) CGFloat      area; //!< 面积，单位平方米
+
+@end
 
 /// 道路
 @interface AMapRoad : AMapSearchObject
@@ -207,6 +219,7 @@
 @property (nonatomic, strong) NSArray *roads; //!< 道路信息 AMapRoad 数组
 @property (nonatomic, strong) NSArray *roadinters; //!< 道路路口信息 AMapRoadInter 数组
 @property (nonatomic, strong) NSArray *pois; //!< 兴趣点信息 AMapPOI 数组
+@property (nonatomic, strong) NSArray *aois; //!< 兴趣区域信息 AMapAOI 数组
 
 @end
 
@@ -309,6 +322,7 @@
 @property (nonatomic, strong) NSArray   *steps; //!< 导航路段 AMapStep数组
 @property (nonatomic, assign) CGFloat    tolls; //!< 此方案费用（单位：元）
 @property (nonatomic, assign) NSInteger  tollDistance; //!< 此方案收费路段长度（单位：米）
+@property (nonatomic, assign) NSInteger  totalTrafficLights; //!< 此方案交通信号灯个数
 
 @end
 

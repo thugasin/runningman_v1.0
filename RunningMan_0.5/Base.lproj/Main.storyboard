@@ -112,27 +112,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acx-zr-rdm">
-                                <rect key="frame" x="290" y="543" width="30" height="30"/>
-                                <state key="normal" title="结束"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kq-2U-WeV" customClass="ASOTwoStateButton">
+                                <rect key="frame" x="240" y="460" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Fy7-re-adg"/>
+                                    <constraint firstAttribute="height" constant="60" id="yD2-eB-kaM"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="OnStateButtonImage"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="OffStateImageName" value="OffStateButtonImage"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="OnStopButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="S4T-SV-UnS"/>
+                                    <action selector="menuButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cTU-I7-S61"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="acx-zr-rdm" secondAttribute="bottom" constant="-5" id="eAm-wC-5fq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="acx-zr-rdm" secondAttribute="trailing" constant="-20" id="fdP-2S-lZR"/>
+                            <constraint firstItem="oat-VP-PUR" firstAttribute="top" secondItem="1kq-2U-WeV" secondAttribute="bottom" constant="48" id="8vB-MT-SHr"/>
+                            <constraint firstItem="1kq-2U-WeV" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Mc3-xe-uEM"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="StopGameButton" destination="acx-zr-rdm" id="LNr-rc-mYS"/>
+                        <outlet property="MenuButton" destination="1kq-2U-WeV" id="ruk-os-Omu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3730" y="-733"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mVA-9Z-Odv">
+            <objects>
+                <viewController storyboardIdentifier="ArchMenu" id="cOz-sT-iFC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xWU-nw-IDU"/>
+                        <viewControllerLayoutGuide type="bottom" id="YYd-6X-02o"/>
+                    </layoutGuides>
+                    <view key="view" tag="1" contentMode="scaleToFill" id="hxR-ke-lQj" customClass="BounceButtonView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRD-Pc-Hux">
+                                <rect key="frame" x="164" y="490" width="50" height="50"/>
+                                <state key="normal" backgroundImage="MenuItem3"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-yK-9xV">
+                                <rect key="frame" x="254" y="395" width="50" height="50"/>
+                                <state key="normal" backgroundImage="MenuItem1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxL-Xc-lAP">
+                                <rect key="frame" x="186" y="426" width="50" height="50"/>
+                                <state key="normal" image="MenuItem2"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="menuItem1" destination="bnv-yK-9xV" id="5d0-Xe-7nm"/>
+                            <outlet property="menuItem2" destination="UxL-Xc-lAP" id="9NF-4n-enS"/>
+                            <outlet property="menuItem3" destination="gRD-Pc-Hux" id="Ckk-nu-o90"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MGy-xU-fxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3730" y="-1372"/>
         </scene>
         <!--我-->
         <scene sceneID="6YU-7g-yJF">
@@ -349,6 +393,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MenuItem1" width="50" height="50"/>
+        <image name="MenuItem2" width="50" height="50"/>
+        <image name="MenuItem3" width="50" height="50"/>
+        <image name="OnStateButtonImage" width="56" height="56"/>
         <image name="pacman-1" width="9" height="9"/>
     </resources>
 </document>

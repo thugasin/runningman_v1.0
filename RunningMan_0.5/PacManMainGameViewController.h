@@ -12,6 +12,9 @@
 #import "AnimatedAnnotationView.h"
 #import "CustomAnnotationView.h"
 #import "PomeloWS.h"
+#import "ASOTwoStateButton.h"
+#import "ASOBounceButtonViewDelegate.h"
+#import "BounceButtonView.h"
 
 @interface PacManMainGameViewController:UIViewController<MAMapViewDelegate>
 {
@@ -28,6 +31,10 @@
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;
 
+@property (strong, nonatomic) BounceButtonView *menuItemView;
+@property (nonatomic, strong) IBOutlet ASOTwoStateButton *MenuButton;
+
+-(IBAction) menuButtonAction:(id)sender;
 @property (nonatomic, retain) NSTimer *Timmer;
 @property (strong, nonatomic) IBOutlet UIButton * StopGameButton;
 @property (nonatomic, strong) NSMutableArray* GameGridRow;

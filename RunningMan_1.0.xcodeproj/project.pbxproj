@@ -33,6 +33,7 @@
 		365EB4361BC7CAEF001F3303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365EB4341BC7CAEF001F3303 /* LaunchScreen.storyboard */; };
 		365EB4411BC7CAEF001F3303 /* RunningMan_0_5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB4401BC7CAEF001F3303 /* RunningMan_0_5Tests.m */; };
 		365EB44C1BC7CAEF001F3303 /* RunningMan_0_5UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB44B1BC7CAEF001F3303 /* RunningMan_0_5UITests.m */; };
+		366A4EA51C942BC4007095F7 /* BounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 366A4EA41C942BC4007095F7 /* BounceButtonView.m */; };
 		366FDD6C1C1AD5A50033A57F /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366FDD6B1C1AD5A50033A57F /* GameInfoTableViewCell.swift */; };
 		36B2AC221BE7B51500F9DE01 /* UncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B2AC211BE7B51500F9DE01 /* UncaughtExceptionHandler.m */; };
 		36B6EA041BD5F37D00F59C7C /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B6EA031BD5F37D00F59C7C /* CustomAnnotationView.m */; };
@@ -128,6 +129,8 @@
 		365EB4471BC7CAEF001F3303 /* RunningMan_1.0.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunningMan_1.0.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		365EB44B1BC7CAEF001F3303 /* RunningMan_0_5UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunningMan_0_5UITests.m; sourceTree = "<group>"; };
 		365EB44D1BC7CAEF001F3303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		366A4EA31C942BC4007095F7 /* BounceButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BounceButtonView.h; sourceTree = "<group>"; };
+		366A4EA41C942BC4007095F7 /* BounceButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BounceButtonView.m; sourceTree = "<group>"; };
 		366FDD6B1C1AD5A50033A57F /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameInfoTableViewCell.swift; path = GameList/GameInfoTableViewCell.swift; sourceTree = "<group>"; };
 		36B2AC201BE7B4DD00F9DE01 /* UncaughtExceptionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UncaughtExceptionHandler.h; sourceTree = "<group>"; };
 		36B2AC211BE7B51500F9DE01 /* UncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UncaughtExceptionHandler.m; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 		365EB4251BC7CAEF001F3303 /* RunningMan_1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				366A4EA31C942BC4007095F7 /* BounceButtonView.h */,
+				366A4EA41C942BC4007095F7 /* BounceButtonView.m */,
 				361B30201C737313004F838D /* ImageHandler.swift */,
 				36D3EFB61C39779A00E98B2F /* PomeloWS */,
 				36D982361C3783080040BC4A /* Pomelo */,
@@ -647,6 +652,7 @@
 				36D27A591BEA2FA300E3B0DB /* LoginViewController_sf.swift in Sources */,
 				36D3EFC21C3977D300E98B2F /* PBDecoder.m in Sources */,
 				365EB42B1BC7CAEF001F3303 /* AppDelegate.m in Sources */,
+				366A4EA51C942BC4007095F7 /* BounceButtonView.m in Sources */,
 				36B6EA071BD5F6A800F59C7C /* CustomCalloutView.m in Sources */,
 				363F1E811C19C5A1009B5730 /* SocketIOPacket.m in Sources */,
 				365EB4281BC7CAEF001F3303 /* main.m in Sources */,

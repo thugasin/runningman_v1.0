@@ -7,84 +7,145 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19EE21561281E5F5C0B5A85CFDC1A411 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636BC752E7946EF6919A00D1F8EAE693 /* Foundation.framework */; };
-		B991A49F4C12A4F8462C02B69D83DB11 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F544E664EA23C82471AAB47D479D781B /* Pods-dummy.m */; };
+		18322C4D10687DDD3E0161D04A869ADC /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6AB72B9FE85E5995AF27EFC050ADA2 /* Pods-dummy.m */; };
+		1A8C710822929DC2BAC0323576BD572A /* ASOBounceButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C4537426439AF2AC4D9DEC0823AC130 /* ASOBounceButtonView.h */; };
+		26DDE4C5268231CC0331412DFC8CA500 /* ASOTwoStateButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 549F5287287160351C80A907BBC58CC1 /* ASOTwoStateButton.h */; };
+		50BDB9F77F312ADB581FA8963755F080 /* ASOBounceButtonViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 906334AB8330B2DB99643B832A7B3087 /* ASOBounceButtonViewDelegate.h */; };
+		5C47585910009DE74D464DC0593C5D62 /* ASOTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B66043DB17470C0A36528C8709A9043 /* ASOTwoStateButton.m */; };
+		913D904E93D9F3C15B164EE42DD145AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */; };
+		D9FAE81206BD1A7066967198AF592101 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */; };
+		E1E05AFE0FA13F62393427A5A3C0BCF4 /* ASOBounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E10E838CD1BC743D29D8C77F430C9A7 /* ASOBounceButtonView.m */; };
+		EA959A2516C6F9C60A1C95298FB07DEF /* ASOAnimatedButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C54699CB9732B33F3F960BFC144A7F32 /* ASOAnimatedButton-dummy.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		55F8C4999F7F710A15913B829FC7DC3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 300E286E3853F128E26ED928099C0EFA;
+			remoteInfo = ASOAnimatedButton;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		080B62B69F7897A2E100CCD98EFB9CC3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		0A67EEEC8F83E5DCA075B0754EFEDC5A /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ASOAnimatedButton-Private.xcconfig"; sourceTree = "<group>"; };
 		15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1D792ED49955A4CB16D32AC429115432 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
-		409481B22BCA3781BAF3CBE47FCA34FB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		454C4224F5DF7C37067385EC55D8097C /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
-		636BC752E7946EF6919A00D1F8EAE693 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2D6AB72B9FE85E5995AF27EFC050ADA2 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		3631D9BC1B54AAC8CFE64A90F13346F2 /* AMap.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
+		44261E6F9934F0AAA0715F0E9D66B130 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		4B66043DB17470C0A36528C8709A9043 /* ASOTwoStateButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASOTwoStateButton.m; path = Classes/ios/TwoStateButton/ASOTwoStateButton.m; sourceTree = "<group>"; };
+		4E10E838CD1BC743D29D8C77F430C9A7 /* ASOBounceButtonView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASOBounceButtonView.m; path = Classes/ios/BounceButton/ASOBounceButtonView.m; sourceTree = "<group>"; };
+		549F5287287160351C80A907BBC58CC1 /* ASOTwoStateButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOTwoStateButton.h; path = Classes/ios/TwoStateButton/ASOTwoStateButton.h; sourceTree = "<group>"; };
 		641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		AEEDA5F6291892906F3CBBF39B8BC98F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0111ED81CD0F82D22DEA91F7C732EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4537426439AF2AC4D9DEC0823AC130 /* ASOBounceButtonView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOBounceButtonView.h; path = Classes/ios/BounceButton/ASOBounceButtonView.h; sourceTree = "<group>"; };
+		906334AB8330B2DB99643B832A7B3087 /* ASOBounceButtonViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOBounceButtonViewDelegate.h; path = Classes/ios/BounceButton/ASOBounceButtonViewDelegate.h; sourceTree = "<group>"; };
+		A413F57B0F7265475FAF766D237941EF /* ASOAnimatedButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASOAnimatedButton-prefix.pch"; sourceTree = "<group>"; };
+		A53BFDAD9C2E88BB3828BC8F1A3252AB /* libASOAnimatedButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libASOAnimatedButton.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B1602149521E97487815FA3748E4A22B /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		B2C8FF8981D5494056EA1487D99A44E5 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		F460721C2BB3A6F91D8D68FE5042632A /* AMap.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/Versions/3.2.0.163b642/Resources/AMap.bundle; sourceTree = "<group>"; };
-		F544E664EA23C82471AAB47D479D781B /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		C54699CB9732B33F3F960BFC144A7F32 /* ASOAnimatedButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASOAnimatedButton-dummy.m"; sourceTree = "<group>"; };
+		CC7DD3F4497C79845FBE3D941A41B67F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		EA9E2ED51CC316CC802AC0B45E7A1998 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		F67BDDB0506EC0EDF516185D6B6CDDC9 /* ASOAnimatedButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASOAnimatedButton.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2E78C4AC537A1782BCFD134B2B8940E0 /* Frameworks */ = {
+		A0B198C2B1B6CA8EE2356BBDCF7E4D96 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19EE21561281E5F5C0B5A85CFDC1A411 /* Foundation.framework in Frameworks */,
+				D9FAE81206BD1A7066967198AF592101 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE0780C008498CEBA2009EE3C65E2E76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				913D904E93D9F3C15B164EE42DD145AB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		065A7C66A0286010090FF27CD5242C94 /* AMapLocation */ = {
+		02869E2EAC6F79F5340A82942B523BA2 /* AMapSearch */ = {
 			isa = PBXGroup;
 			children = (
-				7234BFF5B4FEC2036100DBAFFB5EEEFE /* Frameworks */,
+				8DA3F28A1701B940847D456A59AEFA48 /* Frameworks */,
 			);
-			path = AMapLocation;
+			path = AMapSearch;
 			sourceTree = "<group>";
 		};
-		4A5ACF366653A5D46C83FE00C49C54BC /* Frameworks */ = {
+		33ECE36A9A6AB16BAB6CE40C33172744 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				454C4224F5DF7C37067385EC55D8097C /* MAMapKit.framework */,
+				44261E6F9934F0AAA0715F0E9D66B130 /* MAMapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		408846B9B54A916A276FDAC522765FF6 /* TwoStateButton */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TwoStateButton;
 			sourceTree = "<group>";
 		};
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				636BC752E7946EF6919A00D1F8EAE693 /* Foundation.framework */,
+				AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		54CB370CEBF8EE41777F64ADBBFE65FA /* Frameworks */ = {
+		560BC5CC1EE791937A230DA9B3791A6E /* BounceButton */ = {
 			isa = PBXGroup;
 			children = (
-				0A67EEEC8F83E5DCA075B0754EFEDC5A /* AMapSearchKit.framework */,
 			);
-			name = Frameworks;
+			name = BounceButton;
 			sourceTree = "<group>";
 		};
-		7234BFF5B4FEC2036100DBAFFB5EEEFE /* Frameworks */ = {
+		5CDE616C20DA721E812FA446F2AA08CA /* ASOAnimatedButton */ = {
 			isa = PBXGroup;
 			children = (
-				1D792ED49955A4CB16D32AC429115432 /* AMapLocationKit.framework */,
+				8C4537426439AF2AC4D9DEC0823AC130 /* ASOBounceButtonView.h */,
+				4E10E838CD1BC743D29D8C77F430C9A7 /* ASOBounceButtonView.m */,
+				906334AB8330B2DB99643B832A7B3087 /* ASOBounceButtonViewDelegate.h */,
+				549F5287287160351C80A907BBC58CC1 /* ASOTwoStateButton.h */,
+				4B66043DB17470C0A36528C8709A9043 /* ASOTwoStateButton.m */,
+				560BC5CC1EE791937A230DA9B3791A6E /* BounceButton */,
+				6429DED267624A6CBD2C8522BD67C6AB /* Support Files */,
+				408846B9B54A916A276FDAC522765FF6 /* TwoStateButton */,
 			);
-			name = Frameworks;
+			path = ASOAnimatedButton;
 			sourceTree = "<group>";
 		};
-		7A8856DA57B54F84992BAF41C6877805 /* Resources */ = {
+		6429DED267624A6CBD2C8522BD67C6AB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F460721C2BB3A6F91D8D68FE5042632A /* AMap.bundle */,
+				F67BDDB0506EC0EDF516185D6B6CDDC9 /* ASOAnimatedButton.xcconfig */,
+				099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */,
+				C54699CB9732B33F3F960BFC144A7F32 /* ASOAnimatedButton-dummy.m */,
+				A413F57B0F7265475FAF766D237941EF /* ASOAnimatedButton-prefix.pch */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/ASOAnimatedButton";
+			sourceTree = "<group>";
+		};
+		65A690A4FE5AF36644E0FF4719AFBE28 /* AMap2DMap */ = {
+			isa = PBXGroup;
+			children = (
+				33ECE36A9A6AB16BAB6CE40C33172744 /* Frameworks */,
+				ADF86BE1BD2788A1F9F1BA0DF9E2B6C3 /* Resources */,
+			);
+			path = AMap2DMap;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -92,18 +153,18 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				C77027A69F5128D04B494CAB68F4044C /* Pods */,
+				E9EB6F75BE3EB49B2A141AAFDC8F1CE6 /* Pods */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		83EF1A95D69B8D4D8FB2F78174005423 /* AMapSearch */ = {
+		8DA3F28A1701B940847D456A59AEFA48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54CB370CEBF8EE41777F64ADBBFE65FA /* Frameworks */,
+				B1602149521E97487815FA3748E4A22B /* AMapSearchKit.framework */,
 			);
-			path = AMapSearch;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		952EEBFAF8F7E620423C9F156F25A506 /* Pods */ = {
@@ -111,22 +172,29 @@
 			children = (
 				15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */,
 				BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */,
-				F544E664EA23C82471AAB47D479D781B /* Pods-dummy.m */,
+				2D6AB72B9FE85E5995AF27EFC050ADA2 /* Pods-dummy.m */,
 				641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */,
-				409481B22BCA3781BAF3CBE47FCA34FB /* Pods.debug.xcconfig */,
-				080B62B69F7897A2E100CCD98EFB9CC3 /* Pods.release.xcconfig */,
+				EA9E2ED51CC316CC802AC0B45E7A1998 /* Pods.debug.xcconfig */,
+				CC7DD3F4497C79845FBE3D941A41B67F /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		B7F70C237AE729F83F9D32D5853CBCA3 /* AMap2DMap */ = {
+		ADF86BE1BD2788A1F9F1BA0DF9E2B6C3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4A5ACF366653A5D46C83FE00C49C54BC /* Frameworks */,
-				7A8856DA57B54F84992BAF41C6877805 /* Resources */,
+				3631D9BC1B54AAC8CFE64A90F13346F2 /* AMap.bundle */,
 			);
-			path = AMap2DMap;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AE907530D243463A5E8E7ACDE9DFF512 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2C8FF8981D5494056EA1487D99A44E5 /* AMapLocationKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -137,20 +205,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C77027A69F5128D04B494CAB68F4044C /* Pods */ = {
+		CB9275DFAD9A8BAC1992FF0E16E075ED /* AMapLocation */ = {
 			isa = PBXGroup;
 			children = (
-				B7F70C237AE729F83F9D32D5853CBCA3 /* AMap2DMap */,
-				065A7C66A0286010090FF27CD5242C94 /* AMapLocation */,
-				83EF1A95D69B8D4D8FB2F78174005423 /* AMapSearch */,
+				AE907530D243463A5E8E7ACDE9DFF512 /* Frameworks */,
 			);
-			name = Pods;
+			path = AMapLocation;
 			sourceTree = "<group>";
 		};
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AEEDA5F6291892906F3CBBF39B8BC98F /* libPods.a */,
+				A53BFDAD9C2E88BB3828BC8F1A3252AB /* libASOAnimatedButton.a */,
+				7B0111ED81CD0F82D22DEA91F7C732EF /* libPods.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,23 +230,65 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		E9EB6F75BE3EB49B2A141AAFDC8F1CE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65A690A4FE5AF36644E0FF4719AFBE28 /* AMap2DMap */,
+				CB9275DFAD9A8BAC1992FF0E16E075ED /* AMapLocation */,
+				02869E2EAC6F79F5340A82942B523BA2 /* AMapSearch */,
+				5CDE616C20DA721E812FA446F2AA08CA /* ASOAnimatedButton */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4E479721E904E6AE5FDF9F5667E0CEAA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A8C710822929DC2BAC0323576BD572A /* ASOBounceButtonView.h in Headers */,
+				50BDB9F77F312ADB581FA8963755F080 /* ASOBounceButtonViewDelegate.h in Headers */,
+				26DDE4C5268231CC0331412DFC8CA500 /* ASOTwoStateButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		1469924FC52F60B0068FA24EEFCB3EFC /* Pods */ = {
+		2B52682867488686011846FFA63A60E5 /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C358AA8BB91700063133597D41C4E0E /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 8AC034607E82B22895EE89ED6E45124A /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				60DB2522D6809309FA2F3B04848E7536 /* Sources */,
-				2E78C4AC537A1782BCFD134B2B8940E0 /* Frameworks */,
+				3EE06506B0F43ECA575D10FB7922DE5D /* Sources */,
+				EE0780C008498CEBA2009EE3C65E2E76 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				506F4C1B187438D9A02846B6EF912668 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 7B0111ED81CD0F82D22DEA91F7C732EF /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		300E286E3853F128E26ED928099C0EFA /* ASOAnimatedButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7056A41ABEDB8260EECC2451F41674A /* Build configuration list for PBXNativeTarget "ASOAnimatedButton" */;
+			buildPhases = (
+				450ED0C5BEA6BDA4A000A2A61C30547E /* Sources */,
+				A0B198C2B1B6CA8EE2356BBDCF7E4D96 /* Frameworks */,
+				4E479721E904E6AE5FDF9F5667E0CEAA /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Pods;
-			productName = Pods;
-			productReference = AEEDA5F6291892906F3CBBF39B8BC98F /* libPods.a */;
+			name = ASOAnimatedButton;
+			productName = ASOAnimatedButton;
+			productReference = A53BFDAD9C2E88BB3828BC8F1A3252AB /* libASOAnimatedButton.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -203,21 +312,41 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1469924FC52F60B0068FA24EEFCB3EFC /* Pods */,
+				300E286E3853F128E26ED928099C0EFA /* ASOAnimatedButton */,
+				2B52682867488686011846FFA63A60E5 /* Pods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		60DB2522D6809309FA2F3B04848E7536 /* Sources */ = {
+		3EE06506B0F43ECA575D10FB7922DE5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B991A49F4C12A4F8462C02B69D83DB11 /* Pods-dummy.m in Sources */,
+				18322C4D10687DDD3E0161D04A869ADC /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		450ED0C5BEA6BDA4A000A2A61C30547E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA959A2516C6F9C60A1C95298FB07DEF /* ASOAnimatedButton-dummy.m in Sources */,
+				E1E05AFE0FA13F62393427A5A3C0BCF4 /* ASOBounceButtonView.m in Sources */,
+				5C47585910009DE74D464DC0593C5D62 /* ASOTwoStateButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		506F4C1B187438D9A02846B6EF912668 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ASOAnimatedButton;
+			target = 300E286E3853F128E26ED928099C0EFA /* ASOAnimatedButton */;
+			targetProxy = 55F8C4999F7F710A15913B829FC7DC3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		052A17875CB827423D627183396CEB60 /* Release */ = {
@@ -254,9 +383,41 @@
 			};
 			name = Release;
 		};
-		0D69C55710C001DAC56382640EF8FFCC /* Release */ = {
+		2EBDFDAB8A7E93D8BE438F347A1C2DFE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 080B62B69F7897A2E100CCD98EFB9CC3 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ASOAnimatedButton/ASOAnimatedButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4F5B3AF6DA5B36495B5942C8AAA22ADF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA9E2ED51CC316CC802AC0B45E7A1998 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		770C80C2C300C747E7FDEB705AB65F1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC7DD3F4497C79845FBE3D941A41B67F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -270,16 +431,16 @@
 			};
 			name = Release;
 		};
-		3282B8B9AEE1F649C068F72B48DEB497 /* Debug */ = {
+		B187371947D101D3DDAA4F971CDB8DFE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 409481B22BCA3781BAF3CBE47FCA34FB /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ASOAnimatedButton/ASOAnimatedButton-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -337,11 +498,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C358AA8BB91700063133597D41C4E0E /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		8AC034607E82B22895EE89ED6E45124A /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3282B8B9AEE1F649C068F72B48DEB497 /* Debug */,
-				0D69C55710C001DAC56382640EF8FFCC /* Release */,
+				4F5B3AF6DA5B36495B5942C8AAA22ADF /* Debug */,
+				770C80C2C300C747E7FDEB705AB65F1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7056A41ABEDB8260EECC2451F41674A /* Build configuration list for PBXNativeTarget "ASOAnimatedButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B187371947D101D3DDAA4F971CDB8DFE /* Debug */,
+				2EBDFDAB8A7E93D8BE438F347A1C2DFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
