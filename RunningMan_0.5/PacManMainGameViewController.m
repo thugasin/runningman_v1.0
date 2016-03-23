@@ -7,6 +7,7 @@
 //
 
 #import "PacManMainGameViewController.h"
+#import "NRTC.h"
 
 
 @interface PacManMainGameViewController ()
@@ -15,18 +16,25 @@
 @property (nonatomic,copy) PomeloWSCallback onMapUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback drawMap;
 
+
 @end
 
 @implementation PacManMainGameViewController
 @synthesize GameGridRow;
 @synthesize GameGridColunm;
 @synthesize PlayerList;
-@synthesize StopGameButton;
 @synthesize UserName;
 @synthesize GameID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [UIView animateWithDuration:0.4
+                     animations:^{
+                         [self setNeedsStatusBarAppearanceUpdate];
+                     }];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    
     // Do any additional setup after loading the view, typically from a nib. //配置用户 Key
 
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
@@ -40,6 +48,9 @@
     
     [self InitPlayerUpdate];
     [self InitMapUpdate];
+    
+    
+
     
     // Set the 'menu button
     [self.MenuButton initAnimationWithFadeEffectEnabled:NO]; // Set to 'NO' to disable Fade effect between its two-state transition
@@ -64,6 +75,26 @@
     // Set as delegate of 'menu item view'
     [self.menuItemView setDelegate:self];
     
+    
+    _gameInfoView = [[GameInfoViewController alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,100)];
+    [_gameInfoView setBackgroundColor:[UIColor whiteColor]];
+    [[_gameInfoView layer] setMasksToBounds:YES];
+    _gameInfoView.alpha = 0.9;
+    [self.view addSubview:_gameInfoView];
+    
+    bChatButtonEnabled = true;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+    //UIStatusBarStyleDefault = 0 黑色文字，浅色背景时使用
+    //UIStatusBarStyleLightContent = 1 白色文字，深色背景时使用
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES; //返回NO表示要显示，返回YES将hiden
 }
 
 - (IBAction)menuButtonAction:(id)sender
@@ -136,9 +167,7 @@
                 NSMutableArray *playerImages = [[NSMutableArray alloc] init];
                 if([[info objectForKey:@"Role"]  isEqualToString:@"pacman"])
                 {
-                    [playerImages addObject:[UIImage imageNamed:@"pacman1.png"]];
-                    [playerImages addObject:[UIImage imageNamed:@"pacman2.png"]];
-                    [playerImages addObject:[UIImage imageNamed:@"pacman3.png"]];
+                    [playerImages addObject:[UIImage imageNamed:@"demon-game14.png"]];
                     
                     
                 }
@@ -204,6 +233,8 @@
     [_mapView setZoomLevel:30 animated:YES];
     
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
+    _mapView.showsScale = NO;
+    _mapView.showsCompass = NO;
     
     _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     
@@ -212,6 +243,9 @@
     [self.view bringSubviewToFront:self.menuItemView];
     self.menuItemView.backgroundColor= [[UIColor blackColor] colorWithAlphaComponent:0.1];
     GameGridRow = nil;
+    
+    [self.view bringSubviewToFront:_gameInfoView];
+    [self.view bringSubviewToFront:self.ChatButton];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -340,9 +374,7 @@
             
             NSMutableArray *trainImages = [[NSMutableArray alloc] init];
             
-            [trainImages addObject:[UIImage imageNamed:@"pacman1.png"]];
-            [trainImages addObject:[UIImage imageNamed:@"pacman2.png"]];
-            [trainImages addObject:[UIImage imageNamed:@"pacman3.png"]];
+            [trainImages addObject:[UIImage imageNamed:@"demon-game.png"]];
             
             mySelfAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:userLocation.coordinate];
             mySelfAnnotation.animatedImages = trainImages;
@@ -362,14 +394,70 @@
     
 }
 
+-(IBAction) chatButtonClicked:(id)sender
+{
+    if (bChatButtonEnabled)
+    {
+        bChatButtonEnabled = false;
+        [self.ChatButton setBackgroundImage:[UIImage imageNamed:@"Microphone Disabled"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        bChatButtonEnabled = true;
+        [self.ChatButton setBackgroundImage:[UIImage imageNamed:@"Microphone Pressed"] forState:UIControlStateNormal];
+    }
+}
+
 -(void) SetGameID:(NSString*)gameID
 {
     GameID = gameID;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
+//
+//- (void)appendEventLog:(NSString *)log
+//{
+//    NSString *time = [_eventLogTimeFormatter stringFromDate:[NSDate date]];
+//    NSString *eventLog = [NSString stringWithFormat:@"%@ %@\n", time, log];
+//    [_eventLog insertString:eventLog atIndex:0];
+//    _eventTextView.text = _eventLog;
+//    [_eventTextView scrollRangeToVisible:NSMakeRange(0, 0)];
+//}
+//
+//- (IBAction)muteButtonPressed:(id)sender {
+//    BOOL mute = [[NRTCManager sharedManager] audioMuteEnabled];
+//    [self appendEventLog:[NSString stringWithFormat:@"self %@ audio", !mute ? @"muted": @"unmuted"]];
+//    [[NRTCManager sharedManager] setAudioMute:!mute];
+//}
+//
+////语音静音
+//- (void)onUserMuteAudio:(BOOL)isMute uid:(SInt64)uid channel:(NRTCChannel *)channel
+//{
+//    [self appendEventLog:[NSString stringWithFormat:@"%lld %@ audio, channel is %llu", uid, isMute ? @"muted": @"unmuted", [channel channelID]]];
+//}
+//
+//- (void)onAudioInterruptionStart
+//{
+//    [self appendEventLog:@"Audio Interrupted!!!"];
+//}
+//
+//- (void)onAudioInterruptionEnd
+//{
+//    [self appendEventLog:@"Audio interruption end :)"];
+//}
+//
+//
+//- (void)onNetworkQuality:(NRTCNetworkQuality)quality
+//{
+//    NSDictionary *netQualityTexts = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                     @"Network Excellent", @(NRTCNetworkQualityExcellent),
+//                                     @"Network Good", @(NRTCNetworkQualityGood),
+//                                     @"Network Poor", @(NRTCNetworkQualityPoor),
+//                                     @"Network Bad", @(NRTCNetworkQualityBad), nil];
+//    [self appendEventLog:[netQualityTexts objectForKey:@(quality)]];
+//}
 
 @end

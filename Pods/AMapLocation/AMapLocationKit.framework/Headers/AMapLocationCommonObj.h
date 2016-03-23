@@ -77,3 +77,10 @@ typedef NS_ENUM(NSUInteger, AMapLocationCoordinateType)
  */
 FOUNDATION_EXTERN CLLocationCoordinate2D AMapLocationCoordinateConvert(CLLocationCoordinate2D coordinate, AMapLocationCoordinateType type);
 
+/**
+ *  判断目标经纬度是否在大陆以及港、澳地区。输入参数为高德坐标系。
+ *
+ *  @param coordinate 待判断的目标经纬度
+ *  @return 是否在大陆以及港、澳地区
+ */
+FOUNDATION_EXTERN BOOL AMapLocationDataAvailableForCoordinate(CLLocationCoordinate2D coordinate);

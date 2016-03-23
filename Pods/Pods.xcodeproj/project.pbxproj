@@ -7,162 +7,339 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18322C4D10687DDD3E0161D04A869ADC /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6AB72B9FE85E5995AF27EFC050ADA2 /* Pods-dummy.m */; };
-		1A8C710822929DC2BAC0323576BD572A /* ASOBounceButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C4537426439AF2AC4D9DEC0823AC130 /* ASOBounceButtonView.h */; };
-		26DDE4C5268231CC0331412DFC8CA500 /* ASOTwoStateButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 549F5287287160351C80A907BBC58CC1 /* ASOTwoStateButton.h */; };
-		50BDB9F77F312ADB581FA8963755F080 /* ASOBounceButtonViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 906334AB8330B2DB99643B832A7B3087 /* ASOBounceButtonViewDelegate.h */; };
-		5C47585910009DE74D464DC0593C5D62 /* ASOTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B66043DB17470C0A36528C8709A9043 /* ASOTwoStateButton.m */; };
-		913D904E93D9F3C15B164EE42DD145AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */; };
-		D9FAE81206BD1A7066967198AF592101 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */; };
-		E1E05AFE0FA13F62393427A5A3C0BCF4 /* ASOBounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E10E838CD1BC743D29D8C77F430C9A7 /* ASOBounceButtonView.m */; };
-		EA959A2516C6F9C60A1C95298FB07DEF /* ASOAnimatedButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C54699CB9732B33F3F960BFC144A7F32 /* ASOAnimatedButton-dummy.m */; };
+		0C04A8E13032B76BF13310DEE50FFC60 /* RBBBlockBasedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F5791DF96E4B213BD38973997BC8EF4B /* RBBBlockBasedArray.m */; };
+		11B2A8076402132D86F8BB0DABA13C0F /* LMModalSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 52DAA4126399D9A77BC037C98387C777 /* LMModalSegue.h */; };
+		123AFD5B700441D0E0C819C4BF686B08 /* ASOTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773C7DEA59984B50804C44EB6F641F2 /* ASOTwoStateButton.m */; };
+		151717012045BF97F80DADE6C0C029DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5097CA8EEAC466A0B5C548A08A7760 /* Foundation.framework */; };
+		16EFDE55A904C89E101D6730E3A1956D /* RBBBlockBasedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5653B9A4EC640DC577A40595E5C5C1 /* RBBBlockBasedArray.h */; };
+		1C07F4307BA54261DD698ACA874D858E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7D62CD7679A2CE7FD29967443E0821 /* QuartzCore.framework */; };
+		24458F16A39D74EB4100058AD160B3F6 /* RBBCubicBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5BEC9F60FFD6D0230F905772893ECD /* RBBCubicBezier.m */; };
+		2517DFDA0D4A9460B59E763DC85638D2 /* RBBAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 379197567699C7D9717FB351439D41AA /* RBBAnimation.h */; };
+		30DCE7F0F5CA840E9C791EF7880A4642 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5097CA8EEAC466A0B5C548A08A7760 /* Foundation.framework */; };
+		35AE8F182E73F121A833217769C3E13F /* LMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 42496CAA99FAD72970A25FEC00EE8B4A /* LMNavigationBar.m */; };
+		38ADAE47742D0F4EFFDF7A29BA30C85F /* ASOAnimatedButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3331E2F09DC8FF07ADCBEBFC11CA30F8 /* ASOAnimatedButton-dummy.m */; };
+		4768815F3761C18BCDF09E92665FAA55 /* RBBEasingFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD2051CDD39FB1EAF1E86A5159D1C14 /* RBBEasingFunction.h */; };
+		49CEB01E70FEC715F0EEE34F6FC928BF /* LMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC7A2EA9D3E344699FCA18A77D63769 /* LMAlertView.m */; };
+		4D46F9E7721101D4BEBC5D044C888DAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5097CA8EEAC466A0B5C548A08A7760 /* Foundation.framework */; };
+		4DED1FAF9850E85CFF1EE4D3E43C6593 /* CALayer+ModalAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB1BB41AD0525463122E7ACB8934D9F /* CALayer+ModalAlert.m */; };
+		59BEBB11323126E5FC896391D8B98F78 /* CAAnimation+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = EA0A70BBB3A82EC866FCEAFB0DD617A1 /* CAAnimation+Blocks.h */; };
+		60C0E00EC6FD88649173B6947ABC231C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7D62CD7679A2CE7FD29967443E0821 /* QuartzCore.framework */; };
+		611A38FD7C07A2E077194335EB5B5C55 /* RBBCustomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B85A1E7D3FC683D30A0A6403B60F424D /* RBBCustomAnimation.m */; };
+		6315107731C2A6B16253ED88B7761FE7 /* LMNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = ADB101A3B04BF385CBE73EA394C8BE5E /* LMNavigationBar.h */; };
+		6EB302597E1979A7754E80409594D1F0 /* RBBEasingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 932886B6E01C4C6C81DF8B099CD05864 /* RBBEasingFunction.m */; };
+		763828C0BC49C219088C197BA7AC0C44 /* RBBSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD4CFB7C48EDB4DA33014D88B757A4 /* RBBSpringAnimation.m */; };
+		79347A456345856F578983B5018CCA1D /* CALayer+ModalAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB6E4242BF66F22ED807D49C29956D9 /* CALayer+ModalAlert.h */; };
+		79AB8A20BE320DD53E6210808A77F65E /* RBBAnimation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B58EFE5DE691B969C558B98576DEB4EC /* RBBAnimation-dummy.m */; };
+		7BFB832BC14ADD7A43E71B5B6C368315 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5097CA8EEAC466A0B5C548A08A7760 /* Foundation.framework */; };
+		7CC9FFF56E4C2A8CD38EEDF63F8A876E /* RBBSpringAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = CFC8BB5565E37F9ADD9FDDD76BAC5036 /* RBBSpringAnimation.h */; };
+		865361BB20899A9C145A18E28A1F84AF /* LMNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9DE556756C131B847E537FB32A9B0EB /* LMNavigationController.h */; };
+		88A452270A24C17453DEB67F58DD7587 /* RBBCubicBezier.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BFE03DF0A1050B483E8AF073F2D56D5 /* RBBCubicBezier.h */; };
+		8915234639B2D2D81CA87EEB2D4DF54E /* RBBCustomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A866510F2F95B233CB290505C21AF3 /* RBBCustomAnimation.h */; };
+		90FB10C730FD5C1536DC47F5395D748A /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B978645D362228A66217864CF876D991 /* CAAnimation+Blocks.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		963DC35D1CF6E6472B975FC46B3759C0 /* RBBTweenAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6FBB0B45DFBDB4437E77FDEEDE7F67 /* RBBTweenAnimation.m */; };
+		989F47FAEF34CEB764852D7AC5AE61E5 /* ASOTwoStateButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4702F58E81448DF1E2AA27421D801697 /* ASOTwoStateButton.h */; };
+		9A75056B6E4B6D1698975ACC03CC162E /* RBBTweenAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AD1BB34CE6E140D0C3E10FAD65AE4D /* RBBTweenAnimation.h */; };
+		9D61D0447CD3966868F743A99C6AAA2B /* ASOBounceButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E4CF551253772B5262C62051A784E4 /* ASOBounceButtonView.h */; };
+		A5C421F6EE17B75BECD8688ACB75F407 /* LMEmbeddedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 444805D883FAEE131724596ECBF86CEB /* LMEmbeddedViewController.m */; };
+		A7466E93C940E35339CEBD1FF9D69709 /* RBBLinearInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48CE111885D1F3097351F854F4A70CB3 /* RBBLinearInterpolation.h */; };
+		A9A3CB33FE26176B78810F62F9E9BB67 /* LMEmbeddedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB3450D8AD09076F62EBA2176822DC30 /* LMEmbeddedViewController.h */; };
+		A9D8C889A9BD333361D93B1FB30E31D6 /* RBBAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FA9409806B4020D74D911FD9A5C3D /* RBBAnimation.m */; };
+		AB75D6B324BE214DB1522E46AAE9F785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5097CA8EEAC466A0B5C548A08A7760 /* Foundation.framework */; };
+		B1CF145777BF87094FCE8D0DA7927C16 /* ASOBounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C7E82A7275867B8B1A1A64BC9E59A /* ASOBounceButtonView.m */; };
+		B517D832D159C00913EF122478B16A47 /* CAAnimationBlocks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6181AD0AB57DB8C6B6D25CC721A81612 /* CAAnimationBlocks-dummy.m */; };
+		C484D35FF89D34201C856E7D13F57468 /* LMModalItemTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E9005451EF9F0220AF357401C3523FFE /* LMModalItemTableViewCell.h */; };
+		CF987D7E961370EF5E288B614A29753F /* LMModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC1B08F52DC7933C29C872B3E7C095 /* LMModalSegue.m */; };
+		DE17C20737F768B519CC8E0DFA1155EE /* RBBLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D558FCFE97F6E488367A43B242A63BB /* RBBLinearInterpolation.m */; };
+		E95A8948B46F938B891A41A746E4C192 /* LMAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46A5A94AA5BEF935B8DA2C9506701115 /* LMAlertView.h */; };
+		EA16125EDA58EDC9AC8AB3D438B3E89F /* LMAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F39435236CF0D4E1012D9A8685DCA47 /* LMAlertView-dummy.m */; };
+		EBBE4FC7623081C6EE62018A88B84929 /* LMModalItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90458327B576B03CCF763C1BA30C8678 /* LMModalItemTableViewCell.m */; };
+		ECF0B98EC3CC7373BCE6ECD8FF899960 /* ASOBounceButtonViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C97B39EEBAC5FE281BD0985CD8ADBE3 /* ASOBounceButtonViewDelegate.h */; };
+		F4DA7AA20A1A7B5CBF813F448BF632A9 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CECDFB92ACC1553BB9F6BF5BB63B47 /* Pods-dummy.m */; };
+		F7DE52599A195D4F0327562F2CBBDED2 /* LMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B97E22F29A26BCA8C03E935C10F5 /* LMNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		55F8C4999F7F710A15913B829FC7DC3D /* PBXContainerItemProxy */ = {
+		2B7992498BE64E17123827B77C4566F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 300E286E3853F128E26ED928099C0EFA;
+			remoteGlobalIDString = 7CF1DE4A3A8B3BDE86A49348991E5734;
+			remoteInfo = CAAnimationBlocks;
+		};
+		77C6D840BA4EC206A89AC18803064D5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AE5D1AADE7C306698974C1C1B854D07;
 			remoteInfo = ASOAnimatedButton;
+		};
+		8DBE1A23A873BA4A3BEE3C0FC21D5065 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CF1DE4A3A8B3BDE86A49348991E5734;
+			remoteInfo = CAAnimationBlocks;
+		};
+		92DB60891DBF11A958B0B0FB3AA74101 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6128B1FC13A7AA9C834D819DC2D58768;
+			remoteInfo = RBBAnimation;
+		};
+		B4FB938AB07BF4B28959FBB855DAE379 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1B4089F7EA0FB942333F17CAAB53AED;
+			remoteInfo = LMAlertView;
+		};
+		D1CB9B9139DD34A69F5BF8C29046FE05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6128B1FC13A7AA9C834D819DC2D58768;
+			remoteInfo = RBBAnimation;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ASOAnimatedButton-Private.xcconfig"; sourceTree = "<group>"; };
+		033C7E82A7275867B8B1A1A64BC9E59A /* ASOBounceButtonView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASOBounceButtonView.m; path = Classes/ios/BounceButton/ASOBounceButtonView.m; sourceTree = "<group>"; };
+		05BE97855B2D0028AE5F4F36D30A89E8 /* ASOAnimatedButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASOAnimatedButton-prefix.pch"; sourceTree = "<group>"; };
+		09A9933CD788257E16055EC125715404 /* CAAnimationBlocks-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CAAnimationBlocks-Private.xcconfig"; sourceTree = "<group>"; };
 		15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2D6AB72B9FE85E5995AF27EFC050ADA2 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		3631D9BC1B54AAC8CFE64A90F13346F2 /* AMap.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
-		44261E6F9934F0AAA0715F0E9D66B130 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
-		4B66043DB17470C0A36528C8709A9043 /* ASOTwoStateButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASOTwoStateButton.m; path = Classes/ios/TwoStateButton/ASOTwoStateButton.m; sourceTree = "<group>"; };
-		4E10E838CD1BC743D29D8C77F430C9A7 /* ASOBounceButtonView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASOBounceButtonView.m; path = Classes/ios/BounceButton/ASOBounceButtonView.m; sourceTree = "<group>"; };
-		549F5287287160351C80A907BBC58CC1 /* ASOTwoStateButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOTwoStateButton.h; path = Classes/ios/TwoStateButton/ASOTwoStateButton.h; sourceTree = "<group>"; };
+		1A5BEC9F60FFD6D0230F905772893ECD /* RBBCubicBezier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBCubicBezier.m; path = RBBAnimation/RBBCubicBezier.m; sourceTree = "<group>"; };
+		1BB5B97E22F29A26BCA8C03E935C10F5 /* LMNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMNavigationController.m; path = LMAlertView/LMNavigationController.m; sourceTree = "<group>"; };
+		1DAFCF74242FCC72BEACC22BDE4EC6C3 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		1F39435236CF0D4E1012D9A8685DCA47 /* LMAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LMAlertView-dummy.m"; sourceTree = "<group>"; };
+		2773C7DEA59984B50804C44EB6F641F2 /* ASOTwoStateButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASOTwoStateButton.m; path = Classes/ios/TwoStateButton/ASOTwoStateButton.m; sourceTree = "<group>"; };
+		283D823201E1CC3C6627AED519F350C0 /* ASOAnimatedButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ASOAnimatedButton-Private.xcconfig"; sourceTree = "<group>"; };
+		2BBC1B08F52DC7933C29C872B3E7C095 /* LMModalSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMModalSegue.m; path = LMAlertView/LMModalSegue.m; sourceTree = "<group>"; };
+		2CB6E4242BF66F22ED807D49C29956D9 /* CALayer+ModalAlert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+ModalAlert.h"; path = "LMAlertView/CALayer+ModalAlert.h"; sourceTree = "<group>"; };
+		30AB0AF2C053CCE80B59DA57069BCB28 /* CAAnimationBlocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CAAnimationBlocks-prefix.pch"; sourceTree = "<group>"; };
+		3331E2F09DC8FF07ADCBEBFC11CA30F8 /* ASOAnimatedButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASOAnimatedButton-dummy.m"; sourceTree = "<group>"; };
+		379197567699C7D9717FB351439D41AA /* RBBAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBAnimation.h; path = RBBAnimation/RBBAnimation.h; sourceTree = "<group>"; };
+		3C97B39EEBAC5FE281BD0985CD8ADBE3 /* ASOBounceButtonViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOBounceButtonViewDelegate.h; path = Classes/ios/BounceButton/ASOBounceButtonViewDelegate.h; sourceTree = "<group>"; };
+		42496CAA99FAD72970A25FEC00EE8B4A /* LMNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMNavigationBar.m; path = LMAlertView/LMNavigationBar.m; sourceTree = "<group>"; };
+		444805D883FAEE131724596ECBF86CEB /* LMEmbeddedViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMEmbeddedViewController.m; path = LMAlertView/LMEmbeddedViewController.m; sourceTree = "<group>"; };
+		46A5A94AA5BEF935B8DA2C9506701115 /* LMAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMAlertView.h; path = LMAlertView/LMAlertView.h; sourceTree = "<group>"; };
+		4702F58E81448DF1E2AA27421D801697 /* ASOTwoStateButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOTwoStateButton.h; path = Classes/ios/TwoStateButton/ASOTwoStateButton.h; sourceTree = "<group>"; };
+		48CE111885D1F3097351F854F4A70CB3 /* RBBLinearInterpolation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBLinearInterpolation.h; path = RBBAnimation/RBBLinearInterpolation.h; sourceTree = "<group>"; };
+		4D69F1C32BA22E322D10773510DF21D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52DAA4126399D9A77BC037C98387C777 /* LMModalSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMModalSegue.h; path = LMAlertView/LMModalSegue.h; sourceTree = "<group>"; };
+		5642339AD3E7D3BD2298AB490CD847A9 /* LMAlertView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "LMAlertView-Private.xcconfig"; sourceTree = "<group>"; };
+		5B6BCBB579575E238EFC0D98FF768313 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		5CFD3E4DB0A25A032B7F2D0CAAEC643E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		6181AD0AB57DB8C6B6D25CC721A81612 /* CAAnimationBlocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CAAnimationBlocks-dummy.m"; sourceTree = "<group>"; };
 		641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		7B0111ED81CD0F82D22DEA91F7C732EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C4537426439AF2AC4D9DEC0823AC130 /* ASOBounceButtonView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOBounceButtonView.h; path = Classes/ios/BounceButton/ASOBounceButtonView.h; sourceTree = "<group>"; };
-		906334AB8330B2DB99643B832A7B3087 /* ASOBounceButtonViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOBounceButtonViewDelegate.h; path = Classes/ios/BounceButton/ASOBounceButtonViewDelegate.h; sourceTree = "<group>"; };
-		A413F57B0F7265475FAF766D237941EF /* ASOAnimatedButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASOAnimatedButton-prefix.pch"; sourceTree = "<group>"; };
-		A53BFDAD9C2E88BB3828BC8F1A3252AB /* libASOAnimatedButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libASOAnimatedButton.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B1602149521E97487815FA3748E4A22B /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
-		B2C8FF8981D5494056EA1487D99A44E5 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		69CECDFB92ACC1553BB9F6BF5BB63B47 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		6B26A2DD61FB78D589086AFF5124801E /* libCAAnimationBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCAAnimationBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BFE03DF0A1050B483E8AF073F2D56D5 /* RBBCubicBezier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBCubicBezier.h; path = RBBAnimation/RBBCubicBezier.h; sourceTree = "<group>"; };
+		6C5097CA8EEAC466A0B5C548A08A7760 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		77AD1BB34CE6E140D0C3E10FAD65AE4D /* RBBTweenAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBTweenAnimation.h; path = RBBAnimation/RBBTweenAnimation.h; sourceTree = "<group>"; };
+		78FBBE96D934498B318EFDAF03943D24 /* AMap.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
+		7A3FA9409806B4020D74D911FD9A5C3D /* RBBAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBAnimation.m; path = RBBAnimation/RBBAnimation.m; sourceTree = "<group>"; };
+		7D307D5A938DAA9015566ED8ABAE12FB /* ASOAnimatedButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASOAnimatedButton.xcconfig; sourceTree = "<group>"; };
+		7D558FCFE97F6E488367A43B242A63BB /* RBBLinearInterpolation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBLinearInterpolation.m; path = RBBAnimation/RBBLinearInterpolation.m; sourceTree = "<group>"; };
+		8235022262060BE513E1BB508FC64FDB /* LMAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LMAlertView.xcconfig; sourceTree = "<group>"; };
+		8C5653B9A4EC640DC577A40595E5C5C1 /* RBBBlockBasedArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBBlockBasedArray.h; path = RBBAnimation/RBBBlockBasedArray.h; sourceTree = "<group>"; };
+		8DF7B65CA6EA1280E3CFFA273832D329 /* RBBAnimation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RBBAnimation.xcconfig; sourceTree = "<group>"; };
+		8EDC0AE6A2A0722D0579493DE990638B /* libRBBAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRBBAnimation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90458327B576B03CCF763C1BA30C8678 /* LMModalItemTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMModalItemTableViewCell.m; path = LMAlertView/LMModalItemTableViewCell.m; sourceTree = "<group>"; };
+		92E4CF551253772B5262C62051A784E4 /* ASOBounceButtonView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASOBounceButtonView.h; path = Classes/ios/BounceButton/ASOBounceButtonView.h; sourceTree = "<group>"; };
+		932886B6E01C4C6C81DF8B099CD05864 /* RBBEasingFunction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBEasingFunction.m; path = RBBAnimation/RBBEasingFunction.m; sourceTree = "<group>"; };
+		9C4BB51AFBBF39EB1EAA9C49D9334C02 /* RBBAnimation-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "RBBAnimation-Private.xcconfig"; sourceTree = "<group>"; };
+		9D722EDC8A67A4557851F947D3BBAACD /* RBBAnimation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RBBAnimation-prefix.pch"; sourceTree = "<group>"; };
+		A149FBB7F6873F0DB3DCFE7B302A140F /* CAAnimationBlocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CAAnimationBlocks.xcconfig; sourceTree = "<group>"; };
+		A5A866510F2F95B233CB290505C21AF3 /* RBBCustomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBCustomAnimation.h; path = RBBAnimation/RBBCustomAnimation.h; sourceTree = "<group>"; };
+		A7A4B3131F80A694E44E84377D03C067 /* LMAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LMAlertView-prefix.pch"; sourceTree = "<group>"; };
+		A9DE556756C131B847E537FB32A9B0EB /* LMNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMNavigationController.h; path = LMAlertView/LMNavigationController.h; sourceTree = "<group>"; };
+		AAFD4CFB7C48EDB4DA33014D88B757A4 /* RBBSpringAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBSpringAnimation.m; path = RBBAnimation/RBBSpringAnimation.m; sourceTree = "<group>"; };
+		ADB101A3B04BF385CBE73EA394C8BE5E /* LMNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMNavigationBar.h; path = LMAlertView/LMNavigationBar.h; sourceTree = "<group>"; };
+		B58EFE5DE691B969C558B98576DEB4EC /* RBBAnimation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RBBAnimation-dummy.m"; sourceTree = "<group>"; };
+		B85A1E7D3FC683D30A0A6403B60F424D /* RBBCustomAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBCustomAnimation.m; path = RBBAnimation/RBBCustomAnimation.m; sourceTree = "<group>"; };
+		B978645D362228A66217864CF876D991 /* CAAnimation+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+Blocks.m"; path = "CAAnimationBlocks/CAAnimation+Blocks.m"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		C54699CB9732B33F3F960BFC144A7F32 /* ASOAnimatedButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASOAnimatedButton-dummy.m"; sourceTree = "<group>"; };
-		CC7DD3F4497C79845FBE3D941A41B67F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		EA9E2ED51CC316CC802AC0B45E7A1998 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		F67BDDB0506EC0EDF516185D6B6CDDC9 /* ASOAnimatedButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASOAnimatedButton.xcconfig; sourceTree = "<group>"; };
+		CB3450D8AD09076F62EBA2176822DC30 /* LMEmbeddedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMEmbeddedViewController.h; path = LMAlertView/LMEmbeddedViewController.h; sourceTree = "<group>"; };
+		CD7D62CD7679A2CE7FD29967443E0821 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		CFC8BB5565E37F9ADD9FDDD76BAC5036 /* RBBSpringAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBSpringAnimation.h; path = RBBAnimation/RBBSpringAnimation.h; sourceTree = "<group>"; };
+		DE6FBB0B45DFBDB4437E77FDEEDE7F67 /* RBBTweenAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBTweenAnimation.m; path = RBBAnimation/RBBTweenAnimation.m; sourceTree = "<group>"; };
+		DEB1BB41AD0525463122E7ACB8934D9F /* CALayer+ModalAlert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+ModalAlert.m"; path = "LMAlertView/CALayer+ModalAlert.m"; sourceTree = "<group>"; };
+		DFF431435CFBFF9A4C2EE0F00D1C00C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		E9005451EF9F0220AF357401C3523FFE /* LMModalItemTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMModalItemTableViewCell.h; path = LMAlertView/LMModalItemTableViewCell.h; sourceTree = "<group>"; };
+		EA0A70BBB3A82EC866FCEAFB0DD617A1 /* CAAnimation+Blocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CAAnimation+Blocks.h"; path = "CAAnimationBlocks/CAAnimation+Blocks.h"; sourceTree = "<group>"; };
+		F22BD4AB6C2DB8E5ED4B233D7057A278 /* libASOAnimatedButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libASOAnimatedButton.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5791DF96E4B213BD38973997BC8EF4B /* RBBBlockBasedArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBBlockBasedArray.m; path = RBBAnimation/RBBBlockBasedArray.m; sourceTree = "<group>"; };
+		F8E23A5877D189AA5B6E3BCA748B70B7 /* libLMAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLMAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA26E52D67ECD2F8FECF3D3972329788 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		FDC7A2EA9D3E344699FCA18A77D63769 /* LMAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMAlertView.m; path = LMAlertView/LMAlertView.m; sourceTree = "<group>"; };
+		FFD2051CDD39FB1EAF1E86A5159D1C14 /* RBBEasingFunction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBEasingFunction.h; path = RBBAnimation/RBBEasingFunction.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A0B198C2B1B6CA8EE2356BBDCF7E4D96 /* Frameworks */ = {
+		1546D2DE3917012D0844CD6830A26E58 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FAE81206BD1A7066967198AF592101 /* Foundation.framework in Frameworks */,
+				151717012045BF97F80DADE6C0C029DD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE0780C008498CEBA2009EE3C65E2E76 /* Frameworks */ = {
+		7C9F598BAFC23656979D492E847D033A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				913D904E93D9F3C15B164EE42DD145AB /* Foundation.framework in Frameworks */,
+				AB75D6B324BE214DB1522E46AAE9F785 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9097B5560660310A148BC1796A4CCD33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BFB832BC14ADD7A43E71B5B6C368315 /* Foundation.framework in Frameworks */,
+				1C07F4307BA54261DD698ACA874D858E /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		984181231B4B03A5919E76CF73A750F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DCE7F0F5CA840E9C791EF7880A4642 /* Foundation.framework in Frameworks */,
+				60C0E00EC6FD88649173B6947ABC231C /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1E78C357356DF7B23DB134E414074D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D46F9E7721101D4BEBC5D044C888DAA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02869E2EAC6F79F5340A82942B523BA2 /* AMapSearch */ = {
+		00FC04B06EEF8A155D545C321FDCC389 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8DA3F28A1701B940847D456A59AEFA48 /* Frameworks */,
-			);
-			path = AMapSearch;
-			sourceTree = "<group>";
-		};
-		33ECE36A9A6AB16BAB6CE40C33172744 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				44261E6F9934F0AAA0715F0E9D66B130 /* MAMapKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		408846B9B54A916A276FDAC522765FF6 /* TwoStateButton */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = TwoStateButton;
-			sourceTree = "<group>";
-		};
-		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				AAB5CC2E4D8D6EDE0838D7054F15BC07 /* Foundation.framework */,
+				6C5097CA8EEAC466A0B5C548A08A7760 /* Foundation.framework */,
+				CD7D62CD7679A2CE7FD29967443E0821 /* QuartzCore.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		560BC5CC1EE791937A230DA9B3791A6E /* BounceButton */ = {
+		07DF7238808E04C8E5179348387DD8B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78FBBE96D934498B318EFDAF03943D24 /* AMap.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		15B564DACA5792E14B3F4447D724CD6B /* RBBAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				379197567699C7D9717FB351439D41AA /* RBBAnimation.h */,
+				7A3FA9409806B4020D74D911FD9A5C3D /* RBBAnimation.m */,
+				8C5653B9A4EC640DC577A40595E5C5C1 /* RBBBlockBasedArray.h */,
+				F5791DF96E4B213BD38973997BC8EF4B /* RBBBlockBasedArray.m */,
+				6BFE03DF0A1050B483E8AF073F2D56D5 /* RBBCubicBezier.h */,
+				1A5BEC9F60FFD6D0230F905772893ECD /* RBBCubicBezier.m */,
+				A5A866510F2F95B233CB290505C21AF3 /* RBBCustomAnimation.h */,
+				B85A1E7D3FC683D30A0A6403B60F424D /* RBBCustomAnimation.m */,
+				FFD2051CDD39FB1EAF1E86A5159D1C14 /* RBBEasingFunction.h */,
+				932886B6E01C4C6C81DF8B099CD05864 /* RBBEasingFunction.m */,
+				48CE111885D1F3097351F854F4A70CB3 /* RBBLinearInterpolation.h */,
+				7D558FCFE97F6E488367A43B242A63BB /* RBBLinearInterpolation.m */,
+				CFC8BB5565E37F9ADD9FDDD76BAC5036 /* RBBSpringAnimation.h */,
+				AAFD4CFB7C48EDB4DA33014D88B757A4 /* RBBSpringAnimation.m */,
+				77AD1BB34CE6E140D0C3E10FAD65AE4D /* RBBTweenAnimation.h */,
+				DE6FBB0B45DFBDB4437E77FDEEDE7F67 /* RBBTweenAnimation.m */,
+				A24EB5D1E90B8C8F4348E7CBD7F8FA8E /* Support Files */,
+			);
+			path = RBBAnimation;
+			sourceTree = "<group>";
+		};
+		177B0524FADCE44C02B1186DF8FDC12E /* BounceButton */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = BounceButton;
 			sourceTree = "<group>";
 		};
-		5CDE616C20DA721E812FA446F2AA08CA /* ASOAnimatedButton */ = {
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8C4537426439AF2AC4D9DEC0823AC130 /* ASOBounceButtonView.h */,
-				4E10E838CD1BC743D29D8C77F430C9A7 /* ASOBounceButtonView.m */,
-				906334AB8330B2DB99643B832A7B3087 /* ASOBounceButtonViewDelegate.h */,
-				549F5287287160351C80A907BBC58CC1 /* ASOTwoStateButton.h */,
-				4B66043DB17470C0A36528C8709A9043 /* ASOTwoStateButton.m */,
-				560BC5CC1EE791937A230DA9B3791A6E /* BounceButton */,
-				6429DED267624A6CBD2C8522BD67C6AB /* Support Files */,
-				408846B9B54A916A276FDAC522765FF6 /* TwoStateButton */,
+				00FC04B06EEF8A155D545C321FDCC389 /* iOS */,
 			);
-			path = ASOAnimatedButton;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6429DED267624A6CBD2C8522BD67C6AB /* Support Files */ = {
+		4BB4E8630D4AC1A348E94F7863786468 /* AMap2DMap */ = {
 			isa = PBXGroup;
 			children = (
-				F67BDDB0506EC0EDF516185D6B6CDDC9 /* ASOAnimatedButton.xcconfig */,
-				099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */,
-				C54699CB9732B33F3F960BFC144A7F32 /* ASOAnimatedButton-dummy.m */,
-				A413F57B0F7265475FAF766D237941EF /* ASOAnimatedButton-prefix.pch */,
+				CE132CA510411A54FEE52B0DBA19D915 /* Frameworks */,
+				07DF7238808E04C8E5179348387DD8B3 /* Resources */,
+			);
+			path = AMap2DMap;
+			sourceTree = "<group>";
+		};
+		4ED31E0EE68169BC804896658ACFC139 /* AMapLocation */ = {
+			isa = PBXGroup;
+			children = (
+				E03C63B283E946A31C1F0A4BDB9D5B29 /* Frameworks */,
+			);
+			path = AMapLocation;
+			sourceTree = "<group>";
+		};
+		56DCCE91CB7711AFCA13130E1C666677 /* TwoStateButton */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TwoStateButton;
+			sourceTree = "<group>";
+		};
+		6CEC1ABB1FE1C3BF20F25EF837EC67D1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D307D5A938DAA9015566ED8ABAE12FB /* ASOAnimatedButton.xcconfig */,
+				283D823201E1CC3C6627AED519F350C0 /* ASOAnimatedButton-Private.xcconfig */,
+				3331E2F09DC8FF07ADCBEBFC11CA30F8 /* ASOAnimatedButton-dummy.m */,
+				05BE97855B2D0028AE5F4F36D30A89E8 /* ASOAnimatedButton-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ASOAnimatedButton";
 			sourceTree = "<group>";
 		};
-		65A690A4FE5AF36644E0FF4719AFBE28 /* AMap2DMap */ = {
+		7CD19E380DF74256366E28644F6DFBD7 /* CAAnimationBlocks */ = {
 			isa = PBXGroup;
 			children = (
-				33ECE36A9A6AB16BAB6CE40C33172744 /* Frameworks */,
-				ADF86BE1BD2788A1F9F1BA0DF9E2B6C3 /* Resources */,
+				EA0A70BBB3A82EC866FCEAFB0DD617A1 /* CAAnimation+Blocks.h */,
+				B978645D362228A66217864CF876D991 /* CAAnimation+Blocks.m */,
+				E27804D8FCAE1B730EAF0B1FB48F74D4 /* Support Files */,
 			);
-			path = AMap2DMap;
+			path = CAAnimationBlocks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				E9EB6F75BE3EB49B2A141AAFDC8F1CE6 /* Pods */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				B1501240D3F638491CB05C59CE57B447 /* Pods */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8DA3F28A1701B940847D456A59AEFA48 /* Frameworks */ = {
+		88832F24504AB252A7E93863A09135B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1602149521E97487815FA3748E4A22B /* AMapSearchKit.framework */,
+				FA26E52D67ECD2F8FECF3D3972329788 /* AMapSearchKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,54 +349,104 @@
 			children = (
 				15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */,
 				BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */,
-				2D6AB72B9FE85E5995AF27EFC050ADA2 /* Pods-dummy.m */,
+				69CECDFB92ACC1553BB9F6BF5BB63B47 /* Pods-dummy.m */,
 				641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */,
-				EA9E2ED51CC316CC802AC0B45E7A1998 /* Pods.debug.xcconfig */,
-				CC7DD3F4497C79845FBE3D941A41B67F /* Pods.release.xcconfig */,
+				5CFD3E4DB0A25A032B7F2D0CAAEC643E /* Pods.debug.xcconfig */,
+				DFF431435CFBFF9A4C2EE0F00D1C00C9 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		ADF86BE1BD2788A1F9F1BA0DF9E2B6C3 /* Resources */ = {
+		95C55EB750E1273F7C67AA9D04BEC688 /* ASOAnimatedButton */ = {
 			isa = PBXGroup;
 			children = (
-				3631D9BC1B54AAC8CFE64A90F13346F2 /* AMap.bundle */,
+				92E4CF551253772B5262C62051A784E4 /* ASOBounceButtonView.h */,
+				033C7E82A7275867B8B1A1A64BC9E59A /* ASOBounceButtonView.m */,
+				3C97B39EEBAC5FE281BD0985CD8ADBE3 /* ASOBounceButtonViewDelegate.h */,
+				4702F58E81448DF1E2AA27421D801697 /* ASOTwoStateButton.h */,
+				2773C7DEA59984B50804C44EB6F641F2 /* ASOTwoStateButton.m */,
+				177B0524FADCE44C02B1186DF8FDC12E /* BounceButton */,
+				6CEC1ABB1FE1C3BF20F25EF837EC67D1 /* Support Files */,
+				56DCCE91CB7711AFCA13130E1C666677 /* TwoStateButton */,
 			);
-			name = Resources;
+			path = ASOAnimatedButton;
 			sourceTree = "<group>";
 		};
-		AE907530D243463A5E8E7ACDE9DFF512 /* Frameworks */ = {
+		A24EB5D1E90B8C8F4348E7CBD7F8FA8E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B2C8FF8981D5494056EA1487D99A44E5 /* AMapLocationKit.framework */,
+				8DF7B65CA6EA1280E3CFFA273832D329 /* RBBAnimation.xcconfig */,
+				9C4BB51AFBBF39EB1EAA9C49D9334C02 /* RBBAnimation-Private.xcconfig */,
+				B58EFE5DE691B969C558B98576DEB4EC /* RBBAnimation-dummy.m */,
+				9D722EDC8A67A4557851F947D3BBAACD /* RBBAnimation-prefix.pch */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/RBBAnimation";
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		A50FEE83248C2F1BA10AF08B864EA4AD /* AMapSearch */ = {
 			isa = PBXGroup;
 			children = (
-				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+				88832F24504AB252A7E93863A09135B0 /* Frameworks */,
 			);
-			name = Frameworks;
+			path = AMapSearch;
 			sourceTree = "<group>";
 		};
-		CB9275DFAD9A8BAC1992FF0E16E075ED /* AMapLocation */ = {
+		B129B630505E0E7B04499DC18B0FAAC1 /* LMAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				AE907530D243463A5E8E7ACDE9DFF512 /* Frameworks */,
+				2CB6E4242BF66F22ED807D49C29956D9 /* CALayer+ModalAlert.h */,
+				DEB1BB41AD0525463122E7ACB8934D9F /* CALayer+ModalAlert.m */,
+				46A5A94AA5BEF935B8DA2C9506701115 /* LMAlertView.h */,
+				FDC7A2EA9D3E344699FCA18A77D63769 /* LMAlertView.m */,
+				CB3450D8AD09076F62EBA2176822DC30 /* LMEmbeddedViewController.h */,
+				444805D883FAEE131724596ECBF86CEB /* LMEmbeddedViewController.m */,
+				E9005451EF9F0220AF357401C3523FFE /* LMModalItemTableViewCell.h */,
+				90458327B576B03CCF763C1BA30C8678 /* LMModalItemTableViewCell.m */,
+				52DAA4126399D9A77BC037C98387C777 /* LMModalSegue.h */,
+				2BBC1B08F52DC7933C29C872B3E7C095 /* LMModalSegue.m */,
+				ADB101A3B04BF385CBE73EA394C8BE5E /* LMNavigationBar.h */,
+				42496CAA99FAD72970A25FEC00EE8B4A /* LMNavigationBar.m */,
+				A9DE556756C131B847E537FB32A9B0EB /* LMNavigationController.h */,
+				1BB5B97E22F29A26BCA8C03E935C10F5 /* LMNavigationController.m */,
+				F8B892F5E494930C34277458B36E4A01 /* Support Files */,
 			);
-			path = AMapLocation;
+			path = LMAlertView;
+			sourceTree = "<group>";
+		};
+		B1501240D3F638491CB05C59CE57B447 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4E8630D4AC1A348E94F7863786468 /* AMap2DMap */,
+				4ED31E0EE68169BC804896658ACFC139 /* AMapLocation */,
+				A50FEE83248C2F1BA10AF08B864EA4AD /* AMapSearch */,
+				95C55EB750E1273F7C67AA9D04BEC688 /* ASOAnimatedButton */,
+				7CD19E380DF74256366E28644F6DFBD7 /* CAAnimationBlocks */,
+				B129B630505E0E7B04499DC18B0FAAC1 /* LMAlertView */,
+				15B564DACA5792E14B3F4447D724CD6B /* RBBAnimation */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A53BFDAD9C2E88BB3828BC8F1A3252AB /* libASOAnimatedButton.a */,
-				7B0111ED81CD0F82D22DEA91F7C732EF /* libPods.a */,
+				F22BD4AB6C2DB8E5ED4B233D7057A278 /* libASOAnimatedButton.a */,
+				6B26A2DD61FB78D589086AFF5124801E /* libCAAnimationBlocks.a */,
+				F8E23A5877D189AA5B6E3BCA748B70B7 /* libLMAlertView.a */,
+				4D69F1C32BA22E322D10773510DF21D9 /* libPods.a */,
+				8EDC0AE6A2A0722D0579493DE990638B /* libRBBAnimation.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CE132CA510411A54FEE52B0DBA19D915 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B6BCBB579575E238EFC0D98FF768313 /* MAMapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */ = {
@@ -230,57 +457,132 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		E9EB6F75BE3EB49B2A141AAFDC8F1CE6 /* Pods */ = {
+		E03C63B283E946A31C1F0A4BDB9D5B29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65A690A4FE5AF36644E0FF4719AFBE28 /* AMap2DMap */,
-				CB9275DFAD9A8BAC1992FF0E16E075ED /* AMapLocation */,
-				02869E2EAC6F79F5340A82942B523BA2 /* AMapSearch */,
-				5CDE616C20DA721E812FA446F2AA08CA /* ASOAnimatedButton */,
+				1DAFCF74242FCC72BEACC22BDE4EC6C3 /* AMapLocationKit.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E27804D8FCAE1B730EAF0B1FB48F74D4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A149FBB7F6873F0DB3DCFE7B302A140F /* CAAnimationBlocks.xcconfig */,
+				09A9933CD788257E16055EC125715404 /* CAAnimationBlocks-Private.xcconfig */,
+				6181AD0AB57DB8C6B6D25CC721A81612 /* CAAnimationBlocks-dummy.m */,
+				30AB0AF2C053CCE80B59DA57069BCB28 /* CAAnimationBlocks-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CAAnimationBlocks";
+			sourceTree = "<group>";
+		};
+		F8B892F5E494930C34277458B36E4A01 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8235022262060BE513E1BB508FC64FDB /* LMAlertView.xcconfig */,
+				5642339AD3E7D3BD2298AB490CD847A9 /* LMAlertView-Private.xcconfig */,
+				1F39435236CF0D4E1012D9A8685DCA47 /* LMAlertView-dummy.m */,
+				A7A4B3131F80A694E44E84377D03C067 /* LMAlertView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/LMAlertView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4E479721E904E6AE5FDF9F5667E0CEAA /* Headers */ = {
+		2CA50CC8F5ADBE929744F2E4FA278A3F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A8C710822929DC2BAC0323576BD572A /* ASOBounceButtonView.h in Headers */,
-				50BDB9F77F312ADB581FA8963755F080 /* ASOBounceButtonViewDelegate.h in Headers */,
-				26DDE4C5268231CC0331412DFC8CA500 /* ASOTwoStateButton.h in Headers */,
+				59BEBB11323126E5FC896391D8B98F78 /* CAAnimation+Blocks.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FF32D993883919825DE3E7719A5941F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2517DFDA0D4A9460B59E763DC85638D2 /* RBBAnimation.h in Headers */,
+				16EFDE55A904C89E101D6730E3A1956D /* RBBBlockBasedArray.h in Headers */,
+				88A452270A24C17453DEB67F58DD7587 /* RBBCubicBezier.h in Headers */,
+				8915234639B2D2D81CA87EEB2D4DF54E /* RBBCustomAnimation.h in Headers */,
+				4768815F3761C18BCDF09E92665FAA55 /* RBBEasingFunction.h in Headers */,
+				A7466E93C940E35339CEBD1FF9D69709 /* RBBLinearInterpolation.h in Headers */,
+				7CC9FFF56E4C2A8CD38EEDF63F8A876E /* RBBSpringAnimation.h in Headers */,
+				9A75056B6E4B6D1698975ACC03CC162E /* RBBTweenAnimation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80F69C4D8FB73D0013714B48182FD1B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D61D0447CD3966868F743A99C6AAA2B /* ASOBounceButtonView.h in Headers */,
+				ECF0B98EC3CC7373BCE6ECD8FF899960 /* ASOBounceButtonViewDelegate.h in Headers */,
+				989F47FAEF34CEB764852D7AC5AE61E5 /* ASOTwoStateButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0A7DD651DEB8951464A51875D7B2B72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79347A456345856F578983B5018CCA1D /* CALayer+ModalAlert.h in Headers */,
+				E95A8948B46F938B891A41A746E4C192 /* LMAlertView.h in Headers */,
+				A9A3CB33FE26176B78810F62F9E9BB67 /* LMEmbeddedViewController.h in Headers */,
+				C484D35FF89D34201C856E7D13F57468 /* LMModalItemTableViewCell.h in Headers */,
+				11B2A8076402132D86F8BB0DABA13C0F /* LMModalSegue.h in Headers */,
+				6315107731C2A6B16253ED88B7761FE7 /* LMNavigationBar.h in Headers */,
+				865361BB20899A9C145A18E28A1F84AF /* LMNavigationController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2B52682867488686011846FFA63A60E5 /* Pods */ = {
+		6128B1FC13A7AA9C834D819DC2D58768 /* RBBAnimation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8AC034607E82B22895EE89ED6E45124A /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 28B08DF7287494CF0541893D55CA91C1 /* Build configuration list for PBXNativeTarget "RBBAnimation" */;
 			buildPhases = (
-				3EE06506B0F43ECA575D10FB7922DE5D /* Sources */,
-				EE0780C008498CEBA2009EE3C65E2E76 /* Frameworks */,
+				5450A0E798E5D2755FEB2D5444F00F7B /* Sources */,
+				984181231B4B03A5919E76CF73A750F4 /* Frameworks */,
+				6FF32D993883919825DE3E7719A5941F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				506F4C1B187438D9A02846B6EF912668 /* PBXTargetDependency */,
 			);
-			name = Pods;
-			productName = Pods;
-			productReference = 7B0111ED81CD0F82D22DEA91F7C732EF /* libPods.a */;
+			name = RBBAnimation;
+			productName = RBBAnimation;
+			productReference = 8EDC0AE6A2A0722D0579493DE990638B /* libRBBAnimation.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		300E286E3853F128E26ED928099C0EFA /* ASOAnimatedButton */ = {
+		7CF1DE4A3A8B3BDE86A49348991E5734 /* CAAnimationBlocks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7056A41ABEDB8260EECC2451F41674A /* Build configuration list for PBXNativeTarget "ASOAnimatedButton" */;
+			buildConfigurationList = E63B8AF0E2F14D04EF51495D3E3CDD7B /* Build configuration list for PBXNativeTarget "CAAnimationBlocks" */;
 			buildPhases = (
-				450ED0C5BEA6BDA4A000A2A61C30547E /* Sources */,
-				A0B198C2B1B6CA8EE2356BBDCF7E4D96 /* Frameworks */,
-				4E479721E904E6AE5FDF9F5667E0CEAA /* Headers */,
+				FCF5ABF40A93C0A2DF43629B806D8231 /* Sources */,
+				9097B5560660310A148BC1796A4CCD33 /* Frameworks */,
+				2CA50CC8F5ADBE929744F2E4FA278A3F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CAAnimationBlocks;
+			productName = CAAnimationBlocks;
+			productReference = 6B26A2DD61FB78D589086AFF5124801E /* libCAAnimationBlocks.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8AE5D1AADE7C306698974C1C1B854D07 /* ASOAnimatedButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CAAB87661E47E2F9E21F3313E38B952 /* Build configuration list for PBXNativeTarget "ASOAnimatedButton" */;
+			buildPhases = (
+				7CF8D49367B5DB77695D5AEEC83BAFEA /* Sources */,
+				7C9F598BAFC23656979D492E847D033A /* Frameworks */,
+				80F69C4D8FB73D0013714B48182FD1B6 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -288,7 +590,46 @@
 			);
 			name = ASOAnimatedButton;
 			productName = ASOAnimatedButton;
-			productReference = A53BFDAD9C2E88BB3828BC8F1A3252AB /* libASOAnimatedButton.a */;
+			productReference = F22BD4AB6C2DB8E5ED4B233D7057A278 /* libASOAnimatedButton.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B1B4089F7EA0FB942333F17CAAB53AED /* LMAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F431BA6F28C6B2291A411F9BA9067E4 /* Build configuration list for PBXNativeTarget "LMAlertView" */;
+			buildPhases = (
+				169BA05B7E372D0C93C18EA5479980BC /* Sources */,
+				1546D2DE3917012D0844CD6830A26E58 /* Frameworks */,
+				D0A7DD651DEB8951464A51875D7B2B72 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C30073ABAA8A77A8F825CD49E207344 /* PBXTargetDependency */,
+				AF71FB2CF17EFBCDDB3991E8AA21A878 /* PBXTargetDependency */,
+			);
+			name = LMAlertView;
+			productName = LMAlertView;
+			productReference = F8E23A5877D189AA5B6E3BCA748B70B7 /* libLMAlertView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E63466B15249A0D8EFBDB946DEE96CF9 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65366884D24AB8DCEB5F26729E4CDBEC /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				EEB96F7A25F258FF60003BA682FC0C01 /* Sources */,
+				F1E78C357356DF7B23DB134E414074D6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DC8688681B063931EAF7D6F6A34902E /* PBXTargetDependency */,
+				26A0E0B0A0E1EB4864328FB51D63EFC7 /* PBXTargetDependency */,
+				F857C15DA731087DC26B2627258CA6E8 /* PBXTargetDependency */,
+				A757A905DA0E220BFD618C051D921E79 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 4D69F1C32BA22E322D10773510DF21D9 /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -312,39 +653,112 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				300E286E3853F128E26ED928099C0EFA /* ASOAnimatedButton */,
-				2B52682867488686011846FFA63A60E5 /* Pods */,
+				8AE5D1AADE7C306698974C1C1B854D07 /* ASOAnimatedButton */,
+				7CF1DE4A3A8B3BDE86A49348991E5734 /* CAAnimationBlocks */,
+				B1B4089F7EA0FB942333F17CAAB53AED /* LMAlertView */,
+				E63466B15249A0D8EFBDB946DEE96CF9 /* Pods */,
+				6128B1FC13A7AA9C834D819DC2D58768 /* RBBAnimation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3EE06506B0F43ECA575D10FB7922DE5D /* Sources */ = {
+		169BA05B7E372D0C93C18EA5479980BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18322C4D10687DDD3E0161D04A869ADC /* Pods-dummy.m in Sources */,
+				4DED1FAF9850E85CFF1EE4D3E43C6593 /* CALayer+ModalAlert.m in Sources */,
+				EA16125EDA58EDC9AC8AB3D438B3E89F /* LMAlertView-dummy.m in Sources */,
+				49CEB01E70FEC715F0EEE34F6FC928BF /* LMAlertView.m in Sources */,
+				A5C421F6EE17B75BECD8688ACB75F407 /* LMEmbeddedViewController.m in Sources */,
+				EBBE4FC7623081C6EE62018A88B84929 /* LMModalItemTableViewCell.m in Sources */,
+				CF987D7E961370EF5E288B614A29753F /* LMModalSegue.m in Sources */,
+				35AE8F182E73F121A833217769C3E13F /* LMNavigationBar.m in Sources */,
+				F7DE52599A195D4F0327562F2CBBDED2 /* LMNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		450ED0C5BEA6BDA4A000A2A61C30547E /* Sources */ = {
+		5450A0E798E5D2755FEB2D5444F00F7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA959A2516C6F9C60A1C95298FB07DEF /* ASOAnimatedButton-dummy.m in Sources */,
-				E1E05AFE0FA13F62393427A5A3C0BCF4 /* ASOBounceButtonView.m in Sources */,
-				5C47585910009DE74D464DC0593C5D62 /* ASOTwoStateButton.m in Sources */,
+				79AB8A20BE320DD53E6210808A77F65E /* RBBAnimation-dummy.m in Sources */,
+				A9D8C889A9BD333361D93B1FB30E31D6 /* RBBAnimation.m in Sources */,
+				0C04A8E13032B76BF13310DEE50FFC60 /* RBBBlockBasedArray.m in Sources */,
+				24458F16A39D74EB4100058AD160B3F6 /* RBBCubicBezier.m in Sources */,
+				611A38FD7C07A2E077194335EB5B5C55 /* RBBCustomAnimation.m in Sources */,
+				6EB302597E1979A7754E80409594D1F0 /* RBBEasingFunction.m in Sources */,
+				DE17C20737F768B519CC8E0DFA1155EE /* RBBLinearInterpolation.m in Sources */,
+				763828C0BC49C219088C197BA7AC0C44 /* RBBSpringAnimation.m in Sources */,
+				963DC35D1CF6E6472B975FC46B3759C0 /* RBBTweenAnimation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CF8D49367B5DB77695D5AEEC83BAFEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38ADAE47742D0F4EFFDF7A29BA30C85F /* ASOAnimatedButton-dummy.m in Sources */,
+				B1CF145777BF87094FCE8D0DA7927C16 /* ASOBounceButtonView.m in Sources */,
+				123AFD5B700441D0E0C819C4BF686B08 /* ASOTwoStateButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEB96F7A25F258FF60003BA682FC0C01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DA7AA20A1A7B5CBF813F448BF632A9 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF5ABF40A93C0A2DF43629B806D8231 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90FB10C730FD5C1536DC47F5395D748A /* CAAnimation+Blocks.m in Sources */,
+				B517D832D159C00913EF122478B16A47 /* CAAnimationBlocks-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		506F4C1B187438D9A02846B6EF912668 /* PBXTargetDependency */ = {
+		26A0E0B0A0E1EB4864328FB51D63EFC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CAAnimationBlocks;
+			target = 7CF1DE4A3A8B3BDE86A49348991E5734 /* CAAnimationBlocks */;
+			targetProxy = 2B7992498BE64E17123827B77C4566F9 /* PBXContainerItemProxy */;
+		};
+		5C30073ABAA8A77A8F825CD49E207344 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CAAnimationBlocks;
+			target = 7CF1DE4A3A8B3BDE86A49348991E5734 /* CAAnimationBlocks */;
+			targetProxy = 8DBE1A23A873BA4A3BEE3C0FC21D5065 /* PBXContainerItemProxy */;
+		};
+		7DC8688681B063931EAF7D6F6A34902E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ASOAnimatedButton;
-			target = 300E286E3853F128E26ED928099C0EFA /* ASOAnimatedButton */;
-			targetProxy = 55F8C4999F7F710A15913B829FC7DC3D /* PBXContainerItemProxy */;
+			target = 8AE5D1AADE7C306698974C1C1B854D07 /* ASOAnimatedButton */;
+			targetProxy = 77C6D840BA4EC206A89AC18803064D5B /* PBXContainerItemProxy */;
+		};
+		A757A905DA0E220BFD618C051D921E79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RBBAnimation;
+			target = 6128B1FC13A7AA9C834D819DC2D58768 /* RBBAnimation */;
+			targetProxy = D1CB9B9139DD34A69F5BF8C29046FE05 /* PBXContainerItemProxy */;
+		};
+		AF71FB2CF17EFBCDDB3991E8AA21A878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RBBAnimation;
+			target = 6128B1FC13A7AA9C834D819DC2D58768 /* RBBAnimation */;
+			targetProxy = 92DB60891DBF11A958B0B0FB3AA74101 /* PBXContainerItemProxy */;
+		};
+		F857C15DA731087DC26B2627258CA6E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LMAlertView;
+			target = B1B4089F7EA0FB942333F17CAAB53AED /* LMAlertView */;
+			targetProxy = B4FB938AB07BF4B28959FBB855DAE379 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -383,9 +797,57 @@
 			};
 			name = Release;
 		};
-		2EBDFDAB8A7E93D8BE438F347A1C2DFE /* Release */ = {
+		32DC58CFDCCFCBBEC4EAF0C4D7831E52 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */;
+			baseConfigurationReference = 5642339AD3E7D3BD2298AB490CD847A9 /* LMAlertView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LMAlertView/LMAlertView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3F3BE43E4FB3A2C38E2C64AF1E49F336 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C4BB51AFBBF39EB1EAA9C49D9334C02 /* RBBAnimation-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RBBAnimation/RBBAnimation-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		559EE34432C0CA55307A2E790702B34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09A9933CD788257E16055EC125715404 /* CAAnimationBlocks-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CAAnimationBlocks/CAAnimationBlocks-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		754A06C948F3728DE17AA8EEB1EE2888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 283D823201E1CC3C6627AED519F350C0 /* ASOAnimatedButton-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ASOAnimatedButton/ASOAnimatedButton-prefix.pch";
@@ -399,9 +861,41 @@
 			};
 			name = Release;
 		};
-		4F5B3AF6DA5B36495B5942C8AAA22ADF /* Debug */ = {
+		8FF663690427F011B0FB66FFE0B0498A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA9E2ED51CC316CC802AC0B45E7A1998 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = DFF431435CFBFF9A4C2EE0F00D1C00C9 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A6683B95622303CDF8FF70B6782C930B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5642339AD3E7D3BD2298AB490CD847A9 /* LMAlertView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LMAlertView/LMAlertView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A7C22B71D3B172440C60B8BB5C4B53C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CFD3E4DB0A25A032B7F2D0CAAEC643E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -415,28 +909,12 @@
 			};
 			name = Debug;
 		};
-		770C80C2C300C747E7FDEB705AB65F1D /* Release */ = {
+		A94E74846908CDB7C52C983C17DBF172 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7DD3F4497C79845FBE3D941A41B67F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 09A9933CD788257E16055EC125715404 /* CAAnimationBlocks-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		B187371947D101D3DDAA4F971CDB8DFE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 099D7CA45B2ADEDC25147F2553D77065 /* ASOAnimatedButton-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ASOAnimatedButton/ASOAnimatedButton-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/CAAnimationBlocks/CAAnimationBlocks-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -486,9 +964,50 @@
 			};
 			name = Debug;
 		};
+		B7AB5CAED8518604BF32AEF76AA24E78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C4BB51AFBBF39EB1EAA9C49D9334C02 /* RBBAnimation-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RBBAnimation/RBBAnimation-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F961B4348F20C014305905F70DCCF566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 283D823201E1CC3C6627AED519F350C0 /* ASOAnimatedButton-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ASOAnimatedButton/ASOAnimatedButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		28B08DF7287494CF0541893D55CA91C1 /* Build configuration list for PBXNativeTarget "RBBAnimation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AB5CAED8518604BF32AEF76AA24E78 /* Debug */,
+				3F3BE43E4FB3A2C38E2C64AF1E49F336 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -498,20 +1017,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8AC034607E82B22895EE89ED6E45124A /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		4F431BA6F28C6B2291A411F9BA9067E4 /* Build configuration list for PBXNativeTarget "LMAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F5B3AF6DA5B36495B5942C8AAA22ADF /* Debug */,
-				770C80C2C300C747E7FDEB705AB65F1D /* Release */,
+				A6683B95622303CDF8FF70B6782C930B /* Debug */,
+				32DC58CFDCCFCBBEC4EAF0C4D7831E52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7056A41ABEDB8260EECC2451F41674A /* Build configuration list for PBXNativeTarget "ASOAnimatedButton" */ = {
+		65366884D24AB8DCEB5F26729E4CDBEC /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B187371947D101D3DDAA4F971CDB8DFE /* Debug */,
-				2EBDFDAB8A7E93D8BE438F347A1C2DFE /* Release */,
+				A7C22B71D3B172440C60B8BB5C4B53C2 /* Debug */,
+				8FF663690427F011B0FB66FFE0B0498A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CAAB87661E47E2F9E21F3313E38B952 /* Build configuration list for PBXNativeTarget "ASOAnimatedButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F961B4348F20C014305905F70DCCF566 /* Debug */,
+				754A06C948F3728DE17AA8EEB1EE2888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E63B8AF0E2F14D04EF51495D3E3CDD7B /* Build configuration list for PBXNativeTarget "CAAnimationBlocks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A94E74846908CDB7C52C983C17DBF172 /* Debug */,
+				559EE34432C0CA55307A2E790702B34E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

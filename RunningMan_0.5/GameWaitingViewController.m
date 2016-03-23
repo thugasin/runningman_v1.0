@@ -8,6 +8,7 @@
 
 #import "GameWaitingViewController.h"
 #import "PacManMainGameViewController.h"
+#import "LMAlertView.h"
 
 @interface GameWaitingViewController ()
 
@@ -15,6 +16,7 @@
 @property (nonatomic,copy) PomeloWSCallback onLeaveCallback;
 @property (nonatomic,copy) PomeloWSCallback getUserListBlock;
 @property (nonatomic,copy) PomeloWSCallback onGameStartCallback;
+@property (nonatomic,copy) PomeloWSCallback onRoleAssignedCallback;
 
 @end
 
@@ -43,10 +45,12 @@
                    andParams:params andCallback:self.getUserListBlock];
     [self InitOnJoinCallback];
     [self InitOnLeaveCallback];
+    [self InitRoleAssignment];
     [self InitGameStartCallback];
     
     [pomelo onRoute:@"onJoin" withCallback:self.onJoinCallback];
     [pomelo onRoute:@"onLeave" withCallback:self.onLeaveCallback];
+    [pomelo onRoute:@"onRoleAssigned" withCallback:self.onRoleAssignedCallback];
     [pomelo onRoute:@"onStart" withCallback:self.onGameStartCallback];
     
 }
@@ -168,6 +172,39 @@
 -(void) SetGameName:(NSString*)gameName
 {
     GameName = gameName;
+}
+
+-(void) InitRoleAssignment
+{
+    self.onRoleAssignedCallback = ^(NSDictionary* mapInfo)
+    {
+        NSString* role =[mapInfo objectForKey:@"role"];
+        
+        LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:@"Your Role is: Demon" message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        
+        [cardAlertView setSize:CGSizeMake(270.0, 167.0)];
+        
+        UIView *contentView = cardAlertView.contentView;
+        
+        CGFloat yOffset = 55.0;
+        
+        UIImage *card1Image= [UIImage imageNamed:@"role-demon"];
+        UIGraphicsBeginImageContext( CGSizeMake(110.4, 63.6) );
+        [card1Image drawInRect:CGRectMake(0,0,110.4, 63.6)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        UIImageView *card1ImageView= [[UIImageView alloc] initWithImage:newImage];
+        
+        
+        card1ImageView.frame = CGRectMake(80, yOffset, card1ImageView.frame.size.width, card1ImageView.frame.size.height);
+        card1ImageView.layer.cornerRadius = 5.0;
+        card1ImageView.layer.masksToBounds = YES;
+        [contentView addSubview:card1ImageView];
+        
+        
+        [cardAlertView show];
+    };
 }
 
 -(IBAction)OnStartGameButtonClicked:(id)sender

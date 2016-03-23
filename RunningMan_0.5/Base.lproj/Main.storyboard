@@ -126,15 +126,38 @@
                                     <action selector="menuButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cTU-I7-S61"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqF-aw-Jgy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                <color key="backgroundColor" red="0.9737337070240798" green="0.99342727872978376" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9c1-kE-VNl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pil-CC-iZP">
+                                <rect key="frame" x="20" y="460" width="46" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Xb6-vc-HZr"/>
+                                    <constraint firstAttribute="height" constant="50" id="e1c-40-D5j"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Microphone Pressed"/>
+                                <connections>
+                                    <action selector="chatButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wbn-xd-Z2Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oat-VP-PUR" firstAttribute="top" secondItem="1kq-2U-WeV" secondAttribute="bottom" constant="48" id="8vB-MT-SHr"/>
                             <constraint firstItem="1kq-2U-WeV" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Mc3-xe-uEM"/>
+                            <constraint firstItem="eqF-aw-Jgy" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Oey-pA-iqr"/>
+                            <constraint firstItem="oat-VP-PUR" firstAttribute="top" secondItem="Pil-CC-iZP" secondAttribute="bottom" constant="58" id="a9v-1J-IsR"/>
+                            <constraint firstItem="Pil-CC-iZP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="w9u-QS-vNF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ChatButton" destination="Pil-CC-iZP" id="LiY-MF-PrK"/>
                         <outlet property="MenuButton" destination="1kq-2U-WeV" id="ruk-os-Omu"/>
+                        <outlet property="TopMenu" destination="eqF-aw-Jgy" id="P46-Iw-02o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -287,7 +310,7 @@
                                 <rect key="frame" x="130" y="498" width="60" height="30"/>
                                 <state key="normal" title="开始游戏"/>
                                 <connections>
-                                    <action selector="OnStartGameButtonClicked:" destination="yCm-hb-0ML" eventType="touchUpInside" id="4Op-k2-t7g"/>
+                                    <action selector="OnStartGameButtonClicked:" destination="M2s-jh-x5V" eventType="touchUpInside" id="rRo-sa-fqa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="xx的游戏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rz-Yi-izj">
@@ -396,6 +419,7 @@
         <image name="MenuItem1" width="50" height="50"/>
         <image name="MenuItem2" width="50" height="50"/>
         <image name="MenuItem3" width="50" height="50"/>
+        <image name="Microphone Pressed" width="256" height="256"/>
         <image name="OnStateButtonImage" width="56" height="56"/>
         <image name="pacman-1" width="9" height="9"/>
     </resources>

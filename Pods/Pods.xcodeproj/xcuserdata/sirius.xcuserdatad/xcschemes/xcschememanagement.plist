@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CAAnimationBlocks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>LMAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RBBAnimation.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2B52682867488686011846FFA63A60E5</key>
+		<key>6128B1FC13A7AA9C834D819DC2D58768</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>300E286E3853F128E26ED928099C0EFA</key>
+		<key>7CF1DE4A3A8B3BDE86A49348991E5734</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8AE5D1AADE7C306698974C1C1B854D07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1B4089F7EA0FB942333F17CAAB53AED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E63466B15249A0D8EFBDB946DEE96CF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -474,7 +474,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "467399482.492643"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "468344842.61869"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479527949.686312"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479473836.32528"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-InitPlayerUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -650,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479527949.686312"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479527949.686312"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479527949.686312"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -842,11 +842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479473836.32528"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-InitPlayerUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1242,11 +1242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479473836.32528"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-InitMapUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1258,11 +1258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479473836.32528"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-InitMapUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1322,11 +1322,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "479527949.686312"
+            timestampString = "479566211.089833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "-OnStopButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>

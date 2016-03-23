@@ -15,6 +15,7 @@
 #import "ASOTwoStateButton.h"
 #import "ASOBounceButtonViewDelegate.h"
 #import "BounceButtonView.h"
+#import "GameInfoViewController.h"
 
 @interface PacManMainGameViewController:UIViewController<MAMapViewDelegate>
 {
@@ -24,7 +25,8 @@
     AnimatedAnnotation* mySelfAnnotation;
     PomeloWS* pomelo;
     NSString* userID;
-    
+    GameInfoViewController *_gameInfoView;
+    bool bChatButtonEnabled;
     
     __block NSMutableDictionary *mapInfolist;
 }
@@ -35,13 +37,17 @@
 @property (nonatomic, strong) IBOutlet ASOTwoStateButton *MenuButton;
 
 -(IBAction) menuButtonAction:(id)sender;
+-(IBAction) chatButtonClicked:(id)sender;
+
 @property (nonatomic, retain) NSTimer *Timmer;
-@property (strong, nonatomic) IBOutlet UIButton * StopGameButton;
+@property (nonatomic, retain) IBOutlet UIButton* ChatButton;
 @property (nonatomic, strong) NSMutableArray* GameGridRow;
 @property (nonatomic, strong) NSMutableArray* GameGridColunm;
 @property (nonatomic) NSMutableDictionary* PlayerList;
 @property (nonatomic,strong) NSString* UserName;
 @property (nonatomic,strong) NSString* GameID;
+
+@property (strong, nonatomic) IBOutlet UIView * TopMenu;
 
 -(MAPointAnnotation*)addAnnotationWithCooordinate:(CLLocationCoordinate2D)coordinate;
 -(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSMutableArray*)annotationList forKey:(NSString*)key;

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "293320C49B5D251043ACEA99"
+               BlueprintIdentifier = "8ABC81EE15B32C60AA2C9BE8"
                BuildableName = "libASOAnimatedButton.a"
                BlueprintName = "ASOAnimatedButton"
                ReferencedContainer = "container:Pods.xcodeproj">
