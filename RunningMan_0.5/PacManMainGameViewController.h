@@ -16,6 +16,7 @@
 #import "ASOBounceButtonViewDelegate.h"
 #import "BounceButtonView.h"
 #import "GameInfoViewController.h"
+#import "ImageHandler.h"
 
 @interface PacManMainGameViewController:UIViewController<MAMapViewDelegate>
 {
@@ -27,6 +28,12 @@
     NSString* userID;
     GameInfoViewController *_gameInfoView;
     bool bChatButtonEnabled;
+    NSDictionary* imageDictionary;
+    
+    NSDictionary* annotaitonIdentifierInfo;
+    
+    float annotationWidth;
+    float annotationHeight;
     
     __block NSMutableDictionary *mapInfolist;
 }
@@ -50,7 +57,7 @@
 @property (strong, nonatomic) IBOutlet UIView * TopMenu;
 
 -(MAPointAnnotation*)addAnnotationWithCooordinate:(CLLocationCoordinate2D)coordinate;
--(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSMutableArray*)annotationList forKey:(NSString*)key;
+-(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSDictionary*)annotationImageInfo forKey:(NSString*)key;
 -(IBAction) OnStopButtonClicked:(id)sender;
 -(void) SetGameID:(NSString*)gameID;
 

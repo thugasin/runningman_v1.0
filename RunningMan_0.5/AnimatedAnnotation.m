@@ -15,6 +15,10 @@
 @synthesize coordinate = _coordinate;
 
 @synthesize animatedImages = _animatedImages;
+@synthesize width;
+@synthesize height;
+@synthesize identifier;
+@synthesize animationRepeatCount;
 
 #pragma mark - life cycle
 

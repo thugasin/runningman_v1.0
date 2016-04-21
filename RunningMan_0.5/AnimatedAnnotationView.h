@@ -10,6 +10,7 @@
 
 @interface AnimatedAnnotationView : MAAnnotationView
 
+- (id)initWithAnimatedAnnotation:(id<MAAnnotation>)annotation;
 @property (nonatomic, strong) UIImageView *imageView;
 
 @end

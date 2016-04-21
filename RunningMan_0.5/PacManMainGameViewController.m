@@ -44,13 +44,18 @@
     
     pomelo = [PomeloWS GetPomelo];
     
+    annotationWidth = 50.0;
+    annotationHeight = 50.0;
+    
     [self InitDrawMap];
     
     [self InitPlayerUpdate];
     [self InitMapUpdate];
     
+    ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
+    NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&Demon"];
     
-
+    imageDictionary = [list objectAtIndex:0];
     
     // Set the 'menu button
     [self.MenuButton initAnimationWithFadeEffectEnabled:NO]; // Set to 'NO' to disable Fade effect between its two-state transition
@@ -165,18 +170,19 @@
                 [mapInfolist setObject:info forKey:key];
                 
                 NSMutableArray *playerImages = [[NSMutableArray alloc] init];
-                if([[info objectForKey:@"Role"]  isEqualToString:@"pacman"])
-                {
-                    [playerImages addObject:[UIImage imageNamed:@"demon-game14.png"]];
-                    
-                    
-                }
-                if([[info objectForKey:@"Role"]  isEqualToString:@"bean"])
-                {
-                    [playerImages addObject:[UIImage imageNamed:@"bean.png"]];
-                }
                 
-                [self addPlayerAnnotationWithCoordinate:CLLocationCoordinate2DMake([[info objectForKey:@"X"] doubleValue], [[info objectForKey:@"Y"] doubleValue]) DisplayMessage:[info objectForKey:@"DisplayName"] AnnotationList:playerImages forKey:key];
+                NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:[info objectForKey:@"Role"]] objectForKey:@"Normal"];
+//
+                
+//                [playerImages addObject:[UIImage imageNamed:@"angleAttack1.png"]];
+//                [playerImages addObject:[UIImage imageNamed:@"angleAttack2.png"]];
+//                [playerImages addObject:[UIImage imageNamed:@"angleAttack3.png"]];
+//                [playerImages addObject:[UIImage imageNamed:@"angleAttack4.png"]];
+//                [playerImages addObject:[UIImage imageNamed:@"angleAttack5.png"]];
+//                [playerImages addObject:[UIImage imageNamed:@"angleAttack6.png"]];
+//                [playerImages addObject:[UIImage imageNamed:@"angleAttack7.png"]];
+                
+                [self addPlayerAnnotationWithCoordinate:CLLocationCoordinate2DMake([[info objectForKey:@"X"] doubleValue], [[info objectForKey:@"Y"] doubleValue]) DisplayMessage:[info objectForKey:@"DisplayName"] AnnotationList:annotationImageInfo forKey:key];
         
             }
             
@@ -210,11 +216,22 @@
     
 }
 
--(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSMutableArray*)annotationList forKey:(NSString*)key
+-(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSDictionary*)annotationImageInfo forKey:(NSString*)key
 {
     AnimatedAnnotation* PlayerAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:coordinate];
-    PlayerAnnotation.animatedImages = annotationList;
+    
+    NSMutableArray* imageList = [NSMutableArray arrayWithCapacity:20];
+    
+    for (NSString *imageRef in [annotationImageInfo objectForKey:@"images"]) {
+        [imageList addObject:[UIImage imageNamed:imageRef]];
+    }
+    
+    PlayerAnnotation.animatedImages = imageList;
     PlayerAnnotation.title          = message;
+    PlayerAnnotation.width = [[annotationImageInfo objectForKey:@"width"] doubleValue];
+    PlayerAnnotation.height = [[annotationImageInfo objectForKey:@"height"] doubleValue];
+    PlayerAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
+    PlayerAnnotation.animationRepeatCount = [[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
     
     [PlayerList setObject:PlayerAnnotation forKey:key];
     
@@ -256,7 +273,7 @@
     [self StartTrackingUserLocation];
     
     [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
-    [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
+  //  [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
     
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     
@@ -289,41 +306,39 @@
 {
     if ([annotation isKindOfClass:[AnimatedAnnotation class]])
     {
-        static NSString *animatedAnnotationIdentifier = @"AnimatedAnnotationIdentifier";
+        AnimatedAnnotation* animatedAnotation = annotation;
         
-        AnimatedAnnotationView *annotationView = (AnimatedAnnotation *)[mapView dequeueReusableAnnotationViewWithIdentifier:animatedAnnotationIdentifier];
+        AnimatedAnnotationView *annotationView = (AnimatedAnnotation *)[mapView dequeueReusableAnnotationViewWithIdentifier:animatedAnotation.identifier];
         
         if (annotationView == nil)
         {
-            annotationView = [[AnimatedAnnotationView alloc] initWithAnnotation:annotation
-                                                                reuseIdentifier:animatedAnnotationIdentifier];
+            annotationView = [[AnimatedAnnotationView alloc] initWithAnimatedAnnotation:annotation];
             
-            annotationView.canShowCallout   = YES;
-            annotationView.draggable        = YES;
+            annotationView.draggable        = YES;   //tempaorally set as draggable for test
         }
         
         return annotationView;
     }
     
-    if ([annotation isKindOfClass:[MAPointAnnotation class]])
-    {
-        static NSString *customReuseIndetifier = @"customReuseIndetifier";
-        
-        CustomAnnotationView *beanView = (CustomAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-        
-        if (beanView == nil)
-        {
-            beanView = [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
-            // must set to NO, so we can show the custom callout view.
-            beanView.canShowCallout = NO;
-            beanView.draggable = NO;
-            //beanView.calloutOffset = CGPointMake(0, -5);
-        }
-        
-        beanView.portrait = [UIImage imageNamed:@"bean.png"];
-        
-        return beanView;
-    }
+//    if ([annotation isKindOfClass:[MAPointAnnotation class]])
+//    {
+//        static NSString *customReuseIndetifier = @"customReuseIndetifier";
+//        
+//        CustomAnnotationView *beanView = (CustomAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
+//        
+//        if (beanView == nil)
+//        {
+//            beanView = [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
+//            // must set to NO, so we can show the custom callout view.
+//            beanView.canShowCallout = NO;
+//            beanView.draggable = NO;
+//            //beanView.calloutOffset = CGPointMake(0, -5);
+//        }
+//        
+//        beanView.portrait = [UIImage imageNamed:@"bean.png"];
+//        
+//        return beanView;
+//    }
     
     return nil;
 }
@@ -375,14 +390,27 @@
             NSMutableArray *trainImages = [[NSMutableArray alloc] init];
             
             [trainImages addObject:[UIImage imageNamed:@"demon-game.png"]];
+//              [trainImages addObject:[UIImage imageNamed:@"angleAttack1.png"]];
+//              [trainImages addObject:[UIImage imageNamed:@"angleAttack2.png"]];
+//              [trainImages addObject:[UIImage imageNamed:@"angleAttack3.png"]];
+//              [trainImages addObject:[UIImage imageNamed:@"angleAttack4.png"]];
+//              [trainImages addObject:[UIImage imageNamed:@"angleAttack5.png"]];
+//              [trainImages addObject:[UIImage imageNamed:@"angleAttack6.png"]];
+//              [trainImages addObject:[UIImage imageNamed:@"angleAttack7.png"]];
             
             mySelfAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:userLocation.coordinate];
             mySelfAnnotation.animatedImages = trainImages;
+            mySelfAnnotation.animationRepeatCount=0;
+            mySelfAnnotation.width=30;
+            mySelfAnnotation.height=30;
+            mySelfAnnotation.identifier = @"myself";
             [_mapView addAnnotation:mySelfAnnotation];
             bInitSelfPresentation = true;
         }
         else
+        {
             mySelfAnnotation.coordinate = userLocation.coordinate;
+        }
         
         NSDictionary *params = @{@"userid":UserName,
                                  @"x":[NSString stringWithFormat:@"%f",userLocation.coordinate.latitude]

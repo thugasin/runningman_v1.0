@@ -29,6 +29,12 @@
     Password.placeholder = @"密码";
     UserId.placeholder = @"用户名／手机号／邮箱号";
     
+    NSLog([[NSBundle mainBundle] bundlePath]);
+    NSString *strr = [[NSBundle mainBundle] pathForResource:@"ImageMap"
+                                    ofType:@"json"
+                               inDirectory:@"Configure"];
+    
+    
    // [self.view setBackgroundColor:[UIColor colorWithRed:71/255.0 green:204/255.0 blue:255/255.0 alpha:1]];
     
     [loginButton setTitle:@"登陆" forState:UIControlStateNormal];

@@ -1,0 +1,41 @@
+{
+    "Angel&Demon": [
+                    {
+                    "pacman": {
+                    "Normal": {
+                    "images": [
+                               "demon-game"
+                               ],
+                    "width": 30,
+                    "height": 30,
+                    "identifier": "demon",
+                    "duration": 0
+                    },
+                    "RoleAssigned": "role-demon"
+                    },
+                    "ghost": {
+                    "Normal": {
+                    "images": [
+                               "angel-game"
+                               ],
+                    "width": 30,
+                    "height": 30,
+                    "identifier": "angel",
+                    "duration": 0
+                    },
+                    "RoleAssigned": "role-angel"
+                    },
+                    "bean": {
+                    "Normal": {
+                    "images": [
+                               "bean"
+                               ],
+                    "width": 20,
+                    "height": 20,
+                    "identifier": "bean",
+                    "duration": 0
+                    }
+                    }
+                    }
+                    ]
+}

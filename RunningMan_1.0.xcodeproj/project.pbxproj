@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1AD5EAB5EE18A6F299C24739 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C8903E16BFC6AFF291DD15 /* libPods.a */; };
 		361304411C26EB8700407D7B /* GameSelectionViewController_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */; };
-		361B30211C737313004F838D /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B30201C737313004F838D /* ImageHandler.swift */; };
+		363D6BEC1CBA3BA900595453 /* AnimatedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */; };
 		363DA99A1C19B8CE002AA5CC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA9991C19B8CE002AA5CC /* Security.framework */; };
 		363DA99C1C19B8E1002AA5CC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA99B1C19B8E1002AA5CC /* CFNetwork.framework */; };
 		363DA99E1C19B8EE002AA5CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA99D1C19B8EE002AA5CC /* UIKit.framework */; };
@@ -25,6 +25,8 @@
 		363F1E821C19C5A1009B5730 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F1E7C1C19C5A1009B5730 /* SocketIOTransportWebsocket.m */; };
 		363F1E831C19C5A1009B5730 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F1E7E1C19C5A1009B5730 /* SocketIOTransportXHR.m */; };
 		3642F9DF1C53D8B500B06D92 /* GameNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */; };
+		36502AB41CB24A78008F1A1E /* Configure in Resources */ = {isa = PBXBuildFile; fileRef = 36502AB31CB24A78008F1A1E /* Configure */; };
+		36502ABC1CB25472008F1A1E /* ImageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 36502ABB1CB25472008F1A1E /* ImageHandler.m */; };
 		365EB4281BC7CAEF001F3303 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB4271BC7CAEF001F3303 /* main.m */; };
 		365EB42B1BC7CAEF001F3303 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42A1BC7CAEF001F3303 /* AppDelegate.m */; };
 		365EB42E1BC7CAEF001F3303 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42D1BC7CAEF001F3303 /* ViewController.m */; };
@@ -59,7 +61,6 @@
 		36D074821BC7D1B100032359 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D0747F1BC7D1B100032359 /* AsyncSocket.m */; };
 		36D074831BC7D1B100032359 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D074811BC7D1B100032359 /* AsyncUdpSocket.m */; };
 		36D074891BC7D21500032359 /* AnimatedAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D074861BC7D21500032359 /* AnimatedAnnotation.m */; };
-		36D0748A1BC7D21500032359 /* AnimatedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D074881BC7D21500032359 /* AnimatedAnnotationView.m */; };
 		36D0748E1BC7D2F400032359 /* NetworkAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D0748D1BC7D2F400032359 /* NetworkAdapter.m */; };
 		36D074931BC7D35E00032359 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D074901BC7D35E00032359 /* GameObject.m */; };
 		36D074941BC7D35E00032359 /* PacManMainGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D074921BC7D35E00032359 /* PacManMainGameViewController.m */; };
@@ -100,9 +101,8 @@
 
 /* Begin PBXFileReference section */
 		30C8903E16BFC6AFF291DD15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		360E92101C3E5C8B005E2C89 /* ImageHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageHandler.h; sourceTree = "<group>"; };
 		361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController_swift.swift; sourceTree = "<group>"; };
-		361B30201C737313004F838D /* ImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = ../ImageHandler.swift; sourceTree = "<group>"; };
+		363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedAnnotationView.m; sourceTree = "<group>"; };
 		363DA9991C19B8CE002AA5CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		363DA99B1C19B8E1002AA5CC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		363DA99D1C19B8EE002AA5CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +129,9 @@
 		363F1E7E1C19C5A1009B5730 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = SocketIO/SocketIOTransportXHR.m; sourceTree = "<group>"; };
 		3642F9DD1C53D8B500B06D92 /* GameNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameNavigationViewController.h; sourceTree = "<group>"; };
 		3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameNavigationViewController.m; sourceTree = "<group>"; };
+		36502AB31CB24A78008F1A1E /* Configure */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Configure; sourceTree = "<group>"; };
+		36502ABA1CB25472008F1A1E /* ImageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHandler.h; sourceTree = "<group>"; };
+		36502ABB1CB25472008F1A1E /* ImageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHandler.m; sourceTree = "<group>"; };
 		365EB4231BC7CAEF001F3303 /* RunningMan_1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningMan_1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		365EB4271BC7CAEF001F3303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		365EB4291BC7CAEF001F3303 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -222,7 +225,6 @@
 		36D074851BC7D21500032359 /* AnimatedAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedAnnotation.h; sourceTree = "<group>"; };
 		36D074861BC7D21500032359 /* AnimatedAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedAnnotation.m; sourceTree = "<group>"; };
 		36D074871BC7D21500032359 /* AnimatedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedAnnotationView.h; sourceTree = "<group>"; };
-		36D074881BC7D21500032359 /* AnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedAnnotationView.m; sourceTree = "<group>"; };
 		36D0748C1BC7D2F400032359 /* NetworkAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAdapter.h; sourceTree = "<group>"; };
 		36D0748D1BC7D2F400032359 /* NetworkAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAdapter.m; sourceTree = "<group>"; };
 		36D0748F1BC7D35E00032359 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
@@ -378,6 +380,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		36502AB61CB25384008F1A1E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				36502ABA1CB25472008F1A1E /* ImageHandler.h */,
+				36502ABB1CB25472008F1A1E /* ImageHandler.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		365EB41A1BC7CAEF001F3303 = {
 			isa = PBXGroup;
 			children = (
@@ -404,11 +415,12 @@
 		365EB4251BC7CAEF001F3303 /* RunningMan_1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				36502AB61CB25384008F1A1E /* Utilities */,
+				36502AB31CB24A78008F1A1E /* Configure */,
 				369303121C9853C70034A23E /* NRTCDependencies */,
 				369303011C9853920034A23E /* NRTC */,
 				366A4EA31C942BC4007095F7 /* BounceButtonView.h */,
 				366A4EA41C942BC4007095F7 /* BounceButtonView.m */,
-				361B30201C737313004F838D /* ImageHandler.swift */,
 				36D3EFB61C39779A00E98B2F /* PomeloWS */,
 				36D982361C3783080040BC4A /* Pomelo */,
 				363F1E731C19C587009B5730 /* SocketIO */,
@@ -441,7 +453,6 @@
 				36C24FF31BCE5B4E00BE028B /* GameWaitingViewController.m */,
 				36B2AC201BE7B4DD00F9DE01 /* UncaughtExceptionHandler.h */,
 				36B2AC211BE7B51500F9DE01 /* UncaughtExceptionHandler.m */,
-				360E92101C3E5C8B005E2C89 /* ImageHandler.h */,
 				3642F9DD1C53D8B500B06D92 /* GameNavigationViewController.h */,
 				3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */,
 				366A4EA61C9582C0007095F7 /* GameInfoViewController.h */,
@@ -641,6 +652,7 @@
 		36D0748B1BC7D21E00032359 /* lbsInclude */ = {
 			isa = PBXGroup;
 			children = (
+				363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */,
 				36B6EA051BD5F6A800F59C7C /* CustomCalloutView.h */,
 				36B6EA061BD5F6A800F59C7C /* CustomCalloutView.m */,
 				36B6EA021BD5F37D00F59C7C /* CustomAnnotationView.h */,
@@ -648,7 +660,6 @@
 				36D074851BC7D21500032359 /* AnimatedAnnotation.h */,
 				36D074861BC7D21500032359 /* AnimatedAnnotation.m */,
 				36D074871BC7D21500032359 /* AnimatedAnnotationView.h */,
-				36D074881BC7D21500032359 /* AnimatedAnnotationView.m */,
 			);
 			name = lbsInclude;
 			sourceTree = "<group>";
@@ -805,6 +816,7 @@
 				365EB4361BC7CAEF001F3303 /* LaunchScreen.storyboard in Resources */,
 				365EB4331BC7CAEF001F3303 /* Assets.xcassets in Resources */,
 				365EB4311BC7CAEF001F3303 /* Main.storyboard in Resources */,
+				36502AB41CB24A78008F1A1E /* Configure in Resources */,
 				36E82E151C4BE378000A5633 /* GameInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -866,9 +878,9 @@
 				36D3EFC51C3977D300E98B2F /* PomeloWSProtobuf.m in Sources */,
 				36D3EFB51C39779200E98B2F /* PWSProtocol.m in Sources */,
 				36D3EFC41C3977D300E98B2F /* PBHelper.m in Sources */,
-				36D0748A1BC7D21500032359 /* AnimatedAnnotationView.m in Sources */,
 				361304411C26EB8700407D7B /* GameSelectionViewController_swift.swift in Sources */,
 				36CFB00D1C159625001611F2 /* LoginInputViewController.m in Sources */,
+				36502ABC1CB25472008F1A1E /* ImageHandler.m in Sources */,
 				36D074931BC7D35E00032359 /* GameObject.m in Sources */,
 				36B6EA041BD5F37D00F59C7C /* CustomAnnotationView.m in Sources */,
 				365EB42E1BC7CAEF001F3303 /* ViewController.m in Sources */,
@@ -895,6 +907,7 @@
 				36B2AC221BE7B51500F9DE01 /* UncaughtExceptionHandler.m in Sources */,
 				36E82E111C4B29A9000A5633 /* GameInfoTableCellView.m in Sources */,
 				36D074A21BC7DB2E00032359 /* GameSelectionViewController.m in Sources */,
+				363D6BEC1CBA3BA900595453 /* AnimatedAnnotationView.m in Sources */,
 				36D074A11BC7DB2E00032359 /* GameConfigurationViewController.m in Sources */,
 				363F1E701C19C561009B5730 /* base64.c in Sources */,
 				36D074821BC7D1B100032359 /* AsyncSocket.m in Sources */,
@@ -902,7 +915,6 @@
 				366FDD6C1C1AD5A50033A57F /* GameInfoTableViewCell.swift in Sources */,
 				36D3EFC31C3977D300E98B2F /* PBEncoder.m in Sources */,
 				36D3EFC11C3977D300E98B2F /* PBCodec.m in Sources */,
-				361B30211C737313004F838D /* ImageHandler.swift in Sources */,
 				363F1E721C19C561009B5730 /* SRWebSocket.m in Sources */,
 				36D0748E1BC7D2F400032359 /* NetworkAdapter.m in Sources */,
 				363F1E821C19C5A1009B5730 /* SocketIOTransportWebsocket.m in Sources */,

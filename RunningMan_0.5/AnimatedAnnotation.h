@@ -14,6 +14,10 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic) long width;
+@property (nonatomic) long height;
+@property (nonatomic) long animationRepeatCount;
 
 @property (nonatomic, strong) NSMutableArray *animatedImages;
 

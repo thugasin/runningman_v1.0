@@ -20,16 +20,20 @@
 #pragma mark - Life Cycle
 
 //- (id)initWithAnnotation:(id<MAAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier width:(float)width height:(float)height
-- (id)initWithAnnotation:(id<MAAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithAnimatedAnnotation:(id<MAAnnotation>)annotation
 {
-    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+    AnimatedAnnotation *animatedAnotation = annotation;
+    self = [super initWithAnnotation:annotation reuseIdentifier:animatedAnotation.identifier];
     
     if (self)
     {
-        [self setBounds:CGRectMake(0.f, 0.f, kWidth, kHeight)];
+        [self setBounds:CGRectMake(0.f, 0.f, animatedAnotation.width, animatedAnotation.height)];
       //  [self setBackgroundColor:[UIColor clearColor]];
         
         self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        self.imageView.animationRepeatCount = animatedAnotation.animationRepeatCount;
+        self.imageView.animationImages      = animatedAnotation.animatedImages;
+        self.imageView.animationDuration    = kTimeInterval * [animatedAnotation.animatedImages count];
         [self addSubview:self.imageView];
     }
     
@@ -47,9 +51,7 @@
         [self.imageView stopAnimating];
     }
     
-    self.imageView.animationImages      = animatedAnnotation.animatedImages;
-    self.imageView.animationDuration    = kTimeInterval * [animatedAnnotation.animatedImages count];
-    self.imageView.animationRepeatCount = 0;
+    
     [self.imageView startAnimating];
 }
 
