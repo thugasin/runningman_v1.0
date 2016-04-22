@@ -179,14 +179,23 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRD-Pc-Hux">
                                 <rect key="frame" x="164" y="490" width="50" height="50"/>
                                 <state key="normal" backgroundImage="MenuItem3"/>
+                                <connections>
+                                    <action selector="OnMenuItem3ButtonClicked:" destination="hxR-ke-lQj" eventType="touchUpInside" id="ugL-gh-9BJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-yK-9xV">
                                 <rect key="frame" x="254" y="395" width="50" height="50"/>
                                 <state key="normal" backgroundImage="MenuItem1"/>
+                                <connections>
+                                    <action selector="OnMenuItem1ButtonClicked:" destination="hxR-ke-lQj" eventType="touchUpInside" id="BJq-D8-KzO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxL-Xc-lAP">
                                 <rect key="frame" x="186" y="426" width="50" height="50"/>
                                 <state key="normal" image="MenuItem2"/>
+                                <connections>
+                                    <action selector="OnMenuItem2ButtonClicked:" destination="hxR-ke-lQj" eventType="touchUpInside" id="Qqr-zJ-UsO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

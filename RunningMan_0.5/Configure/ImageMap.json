@@ -9,7 +9,7 @@
                     "width": 30,
                     "height": 30,
                     "identifier": "demon",
-                    "duration": 0
+                    "repeatCount": 0
                     },
                     "RoleAssigned": "role-demon"
                     },
@@ -21,7 +21,7 @@
                     "width": 30,
                     "height": 30,
                     "identifier": "angel",
-                    "duration": 0
+                    "repeatCount": 0
                     },
                     "RoleAssigned": "role-angel"
                     },
@@ -33,7 +33,24 @@
                     "width": 20,
                     "height": 20,
                     "identifier": "bean",
-                    "duration": 0
+                    "repeatCount": 0
+                    }
+                    },
+                    "angelAttact": {
+                    "Normal": {
+                    "images": [
+                               "angleAttack1",
+                               "angleAttack2",
+                               "angleAttack3",
+                               "angleAttack4",
+                               "angleAttack5",
+                               "angleAttack6",
+                               "angleAttack7"
+                               ],
+                    "width": 200,
+                    "height": 200,
+                    "identifier": "angelAttact",
+                    "repeatCount": 1
                     }
                     }
                     }

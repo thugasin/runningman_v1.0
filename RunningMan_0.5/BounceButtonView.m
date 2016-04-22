@@ -24,6 +24,7 @@
 // THE SOFTWARE.
 
 #import "BounceButtonView.h"
+#import "PacManMainGameViewController.h"
 
 @implementation BounceButtonView
 
@@ -34,6 +35,20 @@
         // Initialization code
     }
     return self;
+}
+
+-(IBAction)OnMenuItem1ButtonClicked:(id)sender
+{
+    [(PacManMainGameViewController*)m_gameViewController MenuTouchedAction:1];
+}
+-(IBAction)OnMenuItem2ButtonClicked:(id)sender
+{}
+-(IBAction)OnMenuItem3ButtonClicked:(id)sender
+{}
+
+-(void)SetController:(id)gameViewController
+{
+    m_gameViewController = gameViewController;
 }
 
 @end

@@ -53,6 +53,7 @@
 @property (nonatomic) NSMutableDictionary* PlayerList;
 @property (nonatomic,strong) NSString* UserName;
 @property (nonatomic,strong) NSString* GameID;
+@property (nonatomic,strong) NSString* RoleOfMyself;
 
 @property (strong, nonatomic) IBOutlet UIView * TopMenu;
 
@@ -60,6 +61,7 @@
 -(void)addPlayerAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate DisplayMessage:(NSString*)message AnnotationList:(NSDictionary*)annotationImageInfo forKey:(NSString*)key;
 -(IBAction) OnStopButtonClicked:(id)sender;
 -(void) SetGameID:(NSString*)gameID;
+-(void) MenuTouchedAction:(int)itemIndex;
 
 @end
 

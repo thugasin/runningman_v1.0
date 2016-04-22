@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkAdapter.h"
-#import "IObserver.h"
 #import "pomelows.h"
+#import "PacManMainGameViewController.h"
 
-@interface GameWaitingViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, IObserver>
+@interface GameWaitingViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     PomeloWS * pomelo;
+    __block PacManMainGameViewController* gameController;
 }
 
 @property (nonatomic,strong) __block NSMutableArray *list;

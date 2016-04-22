@@ -64,6 +64,7 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *menuItemsVC = (UIViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"ArchMenu"];
     self.menuItemView = (BounceButtonView *)menuItemsVC.view;
+    [self.menuItemView SetController:self];
     
     NSArray *arrMenuItemButtons = [[NSArray alloc] initWithObjects:self.menuItemView.menuItem1,
                                    self.menuItemView.menuItem2,
@@ -172,15 +173,6 @@
                 NSMutableArray *playerImages = [[NSMutableArray alloc] init];
                 
                 NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:[info objectForKey:@"Role"]] objectForKey:@"Normal"];
-//
-                
-//                [playerImages addObject:[UIImage imageNamed:@"angleAttack1.png"]];
-//                [playerImages addObject:[UIImage imageNamed:@"angleAttack2.png"]];
-//                [playerImages addObject:[UIImage imageNamed:@"angleAttack3.png"]];
-//                [playerImages addObject:[UIImage imageNamed:@"angleAttack4.png"]];
-//                [playerImages addObject:[UIImage imageNamed:@"angleAttack5.png"]];
-//                [playerImages addObject:[UIImage imageNamed:@"angleAttack6.png"]];
-//                [playerImages addObject:[UIImage imageNamed:@"angleAttack7.png"]];
                 
                 [self addPlayerAnnotationWithCoordinate:CLLocationCoordinate2DMake([[info objectForKey:@"X"] doubleValue], [[info objectForKey:@"Y"] doubleValue]) DisplayMessage:[info objectForKey:@"DisplayName"] AnnotationList:annotationImageInfo forKey:key];
         
@@ -389,21 +381,19 @@
             
             NSMutableArray *trainImages = [[NSMutableArray alloc] init];
             
-            [trainImages addObject:[UIImage imageNamed:@"demon-game.png"]];
-//              [trainImages addObject:[UIImage imageNamed:@"angleAttack1.png"]];
-//              [trainImages addObject:[UIImage imageNamed:@"angleAttack2.png"]];
-//              [trainImages addObject:[UIImage imageNamed:@"angleAttack3.png"]];
-//              [trainImages addObject:[UIImage imageNamed:@"angleAttack4.png"]];
-//              [trainImages addObject:[UIImage imageNamed:@"angleAttack5.png"]];
-//              [trainImages addObject:[UIImage imageNamed:@"angleAttack6.png"]];
-//              [trainImages addObject:[UIImage imageNamed:@"angleAttack7.png"]];
+            NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:@"Normal"];
+            
+            for (NSString*CGImageRef in [annotationImageInfo objectForKey:@"images"]) {
+                [trainImages addObject:[UIImage imageNamed:CGImageRef]];
+            }
+            
             
             mySelfAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:userLocation.coordinate];
             mySelfAnnotation.animatedImages = trainImages;
-            mySelfAnnotation.animationRepeatCount=0;
-            mySelfAnnotation.width=30;
-            mySelfAnnotation.height=30;
-            mySelfAnnotation.identifier = @"myself";
+            mySelfAnnotation.animationRepeatCount=[[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
+            mySelfAnnotation.width=[[annotationImageInfo objectForKey:@"width"] doubleValue];
+            mySelfAnnotation.height=[[annotationImageInfo objectForKey:@"height"] doubleValue];
+            mySelfAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
             [_mapView addAnnotation:mySelfAnnotation];
             bInitSelfPresentation = true;
         }
@@ -439,6 +429,31 @@
 -(void) SetGameID:(NSString*)gameID
 {
     GameID = gameID;
+}
+
+-(void)AddEffectAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate EffectName:(NSString*)effectName
+{
+    AnimatedAnnotation* EffectAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:coordinate];
+    
+    NSMutableArray* imageList = [NSMutableArray arrayWithCapacity:20];
+    
+    for (NSString *imageRef in [[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"images"]) {
+        [imageList addObject:[UIImage imageNamed:imageRef]];
+    }
+    
+    EffectAnnotation.animatedImages = imageList;
+    EffectAnnotation.width = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"width"] doubleValue];
+    EffectAnnotation.height = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"height"] doubleValue];
+    EffectAnnotation.identifier = [[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"identifier"];
+    EffectAnnotation.animationRepeatCount = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"repeatCount"] doubleValue];
+    
+    [_mapView addAnnotation:EffectAnnotation];
+}
+
+-(void) MenuTouchedAction:(int)itemIndex
+{
+    
+    [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelAttact"];
 }
 
 //- (void)didReceiveMemoryWarning {

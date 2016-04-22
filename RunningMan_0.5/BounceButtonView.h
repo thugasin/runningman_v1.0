@@ -26,9 +26,18 @@
 #import "ASOBounceButtonView.h"
 
 @interface BounceButtonView : ASOBounceButtonView
+{
+    UIViewController* m_gameViewController;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *menuItem1;
 @property (weak, nonatomic) IBOutlet UIButton *menuItem2;
 @property (weak, nonatomic) IBOutlet UIButton *menuItem3;
+
+-(IBAction)OnMenuItem1ButtonClicked:(id)sender;
+-(IBAction)OnMenuItem2ButtonClicked:(id)sender;
+-(IBAction)OnMenuItem3ButtonClicked:(id)sender;
+
+-(void)SetController:(id)gameViewController;
 
 @end

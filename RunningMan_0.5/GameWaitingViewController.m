@@ -7,7 +7,6 @@
 //
 
 #import "GameWaitingViewController.h"
-#import "PacManMainGameViewController.h"
 #import "LMAlertView.h"
 
 @interface GameWaitingViewController ()
@@ -53,6 +52,11 @@
     [pomelo onRoute:@"onRoleAssigned" withCallback:self.onRoleAssignedCallback];
     [pomelo onRoute:@"onStart" withCallback:self.onGameStartCallback];
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
+    gameController = (PacManMainGameViewController*)mainViewController;
+    [gameController SetGameID:GameID];
+    
 }
 
 - (void)InitGetUserListBlock
@@ -89,10 +93,8 @@
     {
         if ([[gameStartNotification objectForKey:@"success"] boolValue])
         {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
-            [(PacManMainGameViewController*)mainViewController SetGameID:GameID];
-            [self presentViewController:mainViewController animated:YES completion:^{
+            
+            [self presentViewController:gameController animated:YES completion:^{
             }];
         }
         else
@@ -179,8 +181,11 @@
     self.onRoleAssignedCallback = ^(NSDictionary* mapInfo)
     {
         NSString* role =[mapInfo objectForKey:@"role"];
+        NSString* instruction =[mapInfo objectForKey:@"instruction"];
+        gameController.RoleOfMyself = role;
         
-        LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:@"Your Role is: Demon" message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        NSString* roleMessage = [NSString stringWithFormat:@"Your Role is: %@",role];
+        LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:roleMessage message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
         [cardAlertView setSize:CGSizeMake(270.0, 167.0)];
         
@@ -188,7 +193,11 @@
         
         CGFloat yOffset = 55.0;
         
-        UIImage *card1Image= [UIImage imageNamed:@"role-demon"];
+        ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
+        NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&Demon"];
+        NSDictionary *imageDictionary = [list objectAtIndex:0];
+        
+        UIImage *card1Image= [UIImage imageNamed:[[imageDictionary objectForKey:role] objectForKey:@"RoleAssigned"]];
         UIGraphicsBeginImageContext( CGSizeMake(110.4, 63.6) );
         [card1Image drawInRect:CGRectMake(0,0,110.4, 63.6)];
         UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
