@@ -1,7 +1,7 @@
 {
     "Angel&Demon": [
                     {
-                    "pacman": {
+                    "demon": {
                     "Normal": {
                     "images": [
                                "demon-game"
@@ -13,7 +13,7 @@
                     },
                     "RoleAssigned": "role-demon"
                     },
-                    "ghost": {
+                    "angel": {
                     "Normal": {
                     "images": [
                                "angel-game"
@@ -23,9 +23,19 @@
                     "identifier": "angel",
                     "repeatCount": 0
                     },
+                    "Freeze": {
+                    "images": [
+                               "angleFreeze"
+                               ],
+                    "width": 30,
+                    "height": 30,
+                    "identifier": "angelFreeze",
+                    "repeatCount": 0
+                    },
+
                     "RoleAssigned": "role-angel"
                     },
-                    "bean": {
+                    "apple": {
                     "Normal": {
                     "images": [
                                "bean"
@@ -50,6 +60,21 @@
                     "width": 200,
                     "height": 200,
                     "identifier": "angelAttact",
+                    "repeatCount": 1
+                    }
+                    },
+                    "angelFreeze": {
+                    "Normal": {
+                    "images": [
+                               "angleFreeze1",
+                               "angleFreeze2",
+                               "angleFreeze3",
+                               "angleFreeze4",
+                               "angleFreeze5"
+                               ],
+                    "width": 30,
+                    "height": 30,
+                    "identifier": "angelFreeze",
                     "repeatCount": 1
                     }
                     }

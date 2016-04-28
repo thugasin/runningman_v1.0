@@ -1,0 +1,25 @@
+{
+    "Angel&Demon": [
+                    {
+                    "lightOfPunishment": {
+                    "image":"angelAttact",
+                    "actionType":"click",
+                    "identifier":"惩戒之光"
+                    },
+                    "sealOfDevil": {
+                    "image":"angelFreeze",
+                    "actionType":"drag",
+                    "dragEffect":"snow",
+                    },
+                    "hellWheels": {
+                    "image":"hellWheels",
+                    "actionType":"multipleClick",
+                    "clickEffects":
+                    {
+                        "click1":"click1",
+                        "click2":"click2"
+                    }
+                    },
+                    }
+                    ]
+}

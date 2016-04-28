@@ -134,7 +134,7 @@
                              @"y1":[NSString stringWithFormat:@"%f", playerLocation.coordinate.longitude+0.005866-0.001],
                              @"x2":[NSString stringWithFormat:@"%f", self.playerLocation.coordinate.latitude+0.001543+0.001],
                              @"y2":[NSString stringWithFormat:@"%f",playerLocation.coordinate.longitude+0.005866+0.001],
-                             @"gametype":[NSString stringWithFormat:@"%@\r\n", gameTypeNumber]};
+                             @"gametype":[NSString stringWithFormat:@"%@", @"Angel&Demon"]};
     pomelo = [PomeloWS GetPomelo];
     [pomelo requestWithRoute:@"game.gameHandler.create"
                    andParams:params andCallback:^(NSDictionary *result){

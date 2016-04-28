@@ -32,7 +32,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+
     }
     return self;
 }
@@ -42,13 +42,28 @@
     [(PacManMainGameViewController*)m_gameViewController MenuTouchedAction:1];
 }
 -(IBAction)OnMenuItem2ButtonClicked:(id)sender
-{}
+{
+    [(PacManMainGameViewController*)m_gameViewController MenuTouchedAction:2];
+}
 -(IBAction)OnMenuItem3ButtonClicked:(id)sender
 {}
+
+-(IBAction)OnMenuItem1ButtonDragged:(id)sender event:(UIEvent *)event
+{
+    
+}
 
 -(void)SetController:(id)gameViewController
 {
     m_gameViewController = gameViewController;
+}
+
+- (void) touchDragInsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:touch.view];
+    NSLog(@"Location x%f y%f",location.x,location.y);
+    
+    [(PacManMainGameViewController*)m_gameViewController MenuDraggedAction:2 Location:location];
 }
 
 @end

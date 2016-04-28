@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1AD5EAB5EE18A6F299C24739 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C8903E16BFC6AFF291DD15 /* libPods.a */; };
+		360F089B1CCC7A88002B5539 /* DWFParticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 360F089A1CCC7A88002B5539 /* DWFParticleView.m */; };
+		360F089E1CCCA973002B5539 /* DWFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 360F089D1CCCA973002B5539 /* DWFViewController.m */; };
+		360F08A71CCD1699002B5539 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 360F08A41CCD1699002B5539 /* NSData+Base64.m */; };
+		360F08A81CCD1699002B5539 /* UIEffectDesignerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 360F08A61CCD1699002B5539 /* UIEffectDesignerView.m */; };
+		360F08AD1CCDC3EC002B5539 /* snow.ped in Resources */ = {isa = PBXBuildFile; fileRef = 360F08AC1CCDC3EC002B5539 /* snow.ped */; };
+		360F08B91CD05CE3002B5539 /* ItemHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 360F08B81CD05CE3002B5539 /* ItemHandler.m */; };
 		361304411C26EB8700407D7B /* GameSelectionViewController_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */; };
 		363D6BEC1CBA3BA900595453 /* AnimatedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */; };
 		363DA99A1C19B8CE002AA5CC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA9991C19B8CE002AA5CC /* Security.framework */; };
@@ -101,6 +107,17 @@
 
 /* Begin PBXFileReference section */
 		30C8903E16BFC6AFF291DD15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		360F08991CCC7A88002B5539 /* DWFParticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWFParticleView.h; sourceTree = "<group>"; };
+		360F089A1CCC7A88002B5539 /* DWFParticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWFParticleView.m; sourceTree = "<group>"; };
+		360F089C1CCCA973002B5539 /* DWFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWFViewController.h; sourceTree = "<group>"; };
+		360F089D1CCCA973002B5539 /* DWFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWFViewController.m; sourceTree = "<group>"; };
+		360F08A31CCD1699002B5539 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "UIEffectDesignerView/NSData+Base64.h"; sourceTree = "<group>"; };
+		360F08A41CCD1699002B5539 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "UIEffectDesignerView/NSData+Base64.m"; sourceTree = "<group>"; };
+		360F08A51CCD1699002B5539 /* UIEffectDesignerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIEffectDesignerView.h; path = UIEffectDesignerView/UIEffectDesignerView.h; sourceTree = "<group>"; };
+		360F08A61CCD1699002B5539 /* UIEffectDesignerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIEffectDesignerView.m; path = UIEffectDesignerView/UIEffectDesignerView.m; sourceTree = "<group>"; };
+		360F08AC1CCDC3EC002B5539 /* snow.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = snow.ped; sourceTree = "<group>"; };
+		360F08B81CD05CE3002B5539 /* ItemHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemHandler.m; sourceTree = "<group>"; };
+		360F08BA1CD05D12002B5539 /* ItemHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHandler.h; sourceTree = "<group>"; };
 		361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController_swift.swift; sourceTree = "<group>"; };
 		363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedAnnotationView.m; sourceTree = "<group>"; };
 		363DA9991C19B8CE002AA5CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -336,6 +353,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		360F08A91CCD169F002B5539 /* UIEffectDesignerView */ = {
+			isa = PBXGroup;
+			children = (
+				360F08A31CCD1699002B5539 /* NSData+Base64.h */,
+				360F08A41CCD1699002B5539 /* NSData+Base64.m */,
+				360F08A51CCD1699002B5539 /* UIEffectDesignerView.h */,
+				360F08A61CCD1699002B5539 /* UIEffectDesignerView.m */,
+			);
+			name = UIEffectDesignerView;
+			sourceTree = "<group>";
+		};
 		363F1E5E1C19C462009B5730 /* SocketRocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +413,8 @@
 			children = (
 				36502ABA1CB25472008F1A1E /* ImageHandler.h */,
 				36502ABB1CB25472008F1A1E /* ImageHandler.m */,
+				360F08B81CD05CE3002B5539 /* ItemHandler.m */,
+				360F08BA1CD05D12002B5539 /* ItemHandler.h */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -415,6 +445,12 @@
 		365EB4251BC7CAEF001F3303 /* RunningMan_1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				360F08AC1CCDC3EC002B5539 /* snow.ped */,
+				360F08A91CCD169F002B5539 /* UIEffectDesignerView */,
+				360F089C1CCCA973002B5539 /* DWFViewController.h */,
+				360F089D1CCCA973002B5539 /* DWFViewController.m */,
+				360F08991CCC7A88002B5539 /* DWFParticleView.h */,
+				360F089A1CCC7A88002B5539 /* DWFParticleView.m */,
 				36502AB61CB25384008F1A1E /* Utilities */,
 				36502AB31CB24A78008F1A1E /* Configure */,
 				369303121C9853C70034A23E /* NRTCDependencies */,
@@ -815,6 +851,7 @@
 			files = (
 				365EB4361BC7CAEF001F3303 /* LaunchScreen.storyboard in Resources */,
 				365EB4331BC7CAEF001F3303 /* Assets.xcassets in Resources */,
+				360F08AD1CCDC3EC002B5539 /* snow.ped in Resources */,
 				365EB4311BC7CAEF001F3303 /* Main.storyboard in Resources */,
 				36502AB41CB24A78008F1A1E /* Configure in Resources */,
 				36E82E151C4BE378000A5633 /* GameInfoCell.xib in Resources */,
@@ -886,17 +923,21 @@
 				365EB42E1BC7CAEF001F3303 /* ViewController.m in Sources */,
 				36C24FF41BCE5B4E00BE028B /* GameWaitingViewController.m in Sources */,
 				363F1E7F1C19C5A1009B5730 /* SocketIO.m in Sources */,
+				360F089B1CCC7A88002B5539 /* DWFParticleView.m in Sources */,
 				36D3EFB41C39779200E98B2F /* PomeloWS.m in Sources */,
 				366A4EA81C9582C0007095F7 /* GameInfoViewController.m in Sources */,
 				363F1E801C19C5A1009B5730 /* SocketIOJSONSerialization.m in Sources */,
 				36D982351C3782FB0040BC4A /* PomeloProtocol.m in Sources */,
 				36D074831BC7D1B100032359 /* AsyncUdpSocket.m in Sources */,
 				363F1E831C19C5A1009B5730 /* SocketIOTransportXHR.m in Sources */,
+				360F089E1CCCA973002B5539 /* DWFViewController.m in Sources */,
 				36D074A31BC7DB2E00032359 /* LoginViewController.m in Sources */,
+				360F08B91CD05CE3002B5539 /* ItemHandler.m in Sources */,
 				36D982341C3782FB0040BC4A /* Pomelo.m in Sources */,
 				363F1E711C19C561009B5730 /* NSData+SRB64Additions.m in Sources */,
 				36D27A591BEA2FA300E3B0DB /* LoginViewController_sf.swift in Sources */,
 				36D3EFC21C3977D300E98B2F /* PBDecoder.m in Sources */,
+				360F08A71CCD1699002B5539 /* NSData+Base64.m in Sources */,
 				365EB42B1BC7CAEF001F3303 /* AppDelegate.m in Sources */,
 				366A4EA51C942BC4007095F7 /* BounceButtonView.m in Sources */,
 				36B6EA071BD5F6A800F59C7C /* CustomCalloutView.m in Sources */,
@@ -912,6 +953,7 @@
 				363F1E701C19C561009B5730 /* base64.c in Sources */,
 				36D074821BC7D1B100032359 /* AsyncSocket.m in Sources */,
 				36D074941BC7D35E00032359 /* PacManMainGameViewController.m in Sources */,
+				360F08A81CCD1699002B5539 /* UIEffectDesignerView.m in Sources */,
 				366FDD6C1C1AD5A50033A57F /* GameInfoTableViewCell.swift in Sources */,
 				36D3EFC31C3977D300E98B2F /* PBEncoder.m in Sources */,
 				36D3EFC11C3977D300E98B2F /* PBCodec.m in Sources */,
@@ -1061,6 +1103,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RunningMan_0.5/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1085,6 +1128,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RunningMan_0.5/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

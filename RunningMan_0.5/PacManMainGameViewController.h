@@ -17,6 +17,9 @@
 #import "BounceButtonView.h"
 #import "GameInfoViewController.h"
 #import "ImageHandler.h"
+#import "ItemHandler.h"
+#import "DWFParticleView.h"
+#import "UIEffectDesignerView.h"
 
 @interface PacManMainGameViewController:UIViewController<MAMapViewDelegate>
 {
@@ -31,11 +34,17 @@
     NSDictionary* imageDictionary;
     
     NSDictionary* annotaitonIdentifierInfo;
+    NSMutableDictionary* itemDictionary;
+    NSMutableDictionary* itemList;
     
     float annotationWidth;
     float annotationHeight;
     
     __block NSMutableDictionary *mapInfolist;
+    
+    IBOutlet DWFParticleView* fireView;
+    
+    UIEffectDesignerView* fire;
 }
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;
@@ -62,6 +71,8 @@
 -(IBAction) OnStopButtonClicked:(id)sender;
 -(void) SetGameID:(NSString*)gameID;
 -(void) MenuTouchedAction:(int)itemIndex;
+-(void) MenuDraggedAction:(int)itemIndex Location:(CGPoint)location;
+-(void) InitItems;
 
 @end
 

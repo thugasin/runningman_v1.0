@@ -51,14 +51,22 @@
     
     [self InitPlayerUpdate];
     [self InitMapUpdate];
+
     
     ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
     NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&Demon"];
     
     imageDictionary = [list objectAtIndex:0];
     
+    
+    ItemHandler *itemHandler = [ItemHandler GetItemHandler];
+    NSArray* listOfItem = [itemHandler.ItemInfoDictionary objectForKey:@"Angel&Demon"];
+    itemDictionary = [listOfItem objectAtIndex:0];
+    
     // Set the 'menu button
     [self.MenuButton initAnimationWithFadeEffectEnabled:NO]; // Set to 'NO' to disable Fade effect between its two-state transition
+    
+    itemList = [NSMutableDictionary dictionaryWithCapacity:3];  // need configurable
     
     // Get the 'menu item view' from storyboard
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -80,7 +88,11 @@
     
     // Set as delegate of 'menu item view'
     [self.menuItemView setDelegate:self];
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragInsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragInside];
     
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragOutside];
+    
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
     
     _gameInfoView = [[GameInfoViewController alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,100)];
     [_gameInfoView setBackgroundColor:[UIColor whiteColor]];
@@ -89,6 +101,7 @@
     [self.view addSubview:_gameInfoView];
     
     bChatButtonEnabled = true;
+    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -244,6 +257,8 @@
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     _mapView.showsScale = NO;
     _mapView.showsCompass = NO;
+    _mapView.scrollEnabled = NO;
+    _mapView.zoomEnabled = NO;
     
     _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     
@@ -255,6 +270,11 @@
     
     [self.view bringSubviewToFront:_gameInfoView];
     [self.view bringSubviewToFront:self.ChatButton];
+  //  [self.view addSubview:fireView];
+  //  [self.view bringSubviewToFront:fireView];
+    fire = [UIEffectDesignerView effectWithFile:@"snow.ped"];
+    [self.view addSubview: fire];
+    [self.view bringSubviewToFront:fire];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -265,7 +285,7 @@
     [self StartTrackingUserLocation];
     
     [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
-  //  [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
+    [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
     
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     
@@ -455,6 +475,73 @@
     
     [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelAttact"];
 }
+
+-(void) MenuDraggedAction:(int)itemIndex Location:(CGPoint)location
+{
+    fire.center = location;
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+ //   [fireView setEmitterPositionFromTouch: [touches anyObject]];
+    fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [fireView setEmitterPositionFromTouch: [touches anyObject]];
+//    [fireView setIsEmitting:YES];
+    fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [fireView setIsEmitting:NO];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [fireView setIsEmitting:NO];
+}
+
+- (void) touchDragInsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:touch.view];
+    NSLog(@"Location x%f y%f",location.x,location.y);
+    
+   // [self MenuDraggedAction:2 Location:_menuItemView.menuItem3.center];
+    [self MenuDraggedAction:2 Location:CGPointMake(location.x-_menuItemView.menuItem3.frame.size.width/2+_menuItemView.menuItem3.center.x, location.y-_menuItemView.menuItem3.frame.size.height/2+_menuItemView.menuItem3.center.y)];
+}
+
+- (void) touchDragOutsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:touch.view];
+    NSLog(@"Location x%f y%f",location.x,location.y);
+    
+    [self MenuDraggedAction:2 Location:CGPointMake(location.x-_menuItemView.menuItem3.frame.size.width/2+_menuItemView.menuItem3.center.x, location.y-_menuItemView.menuItem3.frame.size.height/2+_menuItemView.menuItem3.center.y)];
+}
+
+- (void) touchUpOutsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    [_mapView willRemoveSubview:fire];
+    [fire removeFromSuperview];
+    [_mapView removeAnnotation:mySelfAnnotation];
+    NSMutableArray *trainImages = [[NSMutableArray alloc] init];
+    
+    NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:@"Freeze"];
+    
+    for (NSString*CGImageRef in [annotationImageInfo objectForKey:@"images"]) {
+        [trainImages addObject:[UIImage imageNamed:CGImageRef]];
+    }
+    mySelfAnnotation.animatedImages = trainImages;
+    [_mapView addAnnotation:mySelfAnnotation];
+    
+    
+    [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelFreeze"];
+    
+    
+//    UITouch *touch = [[event allTouches] anyObject];
+//    CGPoint location = [touch locationInView:touch.view];
+//    NSLog(@"Location x%f y%f",location.x,location.y);
+//    
+//    [self MenuDraggedAction:2 Location:CGPointMake(location.x-_menuItemView.menuItem3.frame.size.width/2+_menuItemView.menuItem3.center.x, location.y-_menuItemView.menuItem3.frame.size.height/2+_menuItemView.menuItem3.center.y)];
+}
+
 
 //- (void)didReceiveMemoryWarning {
 //    [super didReceiveMemoryWarning];

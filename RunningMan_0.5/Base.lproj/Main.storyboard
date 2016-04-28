@@ -144,6 +144,10 @@
                                     <action selector="chatButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wbn-xd-Z2Q"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uuj-39-uJB" customClass="DWFParticleView">
+                                <rect key="frame" x="6" y="108" width="22" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -158,11 +162,12 @@
                         <outlet property="ChatButton" destination="Pil-CC-iZP" id="LiY-MF-PrK"/>
                         <outlet property="MenuButton" destination="1kq-2U-WeV" id="ruk-os-Omu"/>
                         <outlet property="TopMenu" destination="eqF-aw-Jgy" id="P46-Iw-02o"/>
+                        <outlet property="fireView" destination="uuj-39-uJB" id="X31-w7-5hI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3730" y="-733"/>
+            <point key="canvasLocation" x="3730" y="-701"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mVA-9Z-Odv">
@@ -180,6 +185,7 @@
                                 <rect key="frame" x="164" y="490" width="50" height="50"/>
                                 <state key="normal" backgroundImage="MenuItem3"/>
                                 <connections>
+                                    <action selector="OnMenuItem1ButtonDragged:event:" destination="hxR-ke-lQj" eventType="touchDragInside" id="zbt-ha-HVu"/>
                                     <action selector="OnMenuItem3ButtonClicked:" destination="hxR-ke-lQj" eventType="touchUpInside" id="ugL-gh-9BJ"/>
                                 </connections>
                             </button>
@@ -198,7 +204,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="menuItem1" destination="bnv-yK-9xV" id="5d0-Xe-7nm"/>
                             <outlet property="menuItem2" destination="UxL-Xc-lAP" id="9NF-4n-enS"/>

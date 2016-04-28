@@ -38,6 +38,8 @@
 -(IBAction)OnMenuItem2ButtonClicked:(id)sender;
 -(IBAction)OnMenuItem3ButtonClicked:(id)sender;
 
+-(IBAction)OnMenuItem1ButtonDragged:(id)sender event:(UIEvent *)event;
+
 -(void)SetController:(id)gameViewController;
 
 @end
