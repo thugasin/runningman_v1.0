@@ -29,6 +29,10 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *GamePicker;
 @property (strong, nonatomic) IBOutlet UITextField *GameText;
 @property (strong, nonatomic) IBOutlet UITextField *MaxPlayerNumber;
+@property (strong,nonatomic) IBOutlet UIButton *SetGameLocationButton;
+@property (strong,nonatomic) IBOutlet UIButton * StartGameButton;
+
+@property (strong,nonatomic) IBOutlet UILabel* MaxPlayersText;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 
 @property (strong, nonatomic) NSString* playerCity;

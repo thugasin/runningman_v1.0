@@ -15,7 +15,7 @@
 @interface NRTCI420Frame : NSObject
 
 /**
- *  I420数据, 紧凑结构, stride 为 0
+ *  I420 数据, 紧凑结构, 即 stride 与 画面宽度相同
  */
 @property (nonatomic, strong, readonly) NSData *data;
 

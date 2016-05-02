@@ -67,7 +67,7 @@
         {
             NSData * playerList = [[result objectForKey:@"players"] dataUsingEncoding:NSUTF8StringEncoding];
             
-            list = [NSJSONSerialization JSONObjectWithData:playerList options:kNilOptions error:nil];
+            list = [NSMutableArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:playerList options:kNilOptions error:nil]];
             [self.tableview reloadData];
         }
         else
@@ -91,16 +91,9 @@
 {
     self.onGameStartCallback =^(NSDictionary *gameStartNotification)
     {
-        if ([[gameStartNotification objectForKey:@"success"] boolValue])
-        {
-            
-            [self presentViewController:gameController animated:YES completion:^{
+        
+        [self presentViewController:gameController animated:YES completion:^{
             }];
-        }
-        else
-        {
-            //should not start the game
-        }
     };
 
 }
@@ -219,11 +212,11 @@
 -(IBAction)OnStartGameButtonClicked:(id)sender
 {
     NSDictionary *params = @{@"gameid":GameID,@"userid":[[NSUserDefaults standardUserDefaults] objectForKey:@"name"]};
-    [pomelo requestWithRoute:@"game.gameHandler.start"
-                   andParams:params andCallback:self.onGameStartCallback];
-    
 //    [pomelo requestWithRoute:@"game.gameHandler.start"
-//                   andParams:params andCallback:^(NSDictionary*result){}];
+//                   andParams:params andCallback:self.onGameStartCallback];
+    
+    [pomelo requestWithRoute:@"game.gameHandler.start"
+                   andParams:params andCallback:^(NSDictionary*result){}];
 
     
 }

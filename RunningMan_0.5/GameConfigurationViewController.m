@@ -35,6 +35,71 @@
     self.GamePicker.delegate = self;
     self.GamePicker.dataSource = self;
  //   self.GamePicker.frame = CGRectMake(0, 480, 320, 216);
+    
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:_StartGameButton
+//                              attribute:NSLayoutAttributeTop
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:self.view
+//                              attribute:NSLayoutAttributeBottom
+//                              multiplier:0.875
+//                              constant:0]];
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:_MaxPlayerNumber
+//                              attribute:NSLayoutAttributeRight
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:self.view
+//                              attribute:NSLayoutAttributeRight
+//                              multiplier:1
+//                              constant:-30]];
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:_MaxPlayersText
+//                              attribute:NSLayoutAttributeLeft
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:self.view
+//                              attribute:NSLayoutAttributeLeft
+//                              multiplier:1
+//                              constant:30]];
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:_MaxPlayerNumber
+//                              attribute:NSLayoutAttributeCenterY
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:_MaxPlayersText
+//                              attribute:NSLayoutAttributeCenterY
+//                              multiplier:1
+//                              constant:1]];
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:_MaxPlayersText
+//                              attribute:NSLayoutAttributeBottom
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:_StartGameButton
+//                              attribute:NSLayoutAttributeTop
+//                              multiplier:1
+//                              constant:-15]];
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:_SetGameLocationButton
+//                              attribute:NSLayoutAttributeBottom
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:_MaxPlayersText
+//                              attribute:NSLayoutAttributeTop
+//                              multiplier:1
+//                              constant:-15]];
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:GameText
+//                              attribute:NSLayoutAttributeBottom
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:_SetGameLocationButton
+//                              attribute:NSLayoutAttributeTop
+//                              multiplier:1
+//                              constant:-15]];
+//    [self.view addConstraint:[NSLayoutConstraint
+//                              constraintWithItem:GamePicker
+//                              attribute:NSLayoutAttributeBottom
+//                              relatedBy:NSLayoutRelationEqual
+//                              toItem:GameText
+//                              attribute:NSLayoutAttributeTop
+//                              multiplier:1
+//                              constant:-20]];
 }
 
 
@@ -83,8 +148,20 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = 10.0f;
     
-    [self.locationManager requestWhenInUseAuthorization];
-    [self.locationManager startUpdatingLocation];
+//    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+//        [self.locationManager requestWhenInUseAuthorization];
+//    }
+//    [self.locationManager startUpdatingLocation];
+    
+    CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
+    
+    if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        
+        [self.locationManager startUpdatingLocation];
+        
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

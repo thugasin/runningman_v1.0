@@ -7,7 +7,7 @@
 //
 
 #import "PacManMainGameViewController.h"
-#import "NRTC.h"
+#import"NRTC/include/NRTC/NRTC.h"
 
 
 @interface PacManMainGameViewController ()
@@ -100,8 +100,10 @@
     _gameInfoView.alpha = 0.9;
     [self.view addSubview:_gameInfoView];
     
-    bChatButtonEnabled = true;
+    NRTCAppKey = @"172035d172c98670557c20d01b8a774e";
+    [self joinChatRoom];
     
+    bChatButtonEnabled = ![[NRTCManager sharedManager] audioMuteEnabled];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -137,9 +139,12 @@
         if ([playerInfo objectForKey:@"userid"] == UserName) {
             return;
         }
+        
+        
         AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[playerInfo objectForKey:@"userid"]];
         
         playerAnnotation.coordinate = CLLocationCoordinate2DMake([[playerInfo objectForKey:@"x"] doubleValue],[[playerInfo objectForKey:@"y"] doubleValue]);
+            
     };
 }
 
@@ -178,16 +183,25 @@
                 NSString * key = [mapInfo objectAtIndex:0];
                 NSDictionary* info = [mapInfo objectAtIndex:1];
                 
-                if ([info objectForKey:@"DisplayName"] == UserName) {
+                if ([[info objectForKey:@"DisplayName"] isEqualToString:UserName]) {
                     continue;
                 }
+                
                 [mapInfolist setObject:info forKey:key];
                 
                 NSMutableArray *playerImages = [[NSMutableArray alloc] init];
                 
                 NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:[info objectForKey:@"Role"]] objectForKey:@"Normal"];
                 
-                [self addPlayerAnnotationWithCoordinate:CLLocationCoordinate2DMake([[info objectForKey:@"X"] doubleValue], [[info objectForKey:@"Y"] doubleValue]) DisplayMessage:[info objectForKey:@"DisplayName"] AnnotationList:annotationImageInfo forKey:key];
+                double initX =0;
+                double initY =0;
+                if(![[info objectForKey:@"X"] isEqual:[NSNull null]])
+                {
+                    initX = [[info objectForKey:@"X"] doubleValue];
+                    initY = [[info objectForKey:@"Y"] doubleValue];
+                }
+                    
+                [self addPlayerAnnotationWithCoordinate:CLLocationCoordinate2DMake(initX, initY) DisplayMessage:[info objectForKey:@"DisplayName"] AnnotationList:annotationImageInfo forKey:key];
         
             }
             
@@ -257,8 +271,8 @@
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     _mapView.showsScale = NO;
     _mapView.showsCompass = NO;
-    _mapView.scrollEnabled = NO;
-    _mapView.zoomEnabled = NO;
+    _mapView.scrollEnabled = YES;
+    _mapView.zoomEnabled = YES;
     
     _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     
@@ -434,9 +448,10 @@
 
 -(IBAction) chatButtonClicked:(id)sender
 {
+    
     if (bChatButtonEnabled)
     {
-        bChatButtonEnabled = false;
+        bChatButtonEnabled = false; //set false to not set as mute
         [self.ChatButton setBackgroundImage:[UIImage imageNamed:@"Microphone Disabled"] forState:UIControlStateNormal];
     }
     else
@@ -444,6 +459,7 @@
         bChatButtonEnabled = true;
         [self.ChatButton setBackgroundImage:[UIImage imageNamed:@"Microphone Pressed"] forState:UIControlStateNormal];
     }
+    [[NRTCManager sharedManager] setAudioMute:!bChatButtonEnabled];
 }
 
 -(void) SetGameID:(NSString*)gameID
@@ -533,61 +549,21 @@
     
     
     [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelFreeze"];
-    
-    
-//    UITouch *touch = [[event allTouches] anyObject];
-//    CGPoint location = [touch locationInView:touch.view];
-//    NSLog(@"Location x%f y%f",location.x,location.y);
-//    
-//    [self MenuDraggedAction:2 Location:CGPointMake(location.x-_menuItemView.menuItem3.frame.size.width/2+_menuItemView.menuItem3.center.x, location.y-_menuItemView.menuItem3.frame.size.height/2+_menuItemView.menuItem3.center.y)];
 }
 
-
-//- (void)didReceiveMemoryWarning {
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-//
-//- (void)appendEventLog:(NSString *)log
-//{
-//    NSString *time = [_eventLogTimeFormatter stringFromDate:[NSDate date]];
-//    NSString *eventLog = [NSString stringWithFormat:@"%@ %@\n", time, log];
-//    [_eventLog insertString:eventLog atIndex:0];
-//    _eventTextView.text = _eventLog;
-//    [_eventTextView scrollRangeToVisible:NSMakeRange(0, 0)];
-//}
-//
-//- (IBAction)muteButtonPressed:(id)sender {
-//    BOOL mute = [[NRTCManager sharedManager] audioMuteEnabled];
-//    [self appendEventLog:[NSString stringWithFormat:@"self %@ audio", !mute ? @"muted": @"unmuted"]];
-//    [[NRTCManager sharedManager] setAudioMute:!mute];
-//}
-//
-////语音静音
-//- (void)onUserMuteAudio:(BOOL)isMute uid:(SInt64)uid channel:(NRTCChannel *)channel
-//{
-//    [self appendEventLog:[NSString stringWithFormat:@"%lld %@ audio, channel is %llu", uid, isMute ? @"muted": @"unmuted", [channel channelID]]];
-//}
-//
-//- (void)onAudioInterruptionStart
-//{
-//    [self appendEventLog:@"Audio Interrupted!!!"];
-//}
-//
-//- (void)onAudioInterruptionEnd
-//{
-//    [self appendEventLog:@"Audio interruption end :)"];
-//}
-//
-//
-//- (void)onNetworkQuality:(NRTCNetworkQuality)quality
-//{
-//    NSDictionary *netQualityTexts = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                     @"Network Excellent", @(NRTCNetworkQualityExcellent),
-//                                     @"Network Good", @(NRTCNetworkQualityGood),
-//                                     @"Network Poor", @(NRTCNetworkQualityPoor),
-//                                     @"Network Bad", @(NRTCNetworkQualityBad), nil];
-//    [self appendEventLog:[netQualityTexts objectForKey:@(quality)]];
-//}
+- (void)joinChatRoom
+{
+    
+        NRTCChannel *channel = [[NRTCChannel alloc] init];
+        channel.channelName = @"tempName";
+        channel.channelMode = NRTCChannelModeAudio;
+        channel.myUid = [GameID intValue];
+        channel.appKey = NRTCAppKey;
+        channel.meetingMode = YES;
+        channel.meetingRole = NRTCMeetingRoleActor;
+    
+    
+        NSError *error = [[NRTCManager sharedManager] joinChannel:channel delegate:self];
+}
 
 @end

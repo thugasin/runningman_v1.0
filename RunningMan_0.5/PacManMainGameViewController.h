@@ -45,6 +45,8 @@
     IBOutlet DWFParticleView* fireView;
     
     UIEffectDesignerView* fire;
+    
+    NSString* NRTCAppKey;
 }
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;

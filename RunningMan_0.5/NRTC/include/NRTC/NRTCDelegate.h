@@ -109,8 +109,10 @@
  *  网络质量汇报
  *
  *  @param quality 网络质量
+ *  @param uid 网络质量对应的用户
  */
-- (void)onNetworkQuality:(NRTCNetworkQuality)quality;
+- (void)onNetworkQuality:(NRTCNetworkQuality)quality
+                     uid:(SInt64)uid;
 
 
 /**
@@ -146,6 +148,46 @@
 - (void)onUserChangeMode:(NRTCChannelMode)mode
                      uid:(SInt64)uid
                  channel:(NRTCChannel *)channel;
+
+
+/**
+ *  对方用户本地录制信息报告
+ *
+ *  @param start   开始还是结束录制
+ *  @param uid     用户uid
+ *  @param channel 频道信息
+ */
+- (void)onUserLocalRecording:(BOOL)start
+                         uid:(SInt64)uid
+                     channel:(NRTCChannel *)channel;
+
+/**
+ *  本地录制成功开始
+ *
+ *  @param channel 频道信息
+ *  @param fileURL 录制的文件路径
+ */
+- (void)onLocalRecordStarted:(NRTCChannel *)channel
+                     fileURL:(NSURL *)fileURL;
+
+/**
+ *  本地录制发生了错误
+ *
+ *  @param error   错误
+ *  @param channel 频道信息
+ */
+- (void)onLocalRecordError:(NSError *)error
+                   channel:(NRTCChannel *)channel;
+
+/**
+ *  本地录制成功结束
+ *
+ *  @param channel 频道信息
+ *  @param fileURL 录制的文件路径
+ */
+- (void) onLocalRecordStopped:(NRTCChannel *)channel
+                      fileURL:(NSURL *)fileURL;
+
 
 @end
 

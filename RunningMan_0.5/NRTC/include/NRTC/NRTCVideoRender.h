@@ -37,4 +37,13 @@
  */
 + (BOOL)render:(NRTCI420Frame *)i420Frame inView:(UIView *)view;
 
+/**
+ *  截图
+ *
+ *  @param view 渲染的容器视图, 只支持renderViewWithFrame:生成的视图 或者 UIImageView
+ *
+ *  @return 截取的截图
+ */
++ (UIImage *)snapshotRenderView:(UIView *)view;
+
 @end

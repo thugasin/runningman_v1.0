@@ -76,6 +76,43 @@ typedef NS_ENUM(NSUInteger, NRTCUserLeaveReason) {
     NRTCUserLeaveReasonTimeout,
 };
 
+
+/**
+ *  视频质量
+ */
+typedef NS_ENUM(NSUInteger, NRTCVideoQuality) {
+    /**
+     *  默认视频质量
+     */
+    NRTCVideoQualityDefault = 0,
+    /**
+     *  低清
+     */
+    NRTCVideoQualityLow,
+    /**
+     *  中清
+     */
+    NRTCVideoQualityMedium,
+    /**
+     *  高清
+     */
+    NRTCVideoQualityHigh,
+};
+
+/**
+ *  用户在会议中的角色
+ */
+typedef NS_ENUM(NSUInteger, NRTCMeetingRole) {
+    /**
+     *  观众: 只播放, 不发送
+     */
+    NRTCMeetingRoleViewer,
+    /**
+     *  发言者: 既播放, 又发送
+     */
+    NRTCMeetingRoleActor,
+};
+
 /**
  *  分配频道错误Domain
  */
@@ -113,6 +150,11 @@ typedef NS_ENUM(NSUInteger, NRTCJoinChannelError) {
      *  加入频道超时
      */
     NRTCJoinChannelErrorConnectTimeout = 101,
+    
+    /**
+     *  加入同一房间名的各方meetingMode必须一样, 否则后来者无法加入
+     */
+    NRTCJoinChannelErrorIncorrectMeetingMode = 102,
 };
 
 
@@ -174,6 +216,52 @@ typedef NS_ENUM(NSUInteger, NRTCLocalError) {
      *  NRTC正忙
      */
     NRTCLocalErrorBusy = 12003,
+    
+    
+    /**
+     *  无法开始录制, 因为文件路径不合法
+     */
+    NRTCLocalErrorRecordInvalidFilePath       = 13001,
+    /**
+     *  开始本地录制失败
+     */
+    NRTCLocalErrorRecordStartFailed           = 13002,
+    
+    /**
+     *  创建录制文件失败
+     */
+    NRTCLocalErrorRecordCreateFileFailed      = 13003,
+    
+    /**
+     *  初始化录制音频失败
+     */
+    NRTCLocalErrorRecordInitAudioFailed       = 13004,
+    
+    /**
+     *  初始化录制视频失败
+     */
+    NRTCLocalErrorRecordInitVideoFailed       = 13005,
+    
+    /**
+     *  开始写录制文件失败
+     */
+    NRTCLocalErrorRecordStartWritingFailed    = 13006,
+    
+    /**
+     *  写录制文件异常中断
+     */
+    NRTCLocalErrorWritingFileInterrupted      = 13007,
+    
+    /**
+     *  结束本地录制失败
+     */
+    NRTCLocalErrorRecordStopFailed            = 13008,
+    
+    /**
+     *  空间不足，录制即将结束
+     */
+    NRTCLocalErrorRecordWillStopForLackSpace  = 13009,
+
 };
 
 #endif /* NRTCTypes_h */

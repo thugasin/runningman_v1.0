@@ -142,7 +142,60 @@
  */
 - (NRTCChannelMode)getChannelMode;
 
-#pragma mark - 
+/**
+ *  改变自己在会议中的角色
+ *
+ *  @param role 角色. 观众不发音视频数据
+ *
+ *  @return 设置是否成功
+ */
+- (BOOL)setMeetingRole:(NRTCMeetingRole)role;
+
+/**
+ *  指定某用户设置是否对其静音
+ *
+ *  @param mute 是否静音, 静音后将听不到该用户的声音
+ *  @param uid  用户uid
+ *
+ *  @return 是否设置成功. 如果用户尚未加入, 则无法设置
+ */
+- (BOOL)setAudioMute:(BOOL)mute forUser:(SInt64)uid;
+
+/**
+ *  指定某用户设置是否接收其视频
+ *
+ *  @param mute 是否拒绝视频, 拒绝后将没有该用户视频数据回调
+ *  @param uid  用户uid
+ *
+ *  @return 是否设置成功. 如果用户尚未加入, 则无法设置
+ */
+- (BOOL)setVideoMute:(BOOL)mute forUser:(SInt64)uid;
+
+# pragma mark -
+
+/**
+ *  开始本地MP4文件录制, 录制通话过程中自己的音视频内容到MP4文件
+ *
+ *  @param filePath     录制文件路径, SDK不负责创建目录, 请确保文件路径的合法性,
+ *                      也可以传入nil, 由SDK自己选择文件路径
+ *  @param videoBitrate 录制文件视频码率设置, 可以不指定, 由SDK自己选择合适的码率
+ *
+ *  @return 是否允许开始录制
+ *
+ *  @discussion 只有通话连接建立以后才允许开始录制
+ */
+- (BOOL)startLocalRecording:(NSURL *)filePath
+               videoBitrate:(UInt32)videoBitrate;
+
+/**
+ *  停止本地MP4文件录制
+ *
+ *  @return 是否接受停止录制请求
+ */
+- (BOOL)stopLocalRecording;
+
+
+#pragma mark -
 
 /**
  *  查询NRTC是否正忙, NRTC同时只能加入一个频道
