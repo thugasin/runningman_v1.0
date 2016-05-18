@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483614239.427624"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-menuButtonAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483614239.427624"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-preferredStatusBarStyle"
             landmarkType = "5">
          </BreakpointContent>
@@ -842,11 +842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483614239.427624"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-preferredStatusBarStyle"
             landmarkType = "5">
          </BreakpointContent>
@@ -858,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483614239.427624"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-preferredStatusBarStyle"
             landmarkType = "5">
          </BreakpointContent>
@@ -938,11 +938,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483614239.427624"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-preferredStatusBarStyle"
             landmarkType = "5">
          </BreakpointContent>
@@ -954,11 +954,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483614239.427624"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-prefersStatusBarHidden"
             landmarkType = "5">
          </BreakpointContent>
@@ -986,11 +986,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-InitPlayerUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1002,11 +1002,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
             landmarkName = "-mapView:didUpdateUserLocation:updatingLocation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1018,11 +1018,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
+            startingLineNumber = "458"
+            endingLineNumber = "458"
             landmarkName = "-mapView:didUpdateUserLocation:updatingLocation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1034,11 +1034,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485304876.45862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "574"
-            endingLineNumber = "574">
+            startingLineNumber = "685"
+            endingLineNumber = "685">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1048,11 +1048,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483514989.634533"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1064,11 +1064,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483514989.634533"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1080,11 +1080,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "-mapView:didAddAnnotationViews:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1096,11 +1096,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483514989.634533"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1288,11 +1288,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483514989.634533"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1304,11 +1304,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
             landmarkName = "-mapView:didAddAnnotationViews:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1320,11 +1320,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1336,11 +1336,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "-InitPlayerUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1352,11 +1352,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483614239.427624"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-InitPlayerUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1368,11 +1368,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-InitMapUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1384,11 +1384,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -1400,11 +1400,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483266857.997594"
+            timestampString = "484989266.466738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1512,11 +1512,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483514989.634533"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1528,11 +1528,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483266857.997594"
+            timestampString = "484989266.466738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1576,11 +1576,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "335"
-            endingLineNumber = "335"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "-mapView:viewForAnnotation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1592,11 +1592,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "-mapView:viewForAnnotation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1608,11 +1608,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -1640,11 +1640,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -1672,11 +1672,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "-mapView:viewForAnnotation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1688,11 +1688,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "-addPlayerAnnotationWithCoordinate:DisplayMessage:AnnotationList:forKey:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1704,11 +1704,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "-addPlayerAnnotationWithCoordinate:DisplayMessage:AnnotationList:forKey:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1720,11 +1720,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -1736,11 +1736,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "-InitPlayerUpdate"
             landmarkType = "5">
          </BreakpointContent>
@@ -1816,11 +1816,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "492"
-            endingLineNumber = "492"
+            startingLineNumber = "552"
+            endingLineNumber = "552"
             landmarkName = "-MenuTouchedAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1848,11 +1848,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.h"
-            timestampString = "483514989.634533"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "@interface PacManMainGameViewController"
             landmarkType = "2">
             <Locations>
@@ -1864,11 +1864,11 @@
                   moduleName = "RunningMan_1.0"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sirius/Documents/RunningMan/RMain_1/RunningMan_0.5/RunningMan_0.5/PacManMainGameViewController.h"
-                  timestampString = "483869411.214124"
+                  timestampString = "485306950.825309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
@@ -1879,11 +1879,11 @@
                   moduleName = "RunningMan_1.0"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sirius/Documents/RunningMan/RMain_1/RunningMan_0.5/RunningMan_0.5/PacManMainGameViewController.h"
-                  timestampString = "483869411.214368"
+                  timestampString = "485306950.825539"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
@@ -1896,11 +1896,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505"
+            startingLineNumber = "565"
+            endingLineNumber = "565"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1912,11 +1912,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "508"
-            endingLineNumber = "508"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1928,11 +1928,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "502"
-            endingLineNumber = "502"
+            startingLineNumber = "562"
+            endingLineNumber = "562"
             landmarkName = "-touchesMoved:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1944,11 +1944,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
             landmarkName = "-MenuDraggedAction:Location:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1976,11 +1976,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
+            startingLineNumber = "580"
+            endingLineNumber = "580"
             landmarkName = "-touchDragInsideDblTapSignButE:event:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1992,11 +1992,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "529"
-            endingLineNumber = "529"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
             landmarkName = "-touchDragOutsideDblTapSignButE:event:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2008,11 +2008,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "600"
+            endingLineNumber = "600"
             landmarkName = "-touchUpOutsideDblTapSignButE:event:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2040,27 +2040,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "484996957.439421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "557"
-            endingLineNumber = "557"
-            landmarkName = "-joinChatRoom"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483626398.793384"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-menuButtonAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2088,11 +2072,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
             landmarkName = "-mapView:didUpdateUserLocation:updatingLocation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2104,11 +2088,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
+            startingLineNumber = "503"
+            endingLineNumber = "503"
             landmarkName = "-mapView:didUpdateUserLocation:updatingLocation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2116,15 +2100,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -2136,11 +2120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -2152,11 +2136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "452"
-            endingLineNumber = "452"
+            startingLineNumber = "512"
+            endingLineNumber = "512"
             landmarkName = "-chatButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2168,11 +2152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
             landmarkName = "-chatButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2180,15 +2164,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunningMan_0.5/PacManMainGameViewController.m"
-            timestampString = "483868146.716671"
+            timestampString = "485043223.866338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "-InitDrawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -2206,6 +2190,150 @@
             startingLineNumber = "95"
             endingLineNumber = "95"
             landmarkName = "-InitGameStartCallback"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "484996957.439421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485304876.45862"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "657"
+            endingLineNumber = "657"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485304876.45862"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "668"
+            endingLineNumber = "668"
+            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485304876.45862"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "673"
+            endingLineNumber = "673"
+            landmarkName = "-tableView:count:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485215036.402405"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "635"
+            endingLineNumber = "635"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485043223.866338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "-InitStateUpdate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485014863.046748"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-InitStateUpdate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485017049.44304"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "-InitStateUpdate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunningMan_0.5/PacManMainGameViewController.m"
+            timestampString = "485102182.224411"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "632"
+            endingLineNumber = "632"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -1,17 +1,17 @@
 {
-    "Angel&Demon": [
+    "Angel&deamon": [
                     {
-                    "demon": {
+                    "deamon": {
                     "Normal": {
                     "images": [
-                               "demon-game"
+                               "deamon-game"
                                ],
                     "width": 30,
                     "height": 30,
-                    "identifier": "demon",
+                    "identifier": "deamon",
                     "repeatCount": 0
                     },
-                    "RoleAssigned": "role-demon"
+                    "RoleAssigned": "role-deamon"
                     },
                     "angel": {
                     "Normal": {
@@ -76,6 +76,39 @@
                     "height": 30,
                     "identifier": "angelFreeze",
                     "repeatCount": 1
+                    }
+                    },
+                    "SealOfDevil": {
+                    "Normal": {
+                    "images": [
+                               "SealOfDevil"
+                               ],
+                    "width": 30,
+                    "height": 30,
+                    "identifier": "SealOfDevil",
+                    "repeatCount": 0
+                    }
+                    },
+                    "DevilBringer": {
+                    "Normal": {
+                    "images": [
+                               "DevilBringer"
+                               ],
+                    "width": 30,
+                    "height": 30,
+                    "identifier": "DevilBringer",
+                    "repeatCount": 0
+                    }
+                    },
+                    "LightOfPunishment": {
+                    "Normal": {
+                    "images": [
+                               "LightOfPunishment"
+                               ],
+                    "width": 30,
+                    "height": 30,
+                    "identifier": "LightOfPunishment",
+                    "repeatCount": 0
                     }
                     }
                     }

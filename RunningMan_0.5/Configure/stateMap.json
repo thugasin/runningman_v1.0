@@ -1,0 +1,18 @@
+{
+    "Angel&deamon": [
+                    {
+                    "apple": {
+                    "image": "apple-state",
+                    "displayText": "剩余"
+                    },
+                    "deamon": {
+                    "image": "deamon-state",
+                    "displayText": "存活"
+                    },
+                    "timer": {
+                    "image": "timer-state",
+                    "displayText": "分钟"
+                    }
+                    }
+                    ]
+}

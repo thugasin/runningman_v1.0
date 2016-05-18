@@ -150,8 +150,8 @@
         pomelo = [[PomeloWS alloc] initWithDelegate:self];
     }
     
-//    [pomelo connectToHost:@"ayo.org.cn" onPort:3050 withCallback:^(PomeloWS *p){
-    [pomelo connectToHost:@"192.168.1.93" onPort:3050 withCallback:^(PomeloWS *p){
+    [pomelo connectToHost:@"ayo.org.cn" onPort:3050 withCallback:^(PomeloWS *p){
+  //  [pomelo connectToHost:@"192.168.1.93" onPort:3050 withCallback:^(PomeloWS *p){
         NSDictionary *params = @{@"userid":UserId.text,@"pwd":Password.text};
         [pomelo requestWithRoute:@"connector.entryHandler.enter"
                        andParams:params andCallback:^(NSDictionary *result){

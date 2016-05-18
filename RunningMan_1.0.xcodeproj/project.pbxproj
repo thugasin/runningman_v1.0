@@ -53,6 +53,9 @@
 		365EB44C1BC7CAEF001F3303 /* RunningMan_0_5UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB44B1BC7CAEF001F3303 /* RunningMan_0_5UITests.m */; };
 		366A4EA51C942BC4007095F7 /* BounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 366A4EA41C942BC4007095F7 /* BounceButtonView.m */; };
 		366A4EA81C9582C0007095F7 /* GameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 366A4EA71C9582C0007095F7 /* GameInfoViewController.m */; };
+		366AAD391CE21F5F00A4625D /* GameStateUITableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366AAD381CE21F5F00A4625D /* GameStateUITableCell.xib */; };
+		366AAD3C1CE224EC00A4625D /* GameStateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 366AAD3B1CE224EC00A4625D /* GameStateTableViewCell.m */; };
+		366AAD3F1CE8702E00A4625D /* stateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 366AAD3E1CE8702E00A4625D /* stateHandler.m */; };
 		366FDD6C1C1AD5A50033A57F /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366FDD6B1C1AD5A50033A57F /* GameInfoTableViewCell.swift */; };
 		369303451C9853F50034A23E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369303441C9853F50034A23E /* SystemConfiguration.framework */; };
 		369303471C9854000034A23E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369303461C9854000034A23E /* AudioToolbox.framework */; };
@@ -61,6 +64,7 @@
 		3693034D1C98541C0034A23E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3693034C1C98541C0034A23E /* CoreTelephony.framework */; };
 		3693034F1C9854280034A23E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3693034E1C9854280034A23E /* MobileCoreServices.framework */; };
 		369303511C9854340034A23E /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 369303501C9854340034A23E /* libstdc++.6.0.9.tbd */; };
+		36AB765D1CDC7D5200DC3B45 /* GameInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AB765C1CDC7D5200DC3B45 /* GameInfoView.xib */; };
 		36B2AC221BE7B51500F9DE01 /* UncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B2AC211BE7B51500F9DE01 /* UncaughtExceptionHandler.m */; };
 		36B6EA041BD5F37D00F59C7C /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B6EA031BD5F37D00F59C7C /* CustomAnnotationView.m */; };
 		36B6EA071BD5F6A800F59C7C /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B6EA061BD5F6A800F59C7C /* CustomCalloutView.m */; };
@@ -195,6 +199,11 @@
 		366A4EA41C942BC4007095F7 /* BounceButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BounceButtonView.m; sourceTree = "<group>"; };
 		366A4EA61C9582C0007095F7 /* GameInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfoViewController.h; sourceTree = "<group>"; };
 		366A4EA71C9582C0007095F7 /* GameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfoViewController.m; sourceTree = "<group>"; };
+		366AAD381CE21F5F00A4625D /* GameStateUITableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameStateUITableCell.xib; sourceTree = "<group>"; };
+		366AAD3A1CE224EC00A4625D /* GameStateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateTableViewCell.h; sourceTree = "<group>"; };
+		366AAD3B1CE224EC00A4625D /* GameStateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateTableViewCell.m; sourceTree = "<group>"; };
+		366AAD3D1CE8701C00A4625D /* stateHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stateHandler.h; sourceTree = "<group>"; };
+		366AAD3E1CE8702E00A4625D /* stateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stateHandler.m; sourceTree = "<group>"; };
 		366FDD6B1C1AD5A50033A57F /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameInfoTableViewCell.swift; path = GameList/GameInfoTableViewCell.swift; sourceTree = "<group>"; };
 		369303441C9853F50034A23E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		369303461C9854000034A23E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -203,6 +212,7 @@
 		3693034C1C98541C0034A23E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3693034E1C9854280034A23E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		369303501C9854340034A23E /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		36AB765C1CDC7D5200DC3B45 /* GameInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInfoView.xib; sourceTree = "<group>"; };
 		36B2AC201BE7B4DD00F9DE01 /* UncaughtExceptionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UncaughtExceptionHandler.h; sourceTree = "<group>"; };
 		36B2AC211BE7B51500F9DE01 /* UncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		36B6EA021BD5F37D00F59C7C /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
@@ -487,6 +497,8 @@
 				36502ABB1CB25472008F1A1E /* ImageHandler.m */,
 				360F08B81CD05CE3002B5539 /* ItemHandler.m */,
 				360F08BA1CD05D12002B5539 /* ItemHandler.h */,
+				366AAD3D1CE8701C00A4625D /* stateHandler.h */,
+				366AAD3E1CE8702E00A4625D /* stateHandler.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -541,8 +553,8 @@
 				36D074961BC7D9CE00032359 /* IObserver.m */,
 				36D074981BC7D9CE00032359 /* NetworkProtocal.h */,
 				36D0748F1BC7D35E00032359 /* GameObject.h */,
-				36D074901BC7D35E00032359 /* GameObject.m */,
 				36D074911BC7D35E00032359 /* PacManMainGameViewController.h */,
+				36D074901BC7D35E00032359 /* GameObject.m */,
 				36D074921BC7D35E00032359 /* PacManMainGameViewController.m */,
 				36D0748C1BC7D2F400032359 /* NetworkAdapter.h */,
 				36D0748D1BC7D2F400032359 /* NetworkAdapter.m */,
@@ -556,8 +568,8 @@
 				365EB4321BC7CAEF001F3303 /* Assets.xcassets */,
 				365EB4341BC7CAEF001F3303 /* LaunchScreen.storyboard */,
 				365EB4371BC7CAEF001F3303 /* Info.plist */,
-				365EB4261BC7CAEF001F3303 /* Supporting Files */,
 				36C24FF21BCE5B4E00BE028B /* GameWaitingViewController.h */,
+				365EB4261BC7CAEF001F3303 /* Supporting Files */,
 				36C24FF31BCE5B4E00BE028B /* GameWaitingViewController.m */,
 				36B2AC201BE7B4DD00F9DE01 /* UncaughtExceptionHandler.h */,
 				36B2AC211BE7B51500F9DE01 /* UncaughtExceptionHandler.m */,
@@ -565,6 +577,10 @@
 				3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */,
 				366A4EA61C9582C0007095F7 /* GameInfoViewController.h */,
 				366A4EA71C9582C0007095F7 /* GameInfoViewController.m */,
+				36AB765C1CDC7D5200DC3B45 /* GameInfoView.xib */,
+				366AAD381CE21F5F00A4625D /* GameStateUITableCell.xib */,
+				366AAD3A1CE224EC00A4625D /* GameStateTableViewCell.h */,
+				366AAD3B1CE224EC00A4625D /* GameStateTableViewCell.m */,
 			);
 			name = RunningMan_1.0;
 			path = RunningMan_0.5;
@@ -787,8 +803,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				366AAD391CE21F5F00A4625D /* GameStateUITableCell.xib in Resources */,
 				365EB4361BC7CAEF001F3303 /* LaunchScreen.storyboard in Resources */,
 				365EB4331BC7CAEF001F3303 /* Assets.xcassets in Resources */,
+				36AB765D1CDC7D5200DC3B45 /* GameInfoView.xib in Resources */,
 				360F08AD1CCDC3EC002B5539 /* snow.ped in Resources */,
 				360F08BC1CD20033002B5539 /* NRTC in Resources */,
 				365EB4311BC7CAEF001F3303 /* Main.storyboard in Resources */,
@@ -888,6 +906,7 @@
 				36E82E111C4B29A9000A5633 /* GameInfoTableCellView.m in Sources */,
 				36D074A21BC7DB2E00032359 /* GameSelectionViewController.m in Sources */,
 				363D6BEC1CBA3BA900595453 /* AnimatedAnnotationView.m in Sources */,
+				366AAD3C1CE224EC00A4625D /* GameStateTableViewCell.m in Sources */,
 				36D074A11BC7DB2E00032359 /* GameConfigurationViewController.m in Sources */,
 				363F1E701C19C561009B5730 /* base64.c in Sources */,
 				36D074821BC7D1B100032359 /* AsyncSocket.m in Sources */,
@@ -896,6 +915,7 @@
 				366FDD6C1C1AD5A50033A57F /* GameInfoTableViewCell.swift in Sources */,
 				36D3EFC31C3977D300E98B2F /* PBEncoder.m in Sources */,
 				36D3EFC11C3977D300E98B2F /* PBCodec.m in Sources */,
+				366AAD3F1CE8702E00A4625D /* stateHandler.m in Sources */,
 				363F1E721C19C561009B5730 /* SRWebSocket.m in Sources */,
 				36D0748E1BC7D2F400032359 /* NetworkAdapter.m in Sources */,
 				363F1E821C19C5A1009B5730 /* SocketIOTransportWebsocket.m in Sources */,

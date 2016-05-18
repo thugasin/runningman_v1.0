@@ -187,7 +187,7 @@
         CGFloat yOffset = 55.0;
         
         ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
-        NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&Demon"];
+        NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&deamon"];
         NSDictionary *imageDictionary = [list objectAtIndex:0];
         
         UIImage *card1Image= [UIImage imageNamed:[[imageDictionary objectForKey:role] objectForKey:@"RoleAssigned"]];

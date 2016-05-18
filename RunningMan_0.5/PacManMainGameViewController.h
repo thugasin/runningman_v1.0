@@ -18,10 +18,11 @@
 #import "GameInfoViewController.h"
 #import "ImageHandler.h"
 #import "ItemHandler.h"
+#import "StateHandler.h"
 #import "DWFParticleView.h"
 #import "UIEffectDesignerView.h"
 
-@interface PacManMainGameViewController:UIViewController<MAMapViewDelegate>
+@interface PacManMainGameViewController:UIViewController<MAMapViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     __block MAMapView *_mapView;
     bool bSetUserLocation;
@@ -47,6 +48,12 @@
     UIEffectDesignerView* fire;
     
     NSString* NRTCAppKey;
+    
+    NSMutableArray* stateArray;
+    NSMutableDictionary* stateResourceInfo;
+    int stateCount;
+    
+    __block IBOutlet UITableView* gameInfoTableView;
 }
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;

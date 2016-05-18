@@ -7,13 +7,14 @@
 //
 
 #import "PacManMainGameViewController.h"
-#import"NRTC/include/NRTC/NRTC.h"
-
+#import "NRTC/include/NRTC/NRTC.h"
+#import "GameStateTableViewCell.h"
 
 @interface PacManMainGameViewController ()
 
 @property (nonatomic,copy) PomeloWSCallback onPlayerUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback onMapUpdateCallback;
+@property (nonatomic,copy) PomeloWSCallback onStateUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback drawMap;
 
 
@@ -25,6 +26,8 @@
 @synthesize PlayerList;
 @synthesize UserName;
 @synthesize GameID;
+
+static NSString* CellTableIdentifier = @"CellTableIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,17 +54,23 @@
     
     [self InitPlayerUpdate];
     [self InitMapUpdate];
+    [self InitStateUpdate];
 
     
     ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
-    NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&Demon"];
+    NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&deamon"];
     
     imageDictionary = [list objectAtIndex:0];
     
     
     ItemHandler *itemHandler = [ItemHandler GetItemHandler];
-    NSArray* listOfItem = [itemHandler.ItemInfoDictionary objectForKey:@"Angel&Demon"];
+    NSArray* listOfItem = [itemHandler.ItemInfoDictionary objectForKey:@"Angel&deamon"];
     itemDictionary = [listOfItem objectAtIndex:0];
+   
+    StateHandler *stateHandler = [StateHandler GetStateHandler];
+    NSArray* listOfState = [stateHandler.StateResourceDictionary objectForKey:@"Angel&deamon"];
+    stateResourceInfo = [listOfState objectAtIndex:0];
+
     
     // Set the 'menu button
     [self.MenuButton initAnimationWithFadeEffectEnabled:NO]; // Set to 'NO' to disable Fade effect between its two-state transition
@@ -94,16 +103,35 @@
     
     [_menuItemView.menuItem3 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
     
-    _gameInfoView = [[GameInfoViewController alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,100)];
-    [_gameInfoView setBackgroundColor:[UIColor whiteColor]];
-    [[_gameInfoView layer] setMasksToBounds:YES];
-    _gameInfoView.alpha = 0.9;
-    [self.view addSubview:_gameInfoView];
+//    _gameInfoView = [[GameInfoViewController alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,100)];
+//    [_gameInfoView setBackgroundColor:[UIColor whiteColor]];
+//    [[_gameInfoView layer] setMasksToBounds:YES];
+//    _gameInfoView.alpha = 0.9;
+//    [self.view addSubview:_gameInfoView];
+//    
+//    UILabel *appleNumberLable = [[UILabel alloc] initWithFrame:CGRectMake(5, 58, self.view.frame.size.width/4-5, 40)];
+//    [appleNumberLable setBackgroundColor:[UIColor clearColor]];
+//    appleNumberLable.text = @"20";
+//    appleNumberLable.font = [UIFont fontWithName:@"courer-Bold" size:20];
+//    
+//    [_gameInfoView addSubview:appleNumberLable];
     
-    NRTCAppKey = @"172035d172c98670557c20d01b8a774e";
-    [self joinChatRoom];
+    gameInfoTableView.showsVerticalScrollIndicator = NO;
+    // 设置TableView显示的位置
+    //gameInfoTableView.center = CGPointMake(320 / 2, 66);
+    gameInfoTableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+    [self.view addSubview:gameInfoTableView];
+    [gameInfoTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    bChatButtonEnabled = ![[NRTCManager sharedManager] audioMuteEnabled];
+    gameInfoTableView.rowHeight = 100;
+    UINib *nib = [UINib nibWithNibName:@"GameStateUITableCell" bundle:nil];
+    [gameInfoTableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
+    
+//    NRTCAppKey = @"172035d172c98670557c20d01b8a774e";
+//    [self joinChatRoom];
+    
+//    bChatButtonEnabled = ![[NRTCManager sharedManager] audioMuteEnabled];
+    bChatButtonEnabled = false;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -162,6 +190,36 @@
             [_mapView removeAnnotation:playerAnnotation];
             [PlayerList removeObjectForKey:[mapInfo objectForKey:@"goid"]];
         }
+    };
+}
+
+-(void) InitStateUpdate
+{
+    self.onStateUpdateCallback = ^(NSDictionary* stateInfo)
+    {
+        
+        NSArray *array = [stateInfo objectForKey:@"state"];
+        
+        if(stateArray == nil)
+        {
+            stateArray = [NSMutableArray arrayWithArray:array];
+            [gameInfoTableView reloadData];
+            return;
+        }
+        
+        for (int i=0;i< array.count;i++)
+        {
+            if(![[[array objectAtIndex:i] objectForKey:@"value"] isEqual:[[stateArray objectAtIndex:i] objectForKey:@"value"]])
+            {
+                [stateArray setObject:[array objectAtIndex:i] atIndexedSubscript:i];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                NSMutableArray* arr = [NSMutableArray arrayWithCapacity:1];
+                [arr addObject:[[NSArray arrayWithObjects:indexPath, nil] objectAtIndex:0]];
+                
+                [gameInfoTableView reloadRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }
+      //  [gameInfoTableView reloadData];
     };
 }
 
@@ -289,6 +347,7 @@
     fire = [UIEffectDesignerView effectWithFile:@"snow.ped"];
     [self.view addSubview: fire];
     [self.view bringSubviewToFront:fire];
+    [self.view bringSubviewToFront:gameInfoTableView];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -300,6 +359,7 @@
     
     [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
     [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
+    [pomelo onRoute:@"onStateUpdate" withCallback:self.onStateUpdateCallback];
     
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     
@@ -554,16 +614,66 @@
 - (void)joinChatRoom
 {
     
-        NRTCChannel *channel = [[NRTCChannel alloc] init];
-        channel.channelName = @"tempName";
-        channel.channelMode = NRTCChannelModeAudio;
-        channel.myUid = [GameID intValue];
-        channel.appKey = NRTCAppKey;
-        channel.meetingMode = YES;
-        channel.meetingRole = NRTCMeetingRoleActor;
+//        NRTCChannel *channel = [[NRTCChannel alloc] init];
+//        channel.channelName = @"tempName";
+//        channel.channelMode = NRTCChannelModeAudio;
+//        channel.myUid = [GameID intValue];
+//        channel.appKey = NRTCAppKey;
+//        channel.meetingMode = YES;
+//        channel.meetingRole = NRTCMeetingRoleActor;
+//    
+//    
+//        NSError *error = [[NRTCManager sharedManager] joinChannel:channel delegate:self];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    GameStateTableViewCell *cell = [gameInfoTableView dequeueReusableCellWithIdentifier:CellTableIdentifier];
+    
+    NSDictionary* state = [stateArray objectAtIndex:indexPath.row];
     
     
-        NSError *error = [[NRTCManager sharedManager] joinChannel:channel delegate:self];
+    if(state!=nil){
+        if([[state objectForKey:@"role"] isEqualToString:@"timer"])
+        {
+            NSString* time =[state objectForKey:@"value"];
+            [cell.score setText:time];
+        }
+        else
+        {
+            int value =[[state objectForKey:@"value"] intValue];
+            [cell.score setText:[NSString stringWithFormat:@"%d",value]];
+        }
+        
+        NSString* imageName =[[stateResourceInfo objectForKey:[state objectForKey:@"role"]] objectForKey:@"image"];
+        [cell.scoreImage setImage:[UIImage imageNamed:imageName]];
+        
+        NSString* displayText =[[stateResourceInfo objectForKey:[state objectForKey:@"role"]] objectForKey:@"displayText"];
+        [cell.displayText setText:displayText];
+        
+    }
+ 
+    [cell.separatorImage setImage:[UIImage imageNamed:@"separator"]];
+    
+    cell.transform = CGAffineTransformMakeRotation(M_PI_2);
+    
+    return cell;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.view.frame.size.width/stateResourceInfo.count;//设置横向cell的高度
+}
+
+- (CGFloat)tableView:(UITableView *)tableView count:(NSIndexPath *)indexPath
+{
+    return stateResourceInfo.count;//设置横向cell的高度
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return stateResourceInfo.count;
 }
 
 @end
