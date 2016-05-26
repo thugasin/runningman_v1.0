@@ -46,11 +46,8 @@
     [(PacManMainGameViewController*)m_gameViewController MenuTouchedAction:2];
 }
 -(IBAction)OnMenuItem3ButtonClicked:(id)sender
-{}
-
--(IBAction)OnMenuItem1ButtonDragged:(id)sender event:(UIEvent *)event
 {
-    
+    [(PacManMainGameViewController*)m_gameViewController MenuTouchedAction:3];
 }
 
 -(void)SetController:(id)gameViewController
@@ -58,12 +55,5 @@
     m_gameViewController = gameViewController;
 }
 
-- (void) touchDragInsideDblTapSignButE:(id)sender event:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view];
-    NSLog(@"Location x%f y%f",location.x,location.y);
-    
-    [(PacManMainGameViewController*)m_gameViewController MenuDraggedAction:2 Location:location];
-}
 
 @end

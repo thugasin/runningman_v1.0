@@ -28,6 +28,7 @@
 @interface BounceButtonView : ASOBounceButtonView
 {
     UIViewController* m_gameViewController;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *menuItem1;
@@ -38,7 +39,6 @@
 -(IBAction)OnMenuItem2ButtonClicked:(id)sender;
 -(IBAction)OnMenuItem3ButtonClicked:(id)sender;
 
--(IBAction)OnMenuItem1ButtonDragged:(id)sender event:(UIEvent *)event;
 
 -(void)SetController:(id)gameViewController;
 

@@ -89,14 +89,14 @@
                     "repeatCount": 0
                     }
                     },
-                    "DevilBringer": {
+                    "HellWheels": {
                     "Normal": {
                     "images": [
-                               "DevilBringer"
+                               "HellWheels"
                                ],
                     "width": 30,
                     "height": 30,
-                    "identifier": "DevilBringer",
+                    "identifier": "HellWheels",
                     "repeatCount": 0
                     }
                     },

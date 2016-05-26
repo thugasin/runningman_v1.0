@@ -36,7 +36,7 @@
     
     NSDictionary* annotaitonIdentifierInfo;
     NSMutableDictionary* itemDictionary;
-    NSMutableDictionary* itemList;
+    NSMutableArray* itemList;
     
     float annotationWidth;
     float annotationHeight;
@@ -54,6 +54,8 @@
     int stateCount;
     
     __block IBOutlet UITableView* gameInfoTableView;
+    
+    IBOutlet UIButton* testingModeButton;
 }
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;

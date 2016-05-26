@@ -14,6 +14,7 @@
 
 @property (nonatomic,copy) PomeloWSCallback onPlayerUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback onMapUpdateCallback;
+@property (nonatomic,copy) PomeloWSCallback onPlayerItemUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback onStateUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback drawMap;
 
@@ -55,6 +56,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [self InitPlayerUpdate];
     [self InitMapUpdate];
     [self InitStateUpdate];
+    [self InitItemUpdate];
 
     
     ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
@@ -75,46 +77,9 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     // Set the 'menu button
     [self.MenuButton initAnimationWithFadeEffectEnabled:NO]; // Set to 'NO' to disable Fade effect between its two-state transition
     
-    itemList = [NSMutableDictionary dictionaryWithCapacity:3];  // need configurable
+    itemList = [NSMutableArray arrayWithCapacity:3];  // need configurable
     
-    // Get the 'menu item view' from storyboard
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *menuItemsVC = (UIViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"ArchMenu"];
-    self.menuItemView = (BounceButtonView *)menuItemsVC.view;
-    [self.menuItemView SetController:self];
-    
-    NSArray *arrMenuItemButtons = [[NSArray alloc] initWithObjects:self.menuItemView.menuItem1,
-                                   self.menuItemView.menuItem2,
-                                   self.menuItemView.menuItem3,
-                                   nil]; // Add all of the defined 'menu item button' to 'menu item view'
-    [self.menuItemView addBounceButtons:arrMenuItemButtons];
-    
-    // Set the bouncing distance, speed and fade-out effect duration here. Refer to the ASOBounceButtonView public properties
-    [self.menuItemView setSpeed:[NSNumber numberWithFloat:0.3f]];
-    [self.menuItemView setBouncingDistance:[NSNumber numberWithFloat:0.3f]];
-    
-    [self.menuItemView setAnimationStyle:ASOAnimationStyleRiseProgressively];
-    
-    // Set as delegate of 'menu item view'
-    [self.menuItemView setDelegate:self];
-    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragInsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragInside];
-    
-    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragOutside];
-    
-    [_menuItemView.menuItem3 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
-    
-//    _gameInfoView = [[GameInfoViewController alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,100)];
-//    [_gameInfoView setBackgroundColor:[UIColor whiteColor]];
-//    [[_gameInfoView layer] setMasksToBounds:YES];
-//    _gameInfoView.alpha = 0.9;
-//    [self.view addSubview:_gameInfoView];
-//    
-//    UILabel *appleNumberLable = [[UILabel alloc] initWithFrame:CGRectMake(5, 58, self.view.frame.size.width/4-5, 40)];
-//    [appleNumberLable setBackgroundColor:[UIColor clearColor]];
-//    appleNumberLable.text = @"20";
-//    appleNumberLable.font = [UIFont fontWithName:@"courer-Bold" size:20];
-//    
-//    [_gameInfoView addSubview:appleNumberLable];
+    [self SetupItemMenu];
     
     gameInfoTableView.showsVerticalScrollIndicator = NO;
     // 设置TableView显示的位置
@@ -144,6 +109,38 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 - (BOOL)prefersStatusBarHidden
 {
     return YES; //返回NO表示要显示，返回YES将hiden
+}
+
+- (void)SetupItemMenu {
+    // Get the 'menu item view' from storyboard
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *menuItemsVC = (UIViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"ArchMenu"];
+    self.menuItemView = (BounceButtonView *)menuItemsVC.view;
+    [self.menuItemView SetController:self];
+    
+    [self.menuItemView.menuItem1 setBackgroundImage:[UIImage imageNamed:@"empty"] forState:UIControlStateNormal];
+    [self.menuItemView.menuItem2 setBackgroundImage:[UIImage imageNamed:@"empty"] forState:UIControlStateNormal];
+    [self.menuItemView.menuItem3 setBackgroundImage:[UIImage imageNamed:@"empty"] forState:UIControlStateNormal];
+    
+    NSArray *arrMenuItemButtons = [[NSArray alloc] initWithObjects:self.menuItemView.menuItem1,
+                                   self.menuItemView.menuItem2,
+                                   self.menuItemView.menuItem3,
+                                   nil]; // Add all of the defined 'menu item button' to 'menu item view'
+    [self.menuItemView addBounceButtons:arrMenuItemButtons];
+    
+    // Set the bouncing distance, speed and fade-out effect duration here. Refer to the ASOBounceButtonView public properties
+    [self.menuItemView setSpeed:[NSNumber numberWithFloat:0.3f]];
+    [self.menuItemView setBouncingDistance:[NSNumber numberWithFloat:0.3f]];
+    
+    [self.menuItemView setAnimationStyle:ASOAnimationStyleRiseProgressively];
+    
+    // Set as delegate of 'menu item view'
+    [self.menuItemView setDelegate:self];
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragInsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragInside];
+    
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragOutside];
+    
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
 }
 
 - (IBAction)menuButtonAction:(id)sender
@@ -182,15 +179,46 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     {
         if(![PlayerList objectForKey:[mapInfo objectForKey:@"goid"]])
              return;
-             
+                
         NSDictionary * mapInfoData = [mapInfo objectForKey:@"go"];
-        if ([[mapInfoData objectForKey:@"Role"]  isEqualToString: @"bean"] && [[mapInfoData objectForKey:@"State"]  isEqualToString:@"eaten"])
+        if ([[[mapInfoData objectForKey:@"CloneRole"]  objectForKey:@"HealthPoint"] longValue]<=0)
         {
             AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[mapInfo objectForKey:@"goid"]];
             [_mapView removeAnnotation:playerAnnotation];
             [PlayerList removeObjectForKey:[mapInfo objectForKey:@"goid"]];
         }
+        
     };
+}
+
+-(void) InitItemUpdate
+{
+    self.onPlayerItemUpdateCallback = ^(NSDictionary* playerItemInfo)
+    {
+        if (![[playerItemInfo objectForKey:@"userid"] isEqualToString:UserName]) {
+            return;
+        }
+        
+        NSArray *items = [playerItemInfo objectForKey:@"items"];
+        itemList = [NSMutableArray arrayWithArray:items];
+        
+        [self MenuItemUpdate];
+    };
+}
+
+-(void) MenuItemUpdate
+{
+    [self.menuItemView.menuItem1 setBackgroundImage:[UIImage imageNamed:@"empty"] forState:UIControlStateNormal];
+    [self.menuItemView.menuItem2 setBackgroundImage:[UIImage imageNamed:@"empty"] forState:UIControlStateNormal];
+    [self.menuItemView.menuItem3 setBackgroundImage:[UIImage imageNamed:@"empty"] forState:UIControlStateNormal];
+    
+    if(itemList.count>0)
+        [self.menuItemView.menuItem1 setBackgroundImage:[UIImage imageNamed:[itemList objectAtIndex:0]] forState:UIControlStateNormal];
+    if(itemList.count>1)
+        [self.menuItemView.menuItem2 setBackgroundImage:[UIImage imageNamed:[itemList objectAtIndex:1]] forState:UIControlStateNormal];
+    if(itemList.count>2)
+        [self.menuItemView.menuItem3 setBackgroundImage:[UIImage imageNamed:[itemList objectAtIndex:2]] forState:UIControlStateNormal];
+        
 }
 
 -(void) InitStateUpdate
@@ -348,6 +376,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [self.view addSubview: fire];
     [self.view bringSubviewToFront:fire];
     [self.view bringSubviewToFront:gameInfoTableView];
+    [self.view bringSubviewToFront:testingModeButton];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -360,6 +389,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [pomelo onRoute:@"onPlayerUpdate" withCallback:self.onPlayerUpdateCallback];
     [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
     [pomelo onRoute:@"onStateUpdate" withCallback:self.onStateUpdateCallback];
+    [pomelo onRoute:@"onPlayerItemUpdate" withCallback:self.onPlayerItemUpdateCallback];
     
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     
@@ -375,15 +405,28 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 
 -(IBAction) OnStopButtonClicked:(id)sender
 {
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    
+//    NSDictionary *params = @{@"userid":[userDefault objectForKey:@"name"],@"gameid":GameID};
+//    
+//    [pomelo requestWithRoute:@"game.gameHandler.stop"
+//                   andParams:params andCallback:^(NSDictionary *result){
+//                       
+//                       NSLog((NSString*)[result objectForKey:@"players"]);
+//                   }];
+    if(_mapView.showsUserLocation == YES)
+    {
+    _mapView.showsUserLocation = NO;
+    _mapView.zoomEnabled = NO;
+    _mapView.scrollEnabled = NO;
+    }
+    else
+    {
+        _mapView.showsUserLocation = YES;
+        _mapView.zoomEnabled = YES;
+        _mapView.scrollEnabled = YES;
+    }
     
-    NSDictionary *params = @{@"userid":[userDefault objectForKey:@"name"],@"gameid":GameID};
-    
-    [pomelo requestWithRoute:@"game.gameHandler.stop"
-                   andParams:params andCallback:^(NSDictionary *result){
-                       
-                       NSLog((NSString*)[result objectForKey:@"players"]);
-                   }];
 }
 
 #pragma mark - MAMapViewDelegate
@@ -546,6 +589,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [_mapView addAnnotation:EffectAnnotation];
 }
 
+
 -(void) MenuTouchedAction:(int)itemIndex
 {
     
@@ -558,18 +602,32 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
- //   [fireView setEmitterPositionFromTouch: [touches anyObject]];
-    fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
+ 
+  //  fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
+    
+    mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
+    
+    NSDictionary *params = @{@"userid":UserName,
+                             @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
+                             ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
+    
+    [pomelo notifyWithRoute:@"game.gameHandler.report" andParams:params];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [fireView setEmitterPositionFromTouch: [touches anyObject]];
-//    [fireView setIsEmitting:YES];
-    fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
+    //   fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
+    mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
+    
+    NSDictionary *params = @{@"userid":UserName,
+                             @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
+                             ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
+    
+    [pomelo notifyWithRoute:@"game.gameHandler.report" andParams:params];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [fireView setIsEmitting:NO];
+ //   [fireView setIsEmitting:NO];
+ //   mySelfAnnotation.coordinate =[(UITouch *)[touches anyObject] locationInView:_mapView];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -675,5 +733,6 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return stateResourceInfo.count;
 }
+
 
 @end

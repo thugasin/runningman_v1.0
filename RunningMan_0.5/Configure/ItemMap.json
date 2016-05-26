@@ -1,18 +1,18 @@
 {
     "Angel&deamon": [
                     {
-                    "lightOfPunishment": {
-                    "image":"angelAttact",
+                    "LightOfPunishment": {
+                    "image":"LightOfPunishment",
                     "actionType":"click",
                     "identifier":"惩戒之光"
                     },
-                    "sealOfDevil": {
-                    "image":"angelFreeze",
+                    "SealOfDevil": {
+                    "image":"SealOfDevil",
                     "actionType":"drag",
                     "dragEffect":"snow",
                     },
-                    "hellWheels": {
-                    "image":"hellWheels",
+                    "HellWheels": {
+                    "image":"HellWheels",
                     "actionType":"multipleClick",
                     "clickEffects":
                     {
