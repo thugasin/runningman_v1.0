@@ -133,14 +133,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [self.menuItemView setBouncingDistance:[NSNumber numberWithFloat:0.3f]];
     
     [self.menuItemView setAnimationStyle:ASOAnimationStyleRiseProgressively];
-    
-    // Set as delegate of 'menu item view'
-    [self.menuItemView setDelegate:self];
-    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragInsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragInside];
-    
-    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragOutside];
-    
-    [_menuItemView.menuItem3 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
+    [self SetupItemmenuDragEvents];
 }
 
 - (IBAction)menuButtonAction:(id)sender
@@ -576,7 +569,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     
     NSMutableArray* imageList = [NSMutableArray arrayWithCapacity:20];
     
-    for (NSString *imageRef in [[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"images"]) {
+    for (NSString *imageRef in [[[imageDictionary objectForKey:effectName] objectForKey:@"Effect" ] objectForKey:@"images"]) {
         [imageList addObject:[UIImage imageNamed:imageRef]];
     }
     
@@ -592,8 +585,56 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 
 -(void) MenuTouchedAction:(int)itemIndex
 {
+//    NSString* itemAction = [[itemDictionary objectForKey:[itemList objectAtIndex:itemIndex]] objectForKey:@"actionType"];
+//    
+//    if([itemAction isEqualToString:@"click"])
+//    {
+//        NSDictionary *params = @{@"gameid":GameID,@"userid":UserName,
+//                                 @"itemIndex":[NSString stringWithFormat:@"%d",itemIndex],@"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude],@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
+//        
+//        [pomelo requestWithRoute:@"game.gameHandler.useitem"
+//                       andParams:params andCallback:^(NSDictionary *result){
+//                           
+//                           NSLog((NSString*)[result objectForKey:@"message"]);
+//                           if ([[result objectForKey:@"success"] boolValue])
+//                           {
+//                               [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:[itemList objectAtIndex:itemIndex]];
+//                               [itemList removeObjectAtIndex:itemIndex];
+//                               [self MenuItemUpdate];
+//                           }
+//                           
+//                       }];
+//    }
+//    if([itemAction isEqualToString:@"drag"])
+//    {
+//        
+//    }
+
     
-    [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelAttact"];
+}
+
+-(void) SetupItemmenuDragEvents
+{
+    // Set as delegate of 'menu item view'
+    [self.menuItemView setDelegate:self];
+    [_menuItemView.menuItem3 addTarget:self action:@selector(menuItem3_touchDragInsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragInside];
+    
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchDragOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragOutside];
+    
+    [_menuItemView.menuItem3 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    [_menuItemView.menuItem2 addTarget:self action:@selector(menuItem2_touchDragInsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragInside];
+    
+    [_menuItemView.menuItem2 addTarget:self action:@selector(touchDragOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragOutside];
+    
+    [_menuItemView.menuItem2 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
+
+    [_menuItemView.menuItem1 addTarget:self action:@selector(menuItem1_touchDragInsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragInside];
+    
+    [_menuItemView.menuItem1 addTarget:self action:@selector(touchDragOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchDragOutside];
+    
+    [_menuItemView.menuItem1 addTarget:self action:@selector(touchUpOutsideDblTapSignButE:event:) forControlEvents:UIControlEventTouchUpOutside];
+    
 }
 
 -(void) MenuDraggedAction:(int)itemIndex Location:(CGPoint)location
@@ -634,24 +675,100 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [fireView setIsEmitting:NO];
 }
 
+- (void) menuItem1_touchDragInsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    draggedMenuItem = _menuItemView.menuItem1;
+    menuItemTobeUsedIndex =0;
+    [self touchDragInsideDblTapSignButE:sender event:event];
+}
+
+- (void) menuItem2_touchDragInsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    draggedMenuItem = _menuItemView.menuItem2;
+    menuItemTobeUsedIndex =1;
+    [self touchDragInsideDblTapSignButE:sender event:event];
+}
+
+- (void) menuItem3_touchDragInsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    draggedMenuItem = _menuItemView.menuItem3;
+    menuItemTobeUsedIndex =2;
+    [self touchDragInsideDblTapSignButE:sender event:event];
+}
+
 - (void) touchDragInsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    
+    if(itemList.count<menuItemTobeUsedIndex+1)  //no item on such menu
+        return;
+    
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView:touch.view];
     NSLog(@"Location x%f y%f",location.x,location.y);
     
    // [self MenuDraggedAction:2 Location:_menuItemView.menuItem3.center];
-    [self MenuDraggedAction:2 Location:CGPointMake(location.x-_menuItemView.menuItem3.frame.size.width/2+_menuItemView.menuItem3.center.x, location.y-_menuItemView.menuItem3.frame.size.height/2+_menuItemView.menuItem3.center.y)];
+    [self MenuDraggedAction:menuItemTobeUsedIndex Location:CGPointMake(location.x-draggedMenuItem.frame.size.width/2+draggedMenuItem.center.x, location.y-draggedMenuItem.frame.size.height/2+draggedMenuItem.center.y)];
 }
 
 - (void) touchDragOutsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    
+    if(itemList.count<menuItemTobeUsedIndex+1)  //no item on such menu
+        return;
+    
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView:touch.view];
     NSLog(@"Location x%f y%f",location.x,location.y);
     
-    [self MenuDraggedAction:2 Location:CGPointMake(location.x-_menuItemView.menuItem3.frame.size.width/2+_menuItemView.menuItem3.center.x, location.y-_menuItemView.menuItem3.frame.size.height/2+_menuItemView.menuItem3.center.y)];
+    [self MenuDraggedAction:menuItemTobeUsedIndex Location:CGPointMake(location.x-draggedMenuItem.frame.size.width/2+draggedMenuItem.center.x, location.y-draggedMenuItem.frame.size.height/2+draggedMenuItem.center.y)];
 }
 
 - (void) touchUpOutsideDblTapSignButE:(id)sender event:(UIEvent *)event {
+    
+    if(itemList.count<menuItemTobeUsedIndex+1)  //no item on such menu
+        return;
+    
+    NSString* itemAction = [[itemDictionary objectForKey:[itemList objectAtIndex:menuItemTobeUsedIndex]] objectForKey:@"actionType"];
+    
+    if([itemAction isEqualToString:@"click"])
+    {
+        NSDictionary *params = @{@"gameid":GameID,@"userid":UserName,
+                                 @"itemIndex":[NSString stringWithFormat:@"%d",menuItemTobeUsedIndex],@"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude],@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
+        
+        [pomelo requestWithRoute:@"game.gameHandler.useitem"
+                       andParams:params andCallback:^(NSDictionary *result){
+                           
+                           NSLog((NSString*)[result objectForKey:@"message"]);
+                           if ([[result objectForKey:@"success"] boolValue])
+                           {
+                               [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:[itemList objectAtIndex:menuItemTobeUsedIndex]];
+                               [itemList removeObjectAtIndex:menuItemTobeUsedIndex];
+                               [self MenuItemUpdate];
+                           }
+                           
+                       }];
+        return;
+    }
+    
+    CLLocationCoordinate2D itemUsedPosition = [_mapView convertPoint:[(UITouch *)[[event allTouches] anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
+    
+    if([itemAction isEqualToString:@"drag"])
+    {
+        NSDictionary *params = @{@"gameid":GameID,@"userid":UserName,
+                                 @"itemIndex":[NSString stringWithFormat:@"%d",menuItemTobeUsedIndex],@"x":[NSString stringWithFormat:@"%f",itemUsedPosition.latitude],@"y":[NSString stringWithFormat:@"%f",itemUsedPosition.longitude]};
+        
+        [pomelo requestWithRoute:@"game.gameHandler.useitem"
+                       andParams:params andCallback:^(NSDictionary *result){
+                           
+                           NSLog((NSString*)[result objectForKey:@"message"]);
+                           if ([[result objectForKey:@"success"] boolValue])
+                           {
+//                               [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:[itemList objectAtIndex:menuItemTobeUsedIndex]];
+                               [itemList removeObjectAtIndex:menuItemTobeUsedIndex];
+                               [self MenuItemUpdate];
+                           }
+                           
+                       }];
+        return;
+        
+    }
+    
+    
     [_mapView willRemoveSubview:fire];
     [fire removeFromSuperview];
     [_mapView removeAnnotation:mySelfAnnotation];

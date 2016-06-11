@@ -54,6 +54,8 @@
     int stateCount;
     
     __block IBOutlet UITableView* gameInfoTableView;
+    UIButton* draggedMenuItem;
+    int menuItemTobeUsedIndex;
     
     IBOutlet UIButton* testingModeButton;
 }

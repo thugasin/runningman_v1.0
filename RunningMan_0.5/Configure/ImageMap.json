@@ -109,7 +109,22 @@
                     "height": 30,
                     "identifier": "LightOfPunishment",
                     "repeatCount": 0
-                    }
+                    },
+                     "Effect": {
+                     "images": [
+                                "angleAttack1",
+                                "angleAttack2",
+                                "angleAttack3",
+                                "angleAttack4",
+                                "angleAttack5",
+                                "angleAttack6",
+                                "angleAttack7"
+                                ],
+                     "width": 200,
+                     "height": 200,
+                     "identifier": "angelAttact",
+                     "repeatCount": 1
+                     }
                     }
                     }
                     ]
