@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 - (IBAction)OnLogin:(id)sender;
+- (IBAction)OnConfigure:(id)sender;
 
 @property (strong, nonatomic) PomeloWS *pomelo;
 

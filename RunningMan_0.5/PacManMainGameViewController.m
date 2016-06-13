@@ -347,6 +347,10 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     
     [_mapView setZoomLevel:30 animated:YES];
     
+    //设置允许后台定位参数，保持不会被系统挂起
+    _mapView.pausesLocationUpdatesAutomatically = NO;
+    _mapView.allowsBackgroundLocationUpdates = YES;
+    
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     _mapView.showsScale = NO;
     _mapView.showsCompass = NO;
@@ -730,15 +734,17 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         NSDictionary *params = @{@"gameid":GameID,@"userid":UserName,
                                  @"itemIndex":[NSString stringWithFormat:@"%d",menuItemTobeUsedIndex],@"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude],@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
         
+        [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:[itemList objectAtIndex:menuItemTobeUsedIndex]];
+        [itemList removeObjectAtIndex:menuItemTobeUsedIndex];
+        [self MenuItemUpdate];
+        
         [pomelo requestWithRoute:@"game.gameHandler.useitem"
                        andParams:params andCallback:^(NSDictionary *result){
                            
                            NSLog((NSString*)[result objectForKey:@"message"]);
                            if ([[result objectForKey:@"success"] boolValue])
                            {
-                               [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:[itemList objectAtIndex:menuItemTobeUsedIndex]];
-                               [itemList removeObjectAtIndex:menuItemTobeUsedIndex];
-                               [self MenuItemUpdate];
+                               NSLog(@"use item success");
                            }
                            
                        }];

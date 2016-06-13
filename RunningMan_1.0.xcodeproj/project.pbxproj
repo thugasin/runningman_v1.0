@@ -43,6 +43,7 @@
 		3642F9DF1C53D8B500B06D92 /* GameNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642F9DE1C53D8B500B06D92 /* GameNavigationViewController.m */; };
 		36502AB41CB24A78008F1A1E /* Configure in Resources */ = {isa = PBXBuildFile; fileRef = 36502AB31CB24A78008F1A1E /* Configure */; };
 		36502ABC1CB25472008F1A1E /* ImageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 36502ABB1CB25472008F1A1E /* ImageHandler.m */; };
+		365245481D0982A2008387F1 /* SystemConfigurationUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365245471D0982A2008387F1 /* SystemConfigurationUIViewController.m */; };
 		365EB4281BC7CAEF001F3303 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB4271BC7CAEF001F3303 /* main.m */; };
 		365EB42B1BC7CAEF001F3303 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42A1BC7CAEF001F3303 /* AppDelegate.m */; };
 		365EB42E1BC7CAEF001F3303 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42D1BC7CAEF001F3303 /* ViewController.m */; };
@@ -179,6 +180,8 @@
 		36502AB31CB24A78008F1A1E /* Configure */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Configure; sourceTree = "<group>"; };
 		36502ABA1CB25472008F1A1E /* ImageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHandler.h; sourceTree = "<group>"; };
 		36502ABB1CB25472008F1A1E /* ImageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHandler.m; sourceTree = "<group>"; };
+		365245461D0982A2008387F1 /* SystemConfigurationUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemConfigurationUIViewController.h; sourceTree = "<group>"; };
+		365245471D0982A2008387F1 /* SystemConfigurationUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemConfigurationUIViewController.m; sourceTree = "<group>"; };
 		365EB4231BC7CAEF001F3303 /* RunningMan_1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningMan_1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		365EB4271BC7CAEF001F3303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		365EB4291BC7CAEF001F3303 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -581,6 +584,8 @@
 				366AAD381CE21F5F00A4625D /* GameStateUITableCell.xib */,
 				366AAD3A1CE224EC00A4625D /* GameStateTableViewCell.h */,
 				366AAD3B1CE224EC00A4625D /* GameStateTableViewCell.m */,
+				365245461D0982A2008387F1 /* SystemConfigurationUIViewController.h */,
+				365245471D0982A2008387F1 /* SystemConfigurationUIViewController.m */,
 			);
 			name = RunningMan_1.0;
 			path = RunningMan_0.5;
@@ -891,6 +896,7 @@
 				36D074A31BC7DB2E00032359 /* LoginViewController.m in Sources */,
 				360F08B91CD05CE3002B5539 /* ItemHandler.m in Sources */,
 				36D982341C3782FB0040BC4A /* Pomelo.m in Sources */,
+				365245481D0982A2008387F1 /* SystemConfigurationUIViewController.m in Sources */,
 				363F1E711C19C561009B5730 /* NSData+SRB64Additions.m in Sources */,
 				36D27A591BEA2FA300E3B0DB /* LoginViewController_sf.swift in Sources */,
 				36D3EFC21C3977D300E98B2F /* PBDecoder.m in Sources */,

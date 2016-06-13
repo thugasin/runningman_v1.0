@@ -52,7 +52,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     UINib *nib = [UINib nibWithNibName:@"GameInfoCell" bundle:nil];
     [tableview registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
     
-    //[self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
     
     [self.locationManager requestLocationWithReGeocode:YES completionBlock:self.completionBlock];
     [self StartWaitingAnimation];
@@ -129,11 +129,12 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                 pomelo = [[PomeloWS alloc] initWithDelegate:self];
             }
             
- //           [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
-             [pomelo connectToHost:@"ayo.org.cn" onPort:3050 withCallback:^(PomeloWS *p)
-  //           [pomelo connectToHost:@"192.168.1.93" onPort:3050 withCallback:^(PomeloWS *p)
-  //          [pomelo connectToHost:@"172.20.10.2" onPort:3050 withCallback:^(PomeloWS *p)
+            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
             
+ //           [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
+//             [pomelo connectToHost:@"ayo.org.cn" onPort:3050 withCallback:^(PomeloWS *p)
+            NSLog([userDefault objectForKey:@"serverip"]);
+             [pomelo connectToHost:[userDefault objectForKey:@"serverip"] onPort:3050 withCallback:^(PomeloWS *p)
              {
                  [indicator stopAnimating];
                  NSDictionary *params = @{@"city":@"-1"};

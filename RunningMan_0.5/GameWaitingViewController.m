@@ -49,8 +49,8 @@
     
     [pomelo onRoute:@"onJoin" withCallback:self.onJoinCallback];
     [pomelo onRoute:@"onLeave" withCallback:self.onLeaveCallback];
-    [pomelo onRoute:@"onRoleAssigned" withCallback:self.onRoleAssignedCallback];
     [pomelo onRoute:@"onStart" withCallback:self.onGameStartCallback];
+    [pomelo onRoute:@"onRoleAssigned" withCallback:self.onRoleAssignedCallback];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];

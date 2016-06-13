@@ -125,7 +125,7 @@ private)
     _routeMap = [NSMutableDictionary dictionaryWithCapacity:8];
 
     _heartbeatInterval = 0;
-    _heartbeatTimeout = 0;
+    _heartbeatTimeout = 100;
     _nextHeartbeatTimeout = 0;
     _gapThreshold = 100;   // heartbeat gap threashold
 
