@@ -6,15 +6,18 @@
 //  Copyright © 2015年 Sirius. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "NetworkAdapter.h"
 #import "pomelows.h"
-#import "PacManMainGameViewController.h"
+//#import "PacManMainGameViewController.h"
 
-@interface GameWaitingViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+#import "AMapLocationManager.h"
+
+
+
+@interface GameWaitingViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,AMapLocationManagerDelegate>
 {
     PomeloWS * pomelo;
-    __block PacManMainGameViewController* gameController;
+    __block UIViewController* gameController;
 }
 
 @property (nonatomic,strong) __block NSMutableArray *list;
@@ -24,9 +27,16 @@
 @property (nonatomic, retain) IBOutlet UILabel* gametitle;
 @property (nonatomic, retain) NSTimer *Timmer;
 
+@property (nonatomic, strong) AMapLocationManager *locationManager;
+//@property (nonatomic, copy) AMapLocatingCompletionBlock completionBlock;
+@property (nonatomic) __block CLLocationCoordinate2D userLocation;
+
+
 -(void) SetGameID:(NSString*)gameId;
 -(void) SetGameName:(NSString*)gameName;
 -(void) RefreshPlayerInfo;
 
 -(IBAction)OnStartGameButtonClicked:(id)sender;
 @end
+
+

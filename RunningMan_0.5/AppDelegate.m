@@ -55,8 +55,30 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
+
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    pomelo = [PomeloWS GetPomelo];
+    if ( pomelo == nil) {
+        pomelo = [[PomeloWS alloc] initWithDelegate:self];
+    }
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    NSString* userName = [userDefault objectForKey:@"name"];
+    NSString* userPassword = [userDefault objectForKey:@"password"];
+    
+    //           [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
+    //             [pomelo connectToHost:@"ayo.org.cn" onPort:3050 withCallback:^(PomeloWS *p)
+    
+    NSString* serverIP = [userDefault objectForKey:@"serverip"];
+    [pomelo connectToHost:serverIP onPort:3050 withCallback:^(PomeloWS *p)
+     {
+         NSDictionary *params = @{@"userid":userName,@"pwd":userPassword};
+         [pomelo notifyWithRoute:@"connector.entryHandler.enter"
+                       andParams:params];
+         NSLog(@"come back, reconnect server;");
+     }];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

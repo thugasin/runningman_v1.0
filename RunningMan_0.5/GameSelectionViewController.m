@@ -133,6 +133,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
             
  //           [pomelo connectToHost:@"ayo.org.cn" onPort:3014 withCallback:^(PomeloWS *p)
 //             [pomelo connectToHost:@"ayo.org.cn" onPort:3050 withCallback:^(PomeloWS *p)
+        
             NSLog([userDefault objectForKey:@"serverip"]);
              [pomelo connectToHost:[userDefault objectForKey:@"serverip"] onPort:3050 withCallback:^(PomeloWS *p)
              {

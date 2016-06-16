@@ -7,6 +7,8 @@
 //
 
 #import "GameWaitingViewController.h"
+#import "PacManMainGameViewController.h"
+#import "AMapLocationServices.h"
 #import "LMAlertView.h"
 
 @interface GameWaitingViewController ()
@@ -55,8 +57,18 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainGameView"];
     gameController = (PacManMainGameViewController*)mainViewController;
-    [gameController SetGameID:GameID];
+    [(PacManMainGameViewController*)gameController SetGameID:GameID];
     
+    [AMapLocationServices sharedServices].apiKey = @"86a9ed1f4d39a5fd8f4843bece27c4ff";
+    self.locationManager = [[AMapLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+        
+    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    //开始持续定位
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)InitGetUserListBlock
@@ -175,7 +187,7 @@
     {
         NSString* role =[mapInfo objectForKey:@"role"];
         NSString* instruction =[mapInfo objectForKey:@"instruction"];
-        gameController.RoleOfMyself = role;
+        ((PacManMainGameViewController*)gameController).RoleOfMyself = role;
         
         NSString* roleMessage = [NSString stringWithFormat:@"Your Role is: %@",role];
         LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:roleMessage message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
@@ -220,6 +232,13 @@
 
     
 }
+
+//- (void)amapLocationManager:(MALocationManager *)manager didUpdateLocation:(CLLocation *)location
+//{
+//    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
+//    
+//    //业务处理
+//}
 
 /*
 #pragma mark - Navigation
