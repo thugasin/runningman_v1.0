@@ -9,6 +9,7 @@
 #import "PacManMainGameViewController.h"
 #import "NRTC/include/NRTC/NRTC.h"
 #import "GameStateTableViewCell.h"
+#import "LMAlertView.h"
 
 @interface PacManMainGameViewController ()
 
@@ -44,7 +45,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     UserName = [userDefault objectForKey:@"name"];
     bSetUserLocation = false;
-    bInitSelfPresentation = false;
+    myState = INACTIVE;
     
     pomelo = [PomeloWS GetPomelo];
     
@@ -97,6 +98,9 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     
 //    bChatButtonEnabled = ![[NRTCManager sharedManager] audioMuteEnabled];
     bChatButtonEnabled = false;
+    
+    bIsInTestingMode = false;
+    bIsItemInUsing = false;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -150,19 +154,129 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     }
 }
 
+-(void) PopupMessageByState
+{
+    NSString* popupMessage;
+    NSString* imageIdentifier;
+    
+    switch (myState) {
+        case DEAD:
+            popupMessage=@"你被和谐了";
+            imageIdentifier = @"RoleDead";
+            break;
+        case FREEZE:
+            popupMessage=@"你被冷冻了";
+            imageIdentifier = @"RoleDead";  //之后再加图片
+            
+        default:
+            break;
+    }
+    LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:popupMessage message:nil delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+    
+    [cardAlertView setSize:CGSizeMake(270.0, 167.0)];
+    
+    UIView *contentView = cardAlertView.contentView;
+    
+    CGFloat yOffset = 55.0;
+    
+    ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
+    NSArray* list = [imangeHandler.ImageDataDictionary objectForKey:@"Angel&deamon"];
+    NSDictionary *imageDictionary = [list objectAtIndex:0];
+    
+    UIImage *card1Image= [UIImage imageNamed:[[imageDictionary objectForKey:_RoleOfMyself] objectForKey:imageIdentifier]];
+    UIGraphicsBeginImageContext( CGSizeMake(110.4, 63.6) );
+    [card1Image drawInRect:CGRectMake(0,0,110.4, 63.6)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageView *card1ImageView= [[UIImageView alloc] initWithImage:newImage];
+    
+    
+    card1ImageView.frame = CGRectMake(80, yOffset, card1ImageView.frame.size.width, card1ImageView.frame.size.height);
+    card1ImageView.layer.cornerRadius = 5.0;
+    card1ImageView.layer.masksToBounds = YES;
+    [contentView addSubview:card1ImageView];
+    
+    
+    [cardAlertView show];
+
+}
+
 -(void) InitPlayerUpdate
 {
     self.onPlayerUpdateCallback = ^(NSDictionary* playerInfo)
     {
-        if ([playerInfo objectForKey:@"userid"] == UserName) {
+        NSString* userGoID = [NSString stringWithFormat:@"player_%@",UserName];
+        if ([[playerInfo objectForKey:@"userid"] isEqualToString:[NSString stringWithFormat:@"player_%@",UserName]]) {
+            if([playerInfo objectForKey:@"state"]!=nil)
+            {
+                
+                if(mySelfAnnotation!=nil)
+                {
+                    NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:[playerInfo objectForKey:@"state"]];
+                    
+                    if([[playerInfo objectForKey:@"state"] isEqualToString:@"Dead"])
+                        myState = DEAD;
+                    [self PopupMessageByState];
+                    
+                    NSMutableArray* imageList = [NSMutableArray arrayWithCapacity:20];
+                    
+                    for (NSString *imageRef in [annotationImageInfo objectForKey:@"images"]) {
+                        [imageList addObject:[UIImage imageNamed:imageRef]];
+                    }
+                    
+                    mySelfAnnotation.animatedImages = imageList;
+                    mySelfAnnotation.animationRepeatCount=[[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
+                    mySelfAnnotation.width=[[annotationImageInfo objectForKey:@"width"] doubleValue];
+                    mySelfAnnotation.height=[[annotationImageInfo objectForKey:@"height"] doubleValue];
+                    mySelfAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
+                    
+                    
+                    [_mapView removeAnnotation:mySelfAnnotation];
+                    [_mapView addAnnotation:mySelfAnnotation];
+                    self.MenuButton.enabled = false;
+                }
+            }
             return;
         }
         
         
-        AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[playerInfo objectForKey:@"userid"]];
+        AnimatedAnnotation* playerAnnotation = [PlayerList objectForKey:[NSString stringWithFormat:@"player_%@",[playerInfo objectForKey:@"userid"]]];
         
-        playerAnnotation.coordinate = CLLocationCoordinate2DMake([[playerInfo objectForKey:@"x"] doubleValue],[[playerInfo objectForKey:@"y"] doubleValue]);
+        
+        if(playerAnnotation != nil)
+        {
             
+            if([playerInfo objectForKey:@"state"]!=nil)
+            {
+                NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:[playerInfo objectForKey:@"state"]];
+                
+                NSMutableArray* imageList = [NSMutableArray arrayWithCapacity:20];
+                
+                for (NSString *imageRef in [annotationImageInfo objectForKey:@"images"]) {
+                    [imageList addObject:[UIImage imageNamed:imageRef]];
+                }
+                
+                playerAnnotation.animatedImages = imageList;
+                playerAnnotation.animationRepeatCount=[[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
+                playerAnnotation.width=[[annotationImageInfo objectForKey:@"width"] doubleValue];
+                playerAnnotation.height=[[annotationImageInfo objectForKey:@"height"] doubleValue];
+                playerAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
+                
+                [_mapView removeAnnotation:playerAnnotation];
+                [_mapView addAnnotation:playerAnnotation];
+                
+                if([annotationImageInfo objectForKey:@"annimation"] !=nil)
+                {
+                    NSDictionary* annimationInfo = [annotationImageInfo objectForKey:@"annimation"];
+                    [self addPlayerAnnotationWithCoordinate:playerAnnotation.coordinate DisplayMessage:@"" AnnotationList:annimationInfo forKey:nil];
+                }
+            }
+            
+            if([playerInfo objectForKey:@"x"] !=nil)
+                playerAnnotation.coordinate = CLLocationCoordinate2DMake([[playerInfo objectForKey:@"x"] doubleValue],[[playerInfo objectForKey:@"y"] doubleValue]);
+        }
+        
     };
 }
 
@@ -188,7 +302,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 {
     self.onPlayerItemUpdateCallback = ^(NSDictionary* playerItemInfo)
     {
-        if (![[playerItemInfo objectForKey:@"userid"] isEqualToString:UserName]) {
+        if ([playerItemInfo objectForKey:@"userid"] == [NSString stringWithFormat:@"player_%@",UserName]) {
             return;
         }
         
@@ -266,7 +380,6 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                     continue;
                 }
                 
-                [mapInfolist setObject:info forKey:key];
                 
                 NSMutableArray *playerImages = [[NSMutableArray alloc] init];
                 
@@ -331,7 +444,8 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     PlayerAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
     PlayerAnnotation.animationRepeatCount = [[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
     
-    [PlayerList setObject:PlayerAnnotation forKey:key];
+    if(key !=nil)
+        [PlayerList setObject:PlayerAnnotation forKey:key];
     
     [_mapView addAnnotation:PlayerAnnotation];
 }
@@ -372,6 +486,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     fire = [UIEffectDesignerView effectWithFile:@"snow.ped"];
     [self.view addSubview: fire];
     [self.view bringSubviewToFront:fire];
+    [fire setHidden:true];
     [self.view bringSubviewToFront:gameInfoTableView];
     [self.view bringSubviewToFront:testingModeButton];
 }
@@ -413,15 +528,32 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 //                   }];
     if(_mapView.showsUserLocation == YES)
     {
-    _mapView.showsUserLocation = NO;
-    _mapView.zoomEnabled = NO;
-    _mapView.scrollEnabled = NO;
+        [fire setHidden:false];
+        _mapView.showsUserLocation = NO;
+        _mapView.zoomEnabled = NO;
+        _mapView.scrollEnabled = NO;
+        bIsInTestingMode = true;
     }
     else
     {
+        [fire setHidden:true];
         _mapView.showsUserLocation = YES;
         _mapView.zoomEnabled = YES;
         _mapView.scrollEnabled = YES;
+        
+        _mapView.showsScale = NO;
+        _mapView.showsCompass = NO;
+        
+        
+        MAUserLocationRepresentation *pre = [[MAUserLocationRepresentation alloc] init];
+        
+        pre.image = [UIImage imageNamed:@"transparent.png"];
+        pre.lineWidth = 0;
+        pre.showsAccuracyRing = NO;
+        pre.lineDashPattern = @[@6, @3];
+        [_mapView updateUserLocationRepresentation:pre];
+        
+        bIsInTestingMode = false;
     }
     
 }
@@ -441,6 +573,10 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
             annotationView = [[AnimatedAnnotationView alloc] initWithAnimatedAnnotation:annotation];
             
             annotationView.draggable        = YES;   //tempaorally set as draggable for test
+        }
+        else
+        {
+            annotationView.annotation = annotation;
         }
         
         return annotationView;
@@ -501,8 +637,12 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         NSLog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
         
         NSString * Message = [NSString stringWithFormat:@"report 1\r\n%f:%f\r\n", userLocation.coordinate.latitude,userLocation.coordinate.longitude];
+        if(myState == DEAD)
+        {
+            //do nothing, just update my position, user should not move
+        }
 
-        if (!bInitSelfPresentation)
+        if (myState == INACTIVE)
         {
             MAUserLocationRepresentation *pre = [[MAUserLocationRepresentation alloc] init];
             
@@ -524,14 +664,15 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
             
             mySelfAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:userLocation.coordinate];
             mySelfAnnotation.animatedImages = trainImages;
+            mySelfAnnotation.title          = @"你";
             mySelfAnnotation.animationRepeatCount=[[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
             mySelfAnnotation.width=[[annotationImageInfo objectForKey:@"width"] doubleValue];
             mySelfAnnotation.height=[[annotationImageInfo objectForKey:@"height"] doubleValue];
             mySelfAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
             [_mapView addAnnotation:mySelfAnnotation];
-            bInitSelfPresentation = true;
+            myState = ACTIVE;
         }
-        else
+        else if(myState == ACTIVE)
         {
             mySelfAnnotation.coordinate = userLocation.coordinate;
         }
@@ -578,10 +719,10 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     }
     
     EffectAnnotation.animatedImages = imageList;
-    EffectAnnotation.width = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"width"] doubleValue];
-    EffectAnnotation.height = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"height"] doubleValue];
-    EffectAnnotation.identifier = [[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"identifier"];
-    EffectAnnotation.animationRepeatCount = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Normal" ] objectForKey:@"repeatCount"] doubleValue];
+    EffectAnnotation.width = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Effect" ] objectForKey:@"width"] doubleValue];
+    EffectAnnotation.height = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Effect" ] objectForKey:@"height"] doubleValue];
+    EffectAnnotation.identifier = [[[imageDictionary objectForKey:effectName] objectForKey:@"Effect" ] objectForKey:@"identifier"];
+    EffectAnnotation.animationRepeatCount = [[[[imageDictionary objectForKey:effectName] objectForKey:@"Effect" ] objectForKey:@"repeatCount"] doubleValue];
     
     [_mapView addAnnotation:EffectAnnotation];
 }
@@ -643,31 +784,38 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 
 -(void) MenuDraggedAction:(int)itemIndex Location:(CGPoint)location
 {
+    [fire setHidden:false];
     fire.center = location;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
- 
-  //  fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
     
-    mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
+    //  fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
     
-    NSDictionary *params = @{@"userid":UserName,
-                             @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
-                             ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
-    
-    [pomelo notifyWithRoute:@"game.gameHandler.report" andParams:params];
+    if(bIsInTestingMode)
+    {
+        mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
+        
+        NSDictionary *params = @{@"userid":UserName,
+                                 @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
+                                 ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
+        
+        [pomelo notifyWithRoute:@"game.gameHandler.report" andParams:params];
+    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    //   fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
-    mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
-    
-    NSDictionary *params = @{@"userid":UserName,
-                             @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
-                             ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
-    
-    [pomelo notifyWithRoute:@"game.gameHandler.report" andParams:params];
+    if(bIsInTestingMode)
+    {
+        //   fire.center = [(UITouch *)[touches anyObject] locationInView:self.menuItemView];
+        mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
+        
+        NSDictionary *params = @{@"userid":UserName,
+                                 @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
+                                 ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
+        
+        [pomelo notifyWithRoute:@"game.gameHandler.report" andParams:params];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -723,9 +871,14 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 }
 
 - (void) touchUpOutsideDblTapSignButE:(id)sender event:(UIEvent *)event {
-    
-    if(itemList.count<menuItemTobeUsedIndex+1)  //no item on such menu
+    if(bIsItemInUsing)
         return;
+    bIsItemInUsing = true;
+    if(itemList.count<menuItemTobeUsedIndex+1)  //no item on such menu
+    {
+        bIsItemInUsing = false;
+        return;
+    }
     
     NSString* itemAction = [[itemDictionary objectForKey:[itemList objectAtIndex:menuItemTobeUsedIndex]] objectForKey:@"actionType"];
     
@@ -748,6 +901,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                            }
                            
                        }];
+        bIsItemInUsing = false;
         return;
     }
     
@@ -764,10 +918,11 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                            NSLog((NSString*)[result objectForKey:@"message"]);
                            if ([[result objectForKey:@"success"] boolValue])
                            {
-//                               [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:[itemList objectAtIndex:menuItemTobeUsedIndex]];
                                [itemList removeObjectAtIndex:menuItemTobeUsedIndex];
                                [self MenuItemUpdate];
+                               
                            }
+                           bIsItemInUsing = false;
                            
                        }];
         return;
@@ -792,6 +947,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelFreeze"];
 }
 
+//######## audio chat
 - (void)joinChatRoom
 {
     
@@ -806,7 +962,9 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 //    
 //        NSError *error = [[NRTCManager sharedManager] joinChannel:channel delegate:self];
 }
+//######### audio chat end
 
+//##### game State
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -856,6 +1014,6 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return stateResourceInfo.count;
 }
-
+//############# game state table end
 
 @end

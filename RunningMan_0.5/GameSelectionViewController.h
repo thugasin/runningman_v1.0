@@ -18,6 +18,7 @@
     IBOutlet UINavigationItem *navigationBar;
     __block UIActivityIndicatorView *indicator;
     __block NSString* userCity;
+    
 }
 
 @property (strong, nonatomic) NSMutableArray *list;

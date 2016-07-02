@@ -189,8 +189,8 @@
         NSString* instruction =[mapInfo objectForKey:@"instruction"];
         ((PacManMainGameViewController*)gameController).RoleOfMyself = role;
         
-        NSString* roleMessage = [NSString stringWithFormat:@"Your Role is: %@",role];
-        LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:roleMessage message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        NSString* roleMessage = [NSString stringWithFormat:@"你的角色是: %@",role];
+        LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:roleMessage message:nil delegate:self cancelButtonTitle:@"了解" otherButtonTitles:nil];
         
         [cardAlertView setSize:CGSizeMake(270.0, 167.0)];
         
@@ -227,8 +227,8 @@
 //    [pomelo requestWithRoute:@"game.gameHandler.start"
 //                   andParams:params andCallback:self.onGameStartCallback];
     
-    [pomelo requestWithRoute:@"game.gameHandler.start"
-                   andParams:params andCallback:^(NSDictionary*result){}];
+    [pomelo notifyWithRoute:@"game.gameHandler.start"
+                   andParams:params];
 
     
 }

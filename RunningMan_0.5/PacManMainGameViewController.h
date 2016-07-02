@@ -22,6 +22,14 @@
 #import "DWFParticleView.h"
 #import "UIEffectDesignerView.h"
 
+enum selfState
+{
+    INACTIVE,
+    ACTIVE,
+    DEAD,
+    FREEZE
+};
+
 @interface PacManMainGameViewController:UIViewController<MAMapViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     __block MAMapView *_mapView;
@@ -57,7 +65,11 @@
     UIButton* draggedMenuItem;
     int menuItemTobeUsedIndex;
     
+    enum selfState myState;
+    
     IBOutlet UIButton* testingModeButton;
+    bool bIsInTestingMode;
+    bool bIsItemInUsing;
 }
 @property (nonatomic, strong) AnimatedAnnotation *animatedCarAnnotation;
 @property (nonatomic, strong) AnimatedAnnotation *animatedTrainAnnotation;

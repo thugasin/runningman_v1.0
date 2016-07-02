@@ -1,115 +1,160 @@
 {
     "Angel&deamon": [
-                    {
-                    "deamon": {
-                    "Normal": {
-                    "images": [
-                               "deamon-game"
-                               ],
-                    "width": 30,
-                    "height": 30,
-                    "identifier": "deamon",
-                    "repeatCount": 0
-                    },
-                    "RoleAssigned": "role-deamon"
-                    },
-                    "angel": {
-                    "Normal": {
-                    "images": [
-                               "angel-game"
-                               ],
-                    "width": 30,
-                    "height": 30,
-                    "identifier": "angel",
-                    "repeatCount": 0
-                    },
-                    "Freeze": {
-                    "images": [
-                               "angleFreeze"
-                               ],
-                    "width": 30,
-                    "height": 30,
-                    "identifier": "angelFreeze",
-                    "repeatCount": 0
-                    },
-
-                    "RoleAssigned": "role-angel"
-                    },
-                    "apple": {
-                    "Normal": {
-                    "images": [
-                               "bean"
-                               ],
-                    "width": 20,
-                    "height": 20,
-                    "identifier": "bean",
-                    "repeatCount": 0
-                    }
-                    },
-                    "angelAttact": {
-                    "Normal": {
-                    "images": [
-                               "angleAttack1",
-                               "angleAttack2",
-                               "angleAttack3",
-                               "angleAttack4",
-                               "angleAttack5",
-                               "angleAttack6",
-                               "angleAttack7"
-                               ],
-                    "width": 200,
-                    "height": 200,
-                    "identifier": "angelAttact",
-                    "repeatCount": 1
-                    }
-                    },
-                    "angelFreeze": {
-                    "Normal": {
-                    "images": [
-                               "angleFreeze1",
-                               "angleFreeze2",
-                               "angleFreeze3",
-                               "angleFreeze4",
-                               "angleFreeze5"
-                               ],
-                    "width": 30,
-                    "height": 30,
-                    "identifier": "angelFreeze",
-                    "repeatCount": 1
-                    }
-                    },
-                    "SealOfDevil": {
-                    "Normal": {
-                    "images": [
-                               "SealOfDevil"
-                               ],
-                    "width": 30,
-                    "height": 30,
-                    "identifier": "SealOfDevil",
-                    "repeatCount": 0
-                    }
-                    },
-                    "HellWheels": {
-                    "Normal": {
-                    "images": [
-                               "HellWheels"
-                               ],
-                    "width": 30,
-                    "height": 30,
-                    "identifier": "HellWheels",
-                    "repeatCount": 0
-                    }
-                    },
-                    "LightOfPunishment": {
-                    "Normal": {
-                    "images": [
-                               "LightOfPunishment"
-                               ],
-                    "width": 30,
-                    "height": 30,
-                    "identifier": "LightOfPunishment",
-                    "repeatCount": 0
-                    },
+                     {
+                     "deamon": {
+                     "Normal": {
+                     "images": [
+                                "deamon-game"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "deamon",
+                     "repeatCount": 0
+                     },
+                     "Dead": {
+                     "images": [
+                                "dead"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "deamon dead",
+                     "repeatCount": 0
+                     },
+                     "Attack": {
+                     "images": [
+                                "dead"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "deamon dead",
+                     "repeatCount": 0,
+                     "annimation": {
+                     "images": [
+                                "angleAttack1",
+                                "angleAttack2",
+                                "angleAttack3",
+                                "angleAttack4",
+                                "angleAttack5",
+                                "angleAttack6",
+                                "angleAttack7"
+                                ],
+                     "width": 200,
+                     "height": 200,
+                     "identifier": "angelAttact",
+                     "repeatCount": 1
+                     }
+                     },
+                     "RoleAssigned": "role-deamon",
+                     "RoleDead": "deamon-dead"
+                     },
+                     "angel": {
+                     "Normal": {
+                     "images": [
+                                "angel-game"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "angel",
+                     "repeatCount": 0
+                     },
+                     "Freeze": {
+                     "images": [
+                                "angleFreeze"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "angelFreeze",
+                     "repeatCount": 0,
+                     "annimation": {
+                     "images": [
+                                "angleFreeze1",
+                                "angleFreeze2",
+                                "angleFreeze3",
+                                "angleFreeze4",
+                                "angleFreeze5"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "angelFreezing",
+                     "repeatCount": 1
+                     }
+                     }
+                     },
+                     "apple": {
+                     "Normal": {
+                     "images": [
+                                "bean"
+                                ],
+                     "width": 20,
+                     "height": 20,
+                     "identifier": "bean",
+                     "repeatCount": 0
+                     }
+                     },
+                     "angelAttact": {
+                     "Normal": {
+                     "images": [
+                                "angleAttack1",
+                                "angleAttack2",
+                                "angleAttack3",
+                                "angleAttack4",
+                                "angleAttack5",
+                                "angleAttack6",
+                                "angleAttack7"
+                                ],
+                     "width": 200,
+                     "height": 200,
+                     "identifier": "angelAttact",
+                     "repeatCount": 1
+                     }
+                     },
+                     "angelFreeze": {
+                     "Normal": {
+                     "images": [
+                                "angleFreeze1",
+                                "angleFreeze2",
+                                "angleFreeze3",
+                                "angleFreeze4",
+                                "angleFreeze5"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "angelFreeze",
+                     "repeatCount": 1
+                     }
+                     },
+                     "SealOfDevil": {
+                     "Normal": {
+                     "images": [
+                                "SealOfDevil"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "SealOfDevil",
+                     "repeatCount": 0
+                     }
+                     },
+                     "HellWheels": {
+                     "Normal": {
+                     "images": [
+                                "HellWheels"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "HellWheels",
+                     "repeatCount": 0
+                     }
+                     },
+                     "LightOfPunishment": {
+                     "Normal": {
+                     "images": [
+                                "LightOfPunishment"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "LightOfPunishment",
+                     "repeatCount": 0
+                     },
                      "Effect": {
                      "images": [
                                 "angleAttack1",
@@ -125,7 +170,7 @@
                      "identifier": "angelAttact",
                      "repeatCount": 1
                      }
-                    }
-                    }
-                    ]
+                     }
+                     }
+                     ]
 }
