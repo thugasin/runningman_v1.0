@@ -44,6 +44,28 @@
                      "repeatCount": 1
                      }
                      },
+                     "Freeze": {
+                     "images": [
+                                "angleFreeze"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "angelFreeze",
+                     "repeatCount": 0,
+                     "annimation": {
+                     "images": [
+                                "angleFreeze1",
+                                "angleFreeze2",
+                                "angleFreeze3",
+                                "angleFreeze4",
+                                "angleFreeze5"
+                                ],
+                     "width": 30,
+                     "height": 30,
+                     "identifier": "angelFreezing",
+                     "repeatCount": 1
+                     }
+                     },
                      "RoleAssigned": "role-deamon",
                      "RoleDead": "deamon-dead"
                      },

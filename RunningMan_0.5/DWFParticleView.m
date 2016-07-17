@@ -44,6 +44,7 @@
     
     fire.scaleSpeed = 0.3;
     fire.spin = 0.5;
+    fire.scaleRange = 1;
     
     fireEmitter.renderMode = kCAEmitterLayerAdditive;
     

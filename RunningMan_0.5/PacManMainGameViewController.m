@@ -216,8 +216,15 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                     NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:[playerInfo objectForKey:@"state"]];
                     
                     if([[playerInfo objectForKey:@"state"] isEqualToString:@"Dead"])
+                    {
                         myState = DEAD;
-                    [self PopupMessageByState];
+                        [self PopupMessageByState];
+                    }
+                    if([[playerInfo objectForKey:@"state"] isEqualToString:@"Freeze"])
+                    {
+                        myState = FREEZE;
+                        [self PopupMessageByState];
+                    }
                     
                     NSMutableArray* imageList = [NSMutableArray arrayWithCapacity:20];
                     
@@ -550,6 +557,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         pre.image = [UIImage imageNamed:@"transparent.png"];
         pre.lineWidth = 0;
         pre.showsAccuracyRing = NO;
+        pre.showsHeadingIndicator = NO;
         pre.lineDashPattern = @[@6, @3];
         [_mapView updateUserLocationRepresentation:pre];
         
@@ -630,6 +638,37 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [_mapView setCompassImage:nil];
 }
 
+- (void)InitMyselfAnnotation:(MAUserLocation *)userLocation
+{
+    MAUserLocationRepresentation *pre = [[MAUserLocationRepresentation alloc] init];
+    
+    pre.image = [UIImage imageNamed:@"transparent.png"];
+    pre.lineWidth = 0;
+    pre.showsAccuracyRing = NO;
+    pre.lineDashPattern = @[@6, @3];
+    [_mapView updateUserLocationRepresentation:pre];
+    
+    
+    NSMutableArray *trainImages = [[NSMutableArray alloc] init];
+    
+    NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:@"Normal"];
+    
+    for (NSString*CGImageRef in [annotationImageInfo objectForKey:@"images"]) {
+        [trainImages addObject:[UIImage imageNamed:CGImageRef]];
+    }
+    
+    
+    mySelfAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:userLocation.coordinate];
+    mySelfAnnotation.animatedImages = trainImages;
+    mySelfAnnotation.title          = @"你";
+    mySelfAnnotation.animationRepeatCount=[[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
+    mySelfAnnotation.width=[[annotationImageInfo objectForKey:@"width"] doubleValue];
+    mySelfAnnotation.height=[[annotationImageInfo objectForKey:@"height"] doubleValue];
+    mySelfAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
+    [_mapView addAnnotation:mySelfAnnotation];
+    myState = ACTIVE;
+}
+
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
 {
     if(updatingLocation)
@@ -637,40 +676,14 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         NSLog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
         
         NSString * Message = [NSString stringWithFormat:@"report 1\r\n%f:%f\r\n", userLocation.coordinate.latitude,userLocation.coordinate.longitude];
-        if(myState == DEAD)
+        if(myState == DEAD||myState == FREEZE)
         {
             //do nothing, just update my position, user should not move
         }
 
         if (myState == INACTIVE)
         {
-            MAUserLocationRepresentation *pre = [[MAUserLocationRepresentation alloc] init];
-            
-            pre.image = [UIImage imageNamed:@"transparent.png"];
-            pre.lineWidth = 0;
-            pre.showsAccuracyRing = NO;
-            pre.lineDashPattern = @[@6, @3];
-            [_mapView updateUserLocationRepresentation:pre];
-            
-            
-            NSMutableArray *trainImages = [[NSMutableArray alloc] init];
-            
-            NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:@"Normal"];
-            
-            for (NSString*CGImageRef in [annotationImageInfo objectForKey:@"images"]) {
-                [trainImages addObject:[UIImage imageNamed:CGImageRef]];
-            }
-            
-            
-            mySelfAnnotation = [[AnimatedAnnotation alloc] initWithCoordinate:userLocation.coordinate];
-            mySelfAnnotation.animatedImages = trainImages;
-            mySelfAnnotation.title          = @"你";
-            mySelfAnnotation.animationRepeatCount=[[annotationImageInfo objectForKey:@"repeatCount"] doubleValue];
-            mySelfAnnotation.width=[[annotationImageInfo objectForKey:@"width"] doubleValue];
-            mySelfAnnotation.height=[[annotationImageInfo objectForKey:@"height"] doubleValue];
-            mySelfAnnotation.identifier = [annotationImageInfo objectForKey:@"identifier"];
-            [_mapView addAnnotation:mySelfAnnotation];
-            myState = ACTIVE;
+            [self InitMyselfAnnotation:userLocation];
         }
         else if(myState == ACTIVE)
         {
@@ -911,14 +924,16 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     {
         NSDictionary *params = @{@"gameid":GameID,@"userid":UserName,
                                  @"itemIndex":[NSString stringWithFormat:@"%d",menuItemTobeUsedIndex],@"x":[NSString stringWithFormat:@"%f",itemUsedPosition.latitude],@"y":[NSString stringWithFormat:@"%f",itemUsedPosition.longitude]};
-        
+        [fire.emitter setValue:@10 forKeyPath:@"emitterCells.cell.scaleRange"];
         [pomelo requestWithRoute:@"game.gameHandler.useitem"
                        andParams:params andCallback:^(NSDictionary *result){
                            
                            NSLog((NSString*)[result objectForKey:@"message"]);
                            if ([[result objectForKey:@"success"] boolValue])
                            {
-                               [itemList removeObjectAtIndex:menuItemTobeUsedIndex];
+                               [_mapView willRemoveSubview:fire];
+                               [fire removeFromSuperview];
+                               
                                [self MenuItemUpdate];
                                
                            }
@@ -929,22 +944,21 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         
     }
     
-    
     [_mapView willRemoveSubview:fire];
     [fire removeFromSuperview];
-    [_mapView removeAnnotation:mySelfAnnotation];
-    NSMutableArray *trainImages = [[NSMutableArray alloc] init];
-    
-    NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:@"Freeze"];
-    
-    for (NSString*CGImageRef in [annotationImageInfo objectForKey:@"images"]) {
-        [trainImages addObject:[UIImage imageNamed:CGImageRef]];
-    }
-    mySelfAnnotation.animatedImages = trainImages;
-    [_mapView addAnnotation:mySelfAnnotation];
-    
-    
-    [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelFreeze"];
+   // [_mapView removeAnnotation:mySelfAnnotation];
+//    NSMutableArray *trainImages = [[NSMutableArray alloc] init];
+//    
+//    NSDictionary* annotationImageInfo = [[imageDictionary objectForKey:_RoleOfMyself] objectForKey:@"Freeze"];
+//    
+//    for (NSString*CGImageRef in [annotationImageInfo objectForKey:@"images"]) {
+//        [trainImages addObject:[UIImage imageNamed:CGImageRef]];
+//    }
+//    mySelfAnnotation.animatedImages = trainImages;
+//    [_mapView addAnnotation:mySelfAnnotation];
+//    
+//    
+//    [self AddEffectAnnotationWithCoordinate:mySelfAnnotation.coordinate EffectName:@"angelFreeze"];
 }
 
 //######## audio chat
