@@ -6,6 +6,24 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="eTt-Vp-6Lz">
+            <objects>
+                <viewController id="oa3-AH-hzS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DQP-cz-lOA"/>
+                        <viewControllerLayoutGuide type="bottom" id="zw1-31-Kw4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5sX-qr-uML">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAL-KF-Bf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2392" y="-1474"/>
+        </scene>
         <!--游戏列表-->
         <scene sceneID="6hQ-gh-Scd">
             <objects>
@@ -199,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3730" y="-701"/>
+            <point key="canvasLocation" x="4666" y="-677"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mVA-9Z-Odv">
@@ -246,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGy-xU-fxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3730" y="-1372"/>
+            <point key="canvasLocation" x="4666" y="-1348"/>
         </scene>
         <!--我-->
         <scene sceneID="6YU-7g-yJF">
@@ -286,9 +304,117 @@
             <point key="canvasLocation" x="1850" y="818"/>
         </scene>
         <!--Game Configuration View Controller-->
+        <scene sceneID="Xh1-VX-FLl">
+            <objects>
+                <viewController storyboardIdentifier="GameConfigure" id="o8L-jV-fvN" customClass="GameConfigurationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8CV-ph-ZOO"/>
+                        <viewControllerLayoutGuide type="bottom" id="KCI-Wr-ojA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7pW-Ia-OjX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYf-8h-JN0">
+                                <rect key="frame" x="62" y="112" width="196" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="新建游戏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1Y-Sv-ixA">
+                                <rect key="frame" x="126" y="20" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="游戏名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97v-u3-bda">
+                                <rect key="frame" x="62" y="93" width="52" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="游戏区域" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNi-VW-30h">
+                                <rect key="frame" x="62" y="159" width="52" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gI-X2-kDh">
+                                <rect key="frame" x="62" y="182" width="196" height="94"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="当前位置"/>
+                                <connections>
+                                    <action selector="SetGameArea:" destination="o8L-jV-fvN" eventType="touchUpInside" id="ERl-0U-4ls"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXJ-wb-sdO">
+                                <rect key="frame" x="145" y="300" width="30" height="30"/>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="OnStartGame:" destination="o8L-jV-fvN" eventType="touchUpInside" id="etm-W6-NcF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0w-my-o3W">
+                                <rect key="frame" x="112" y="57" width="96" height="30"/>
+                                <state key="normal" title="天使与魔鬼"/>
+                                <connections>
+                                    <action selector="ShowPicker:" destination="o8L-jV-fvN" eventType="touchUpInside" id="dqX-EU-TKD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="GameText" destination="qYf-8h-JN0" id="dRw-Ko-Lft"/>
+                        <outlet property="SelectGameTypeButton" destination="T0w-my-o3W" id="WYS-Va-vaG"/>
+                        <outlet property="StartGameButton" destination="VXJ-wb-sdO" id="dr7-9G-6jU"/>
+                        <outlet property="gamePosition" destination="0gI-X2-kDh" id="tlg-xE-SH5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Swl-zW-n6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2854" y="-733"/>
+        </scene>
+        <!--Game Preparation View Controller-->
+        <scene sceneID="tNb-4r-i4D">
+            <objects>
+                <viewController storyboardIdentifier="GamePreparation" id="buZ-ET-Iuf" customClass="GamePreparationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e2c-eT-qgA"/>
+                        <viewControllerLayoutGuide type="bottom" id="OXe-zc-dZd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uSa-9K-2sY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwq-F6-bh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3392" y="-730"/>
+        </scene>
+        <!--Playground Selection View Controller-->
+        <scene sceneID="2i1-Oq-GWI">
+            <objects>
+                <viewController storyboardIdentifier="PlaygroundSelection" id="pBN-AU-Gc4" customClass="PlaygroundSelectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e9F-Oe-v25"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ehu-UC-LpX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vL0-d5-2yB" customClass="pl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oIZ-wx-WbX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBM-9X-cqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3384" y="-1482"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="2Gq-6X-czh">
             <objects>
-                <viewController storyboardIdentifier="GameConfigure" id="ep5-GW-9aH" customClass="GameConfigurationViewController" sceneMemberID="viewController">
+                <viewController id="ep5-GW-9aH" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LMI-Yv-btk"/>
                         <viewControllerLayoutGuide type="bottom" id="Kgk-Hi-FWf"/>
@@ -344,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5LU-Qp-nEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="-733"/>
+            <point key="canvasLocation" x="5524" y="-2781"/>
         </scene>
         <!--Game Waiting View Controller-->
         <scene sceneID="WdE-A5-jNG">
@@ -400,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCm-hb-0ML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3264" y="-733"/>
+            <point key="canvasLocation" x="4200" y="-709"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cxg-1E-pbg">

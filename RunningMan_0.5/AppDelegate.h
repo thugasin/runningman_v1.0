@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MAMapKit/MAMapKit.h>
 #import "PomeloWS.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) PomeloWS* pomelo;
+@property (nonatomic) CLLocationCoordinate2D centerLocation;
+@property (nonatomic) int gameRadius;
 
 @end
 

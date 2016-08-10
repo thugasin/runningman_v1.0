@@ -135,8 +135,8 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
 //             [pomelo connectToHost:@"ayo.org.cn" onPort:3050 withCallback:^(PomeloWS *p)
         
             NSLog([userDefault objectForKey:@"serverip"]);
-             [pomelo connectToHost:[userDefault objectForKey:@"serverip"] onPort:3050 withCallback:^(PomeloWS *p)
-             {
+//             [pomelo connectToHost:[userDefault objectForKey:@"serverip"] onPort:3050 withCallback:^(PomeloWS *p)
+//             {
                  [indicator stopAnimating];
                  NSDictionary *params = @{@"city":@"-1"};
                  [pomelo requestWithRoute:@"game.gameHandler.list"
@@ -148,7 +148,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
                                     
                                     [self.tableview reloadData];
                                 }];
-             }];
+   //          }];
         }
     };
 }

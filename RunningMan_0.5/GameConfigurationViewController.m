@@ -6,13 +6,14 @@
 //  Copyright (c) 2015年 Baidu. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "GameConfigurationViewController.h"
+#import "ZHPickView/ZHPickView.h"
+
+
 @implementation GameConfigurationViewController
 
-@synthesize GamePicker;
 @synthesize GameText;
-@synthesize locationManager;
-@synthesize playerCity;
 @synthesize playerLocation;
 @synthesize gameTypeNumber;
 
@@ -28,13 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    pickerArray = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects:@"吃豆子",@"夺旗",@"夺宝奇兵",@"谁是杀手", nil]];
     self.GameText.placeholder = @"游戏名";
-//    self.GameText.inputAccessoryView = DoneToolBar;
-//    self.GameText.delegate = self;
-    self.GamePicker.delegate = self;
-    self.GamePicker.dataSource = self;
- //   self.GamePicker.frame = CGRectMake(0, 480, 320, 216);
+    
+    [AMapSearchServices sharedServices].apiKey = @"86a9ed1f4d39a5fd8f4843bece27c4ff";
+    search = [[AMapSearchAPI alloc] init];
+    
+    search.delegate = self;
+    gamePosition.titleLabel.lineBreakMode = 0;
+    //   self.GamePicker.frame = CGRectMake(0, 480, 320, 216);
     
 //    [self.view addConstraint:[NSLayoutConstraint
 //                              constraintWithItem:_StartGameButton
@@ -103,13 +105,6 @@
 }
 
 
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
@@ -120,97 +115,81 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return [pickerArray count];
+- (IBAction)ShowPicker:(id)sender {
+    ZHPickView *pickView = [[ZHPickView alloc] init];
+    [pickView setDataViewWithItem:@[@"天使与魔鬼",@"夺骑",@"谁是杀手"] title:@"选择游戏"];
+    [pickView showPickView:self];
+    pickView.block = ^(NSString *selectedStr)
+    {
+        [_SelectGameTypeButton setTitle:selectedStr forState:UIControlStateNormal];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        NSString *userName = [userDefault objectForKey:@"name"];
+        
+        GameText.text = [NSString stringWithFormat:@"%@的%@", userName,selectedStr];
+    };
 }
--(NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+
+- (void)searchReGeocodeWithCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    gameCenterLocation = coordinate;
+    AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
     
-    NSString *selectedGame=[pickerArray objectAtIndex:row];
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSString *userName = [userDefault objectForKey:@"name"];
+    regeo.location                    = [AMapGeoPoint locationWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    regeo.requireExtension            = YES;
     
-    GameText.text = [NSString stringWithFormat:@"%@的%@", userName,selectedGame];
-    
-    gameTypeNumber =[NSString stringWithFormat:@"%ld", (long)row];
-    
-    return [pickerArray objectAtIndex:row];
+    [search AMapReGoecodeSearch:regeo];
+}
+
+- (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
+{
+    playerCity = response.regeocode.addressComponent.city;
+    [gamePosition setTitle:response.regeocode.formattedAddress forState:UIControlStateNormal];
 }
 
 -(IBAction)SetGameArea:(id)sender
 {
-    [self startLocation];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"PlaygroundSelection"];
+    
+    ((PlaygroundSelectionViewController*)mainViewController).configureView = self;
+    [self.navigationController pushViewController:mainViewController animated:NO];
 }
 
--(void)startLocation{
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.distanceFilter = 10.0f;
-    
-//    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-//        [self.locationManager requestWhenInUseAuthorization];
-//    }
-//    [self.locationManager startUpdatingLocation];
-    
-    CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
-    
-    if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
-        authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
-        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        
-        [self.locationManager startUpdatingLocation];
-        
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+-(void)setGameRadius:(int)radius
 {
-    
-    [self.locationManager stopUpdatingLocation];  //拿到用户信息后停止更新location
-    
-    playerLocation = [locations objectAtIndex:([locations count]-1)];
-    NSLog(@"location ok");
-    NSLog(@"==latitude %f, longitude %f", [playerLocation coordinate].latitude , [playerLocation coordinate].longitude);
-    
-    
-//    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
-//    [geoCoder reverseGeocodeLocation:playerLocation completionHandler:^(NSArray *placemarks, NSError *error)
-//    {
-//        for (CLPlacemark * placemark in placemarks)
-//        {
-//            
-//            NSDictionary *playerAddress = [placemark addressDictionary];
-//            //  Country(国家)  State(城市)  SubLocality(区)
-//            self.playerCity = [playerAddress objectForKey:@"State"];
-//            NSLog(@"%@", self.playerCity);
-//            
-    self.playerCity = @"北京";
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"游戏区域" message:[NSString stringWithFormat:@"游戏城市：%@",self.playerCity] preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"了解" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:okAction];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-//        }
-//    }];
-//    
-    
-    
+    gameRadius = radius;
 }
 
+
+
+- (void)SetGlobalGameInfo
+{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    myDelegate.gameRadius = gameRadius;
+    myDelegate.centerLocation = gameCenterLocation;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setObject:self.GameText.text forKey:@"gamename"];
+    [userDefaults setObject:playerCity forKey:@"playercity"];
+    
+    [userDefaults synchronize];
+}
 
 -(IBAction)OnStartGame:(id)sender
 {
+    [self SetGlobalGameInfo];
+    
+    
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSDictionary *params = @{@"userid":[userDefault objectForKey:@"name"],
                                         @"gamename":self.GameText.text,
-                                        @"maxplayer":self.MaxPlayerNumber.text,
-                             @"city":self.playerCity,
-                             @"x1":[NSString stringWithFormat:@"%f", self.playerLocation.coordinate.latitude+0.001543-0.001],
-                             @"y1":[NSString stringWithFormat:@"%f", playerLocation.coordinate.longitude+0.005866-0.001],
-                             @"x2":[NSString stringWithFormat:@"%f", self.playerLocation.coordinate.latitude+0.001543+0.001],
-                             @"y2":[NSString stringWithFormat:@"%f",playerLocation.coordinate.longitude+0.005866+0.001],
+                                        @"maxplayer":@20,
+                             @"city":playerCity,
+                             @"x1":[NSString stringWithFormat:@"%f", gameCenterLocation.latitude-(gameRadius/(1.414*111000))],
+                             @"y1":[NSString stringWithFormat:@"%f", gameCenterLocation.longitude-(gameRadius/(1.414*111000))],
+                             @"x2":[NSString stringWithFormat:@"%f", gameCenterLocation.latitude+(gameRadius/(1.414*111000))],
+                             @"y2":[NSString stringWithFormat:@"%f", gameCenterLocation.longitude+(gameRadius/(1.414*111000))],
                              @"gametype":[NSString stringWithFormat:@"%@", @"Angel&deamon"]};
     pomelo = [PomeloWS GetPomelo];
     [pomelo requestWithRoute:@"game.gameHandler.create"
@@ -218,18 +197,24 @@
                        
                        if ([[result objectForKey:@"success"] boolValue])
                        {
+                           
                            NSLog(@"游戏创建成功!");
-                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                            
                            NSData * gameInfo = [[result objectForKey:@"game"] dataUsingEncoding:NSUTF8StringEncoding];
                            
                            NSDictionary *list = [NSJSONSerialization JSONObjectWithData:gameInfo options:kNilOptions error:nil];
                            
-                           id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GameWaitingView"];
-                           [(GameWaitingViewController*)mainViewController SetGameID:[NSString stringWithFormat:@"%@",[list objectForKey:@"ID"]]];
-                           [(GameWaitingViewController*)mainViewController SetGameName:[list objectForKey:@"GameName"]];
-                           [self presentViewController:mainViewController animated:YES completion:^{
-                           }];
+                           NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                           
+                           [userDefaults setObject:[list objectForKey:@"ID"] forKey:@"gameid"];
+                           
+                           [userDefaults synchronize];
+                           
+                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                           id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GamePreparation"];
+                           
+                           [self.navigationController pushViewController:mainViewController animated:NO];
+                           
                        }
                        else
                        {

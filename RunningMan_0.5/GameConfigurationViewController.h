@@ -7,16 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CoreLocation/CoreLocation.h"
 #import "IObserver.h"
 #import "NetworkAdapter.h"
 #import "GameWaitingViewController.h"
+#import "PlaygroundSelectionViewController.h"
+
+#import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 #import "pomelows.h"
 
-@interface GameConfigurationViewController : UIViewController<CLLocationManagerDelegate>
+@interface GameConfigurationViewController : UIViewController<AMapSearchDelegate>
 {
     NSArray *pickerArray;
     PomeloWS *pomelo;
+    AMapLocationManager *locationManager;
+    AMapSearchAPI *search;
+    CLLocationCoordinate2D gameCenterLocation;
+    int gameRadius;
+    NSString* playerCity;
+    
+    IBOutlet UIButton* gamePosition;
 }
 
 -(IBAction)SetGameArea:(id)sender;
@@ -25,17 +35,15 @@
 
 - (void)initBaseNavigationBar;
 - (void) returnAction;
+- (void)searchReGeocodeWithCoordinate:(CLLocationCoordinate2D)coordinate;
+-(void)setGameRadius:(int)radius;
 
-@property (strong, nonatomic) IBOutlet UIPickerView *GamePicker;
 @property (strong, nonatomic) IBOutlet UITextField *GameText;
-@property (strong, nonatomic) IBOutlet UITextField *MaxPlayerNumber;
-@property (strong,nonatomic) IBOutlet UIButton *SetGameLocationButton;
+@property (strong,nonatomic) IBOutlet UIButton *SelectGameTypeButton;
 @property (strong,nonatomic) IBOutlet UIButton * StartGameButton;
 
-@property (strong,nonatomic) IBOutlet UILabel* MaxPlayersText;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 
-@property (strong, nonatomic) NSString* playerCity;
 @property (strong, nonatomic) CLLocation* playerLocation;
 @property (strong, nonatomic) NSString * gameTypeNumber;
 

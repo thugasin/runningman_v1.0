@@ -25,6 +25,9 @@
 		360F090D1CD35E02002B5539 /* libNRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 360F090A1CD35E02002B5539 /* libNRTC.a */; };
 		360F090E1CD35E02002B5539 /* libnvs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 360F090B1CD35E02002B5539 /* libnvs.a */; };
 		361304411C26EB8700407D7B /* GameSelectionViewController_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */; };
+		3639D76E1D44A780008B38F5 /* PlaygroundSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3639D76D1D44A780008B38F5 /* PlaygroundSelectionViewController.m */; };
+		3639D7711D44A886008B38F5 /* CustomOverlayRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3639D7701D44A886008B38F5 /* CustomOverlayRenderer.m */; };
+		3639D7741D44A8FF008B38F5 /* CustomOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3639D7731D44A8FF008B38F5 /* CustomOverlay.m */; };
 		363D6BEC1CBA3BA900595453 /* AnimatedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */; };
 		363DA99A1C19B8CE002AA5CC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA9991C19B8CE002AA5CC /* Security.framework */; };
 		363DA99C1C19B8E1002AA5CC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363DA99B1C19B8E1002AA5CC /* CFNetwork.framework */; };
@@ -46,7 +49,6 @@
 		365245481D0982A2008387F1 /* SystemConfigurationUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365245471D0982A2008387F1 /* SystemConfigurationUIViewController.m */; };
 		365EB4281BC7CAEF001F3303 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB4271BC7CAEF001F3303 /* main.m */; };
 		365EB42B1BC7CAEF001F3303 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42A1BC7CAEF001F3303 /* AppDelegate.m */; };
-		365EB42E1BC7CAEF001F3303 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365EB42D1BC7CAEF001F3303 /* ViewController.m */; };
 		365EB4311BC7CAEF001F3303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365EB42F1BC7CAEF001F3303 /* Main.storyboard */; };
 		365EB4331BC7CAEF001F3303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365EB4321BC7CAEF001F3303 /* Assets.xcassets */; };
 		365EB4361BC7CAEF001F3303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365EB4341BC7CAEF001F3303 /* LaunchScreen.storyboard */; };
@@ -58,6 +60,8 @@
 		366AAD3C1CE224EC00A4625D /* GameStateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 366AAD3B1CE224EC00A4625D /* GameStateTableViewCell.m */; };
 		366AAD3F1CE8702E00A4625D /* stateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 366AAD3E1CE8702E00A4625D /* stateHandler.m */; };
 		366FDD6C1C1AD5A50033A57F /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366FDD6B1C1AD5A50033A57F /* GameInfoTableViewCell.swift */; };
+		369093391D4CB23D00FC34C2 /* ZHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 369093381D4CB23D00FC34C2 /* ZHPickView.m */; };
+		3690933C1D50DD4B00FC34C2 /* GamePreparationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690933B1D50DD4B00FC34C2 /* GamePreparationViewController.m */; };
 		369303451C9853F50034A23E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369303441C9853F50034A23E /* SystemConfiguration.framework */; };
 		369303471C9854000034A23E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369303461C9854000034A23E /* AudioToolbox.framework */; };
 		369303491C9854090034A23E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369303481C9854090034A23E /* CoreMedia.framework */; };
@@ -92,6 +96,7 @@
 		36D982351C3782FB0040BC4A /* PomeloProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D982331C3782FB0040BC4A /* PomeloProtocol.m */; };
 		36E82E111C4B29A9000A5633 /* GameInfoTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E82E101C4B29A9000A5633 /* GameInfoTableCellView.m */; };
 		36E82E151C4BE378000A5633 /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E82E141C4BE378000A5633 /* GameInfoCell.xib */; };
+		36F452CD1D5A935C00B984EE /* GameJoinPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F452CC1D5A935C00B984EE /* GameJoinPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +155,12 @@
 		360F090A1CD35E02002B5539 /* libNRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNRTC.a; sourceTree = "<group>"; };
 		360F090B1CD35E02002B5539 /* libnvs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnvs.a; sourceTree = "<group>"; };
 		361304401C26EB8700407D7B /* GameSelectionViewController_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController_swift.swift; sourceTree = "<group>"; };
+		3639D76C1D44A780008B38F5 /* PlaygroundSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundSelectionViewController.h; sourceTree = "<group>"; };
+		3639D76D1D44A780008B38F5 /* PlaygroundSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaygroundSelectionViewController.m; sourceTree = "<group>"; };
+		3639D76F1D44A886008B38F5 /* CustomOverlayRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOverlayRenderer.h; sourceTree = "<group>"; };
+		3639D7701D44A886008B38F5 /* CustomOverlayRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOverlayRenderer.m; sourceTree = "<group>"; };
+		3639D7721D44A8FF008B38F5 /* CustomOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOverlay.h; sourceTree = "<group>"; };
+		3639D7731D44A8FF008B38F5 /* CustomOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOverlay.m; sourceTree = "<group>"; };
 		363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedAnnotationView.m; sourceTree = "<group>"; };
 		363DA9991C19B8CE002AA5CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		363DA99B1C19B8E1002AA5CC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -186,8 +197,6 @@
 		365EB4271BC7CAEF001F3303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		365EB4291BC7CAEF001F3303 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		365EB42A1BC7CAEF001F3303 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		365EB42C1BC7CAEF001F3303 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		365EB42D1BC7CAEF001F3303 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		365EB4301BC7CAEF001F3303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		365EB4321BC7CAEF001F3303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		365EB4351BC7CAEF001F3303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -208,6 +217,10 @@
 		366AAD3D1CE8701C00A4625D /* stateHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stateHandler.h; sourceTree = "<group>"; };
 		366AAD3E1CE8702E00A4625D /* stateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stateHandler.m; sourceTree = "<group>"; };
 		366FDD6B1C1AD5A50033A57F /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameInfoTableViewCell.swift; path = GameList/GameInfoTableViewCell.swift; sourceTree = "<group>"; };
+		369093371D4CB23D00FC34C2 /* ZHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPickView.h; sourceTree = "<group>"; };
+		369093381D4CB23D00FC34C2 /* ZHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPickView.m; sourceTree = "<group>"; };
+		3690933A1D50DD4B00FC34C2 /* GamePreparationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePreparationViewController.h; sourceTree = "<group>"; };
+		3690933B1D50DD4B00FC34C2 /* GamePreparationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePreparationViewController.m; sourceTree = "<group>"; };
 		369303441C9853F50034A23E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		369303461C9854000034A23E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		369303481C9854090034A23E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -272,6 +285,8 @@
 		36E82E0F1C4B29A9000A5633 /* GameInfoTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfoTableCellView.h; sourceTree = "<group>"; };
 		36E82E101C4B29A9000A5633 /* GameInfoTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfoTableCellView.m; sourceTree = "<group>"; };
 		36E82E141C4BE378000A5633 /* GameInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
+		36F452CB1D5A935C00B984EE /* GameJoinPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameJoinPageViewController.h; sourceTree = "<group>"; };
+		36F452CC1D5A935C00B984EE /* GameJoinPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameJoinPageViewController.m; sourceTree = "<group>"; };
 		4FFD415640F981341B86FD48 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A224219B536B7F209CAA4833 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -449,6 +464,15 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		3639D76B1D44A6E5008B38F5 /* GameConfigure */ = {
+			isa = PBXGroup;
+			children = (
+				3639D76C1D44A780008B38F5 /* PlaygroundSelectionViewController.h */,
+				3639D76D1D44A780008B38F5 /* PlaygroundSelectionViewController.m */,
+			);
+			name = GameConfigure;
+			sourceTree = "<group>";
+		};
 		363F1E5E1C19C462009B5730 /* SocketRocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +556,8 @@
 		365EB4251BC7CAEF001F3303 /* RunningMan_1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				369093361D4CB23D00FC34C2 /* ZHPickView */,
+				3639D76B1D44A6E5008B38F5 /* GameConfigure */,
 				360F08FE1CD35E02002B5539 /* NRTC */,
 				360F08EC1CD35DB5002B5539 /* NRTCDependencies */,
 				360F08AC1CCDC3EC002B5539 /* snow.ped */,
@@ -565,8 +591,6 @@
 				36D074841BC7D1C400032359 /* Socket */,
 				365EB4291BC7CAEF001F3303 /* AppDelegate.h */,
 				365EB42A1BC7CAEF001F3303 /* AppDelegate.m */,
-				365EB42C1BC7CAEF001F3303 /* ViewController.h */,
-				365EB42D1BC7CAEF001F3303 /* ViewController.m */,
 				365EB42F1BC7CAEF001F3303 /* Main.storyboard */,
 				365EB4321BC7CAEF001F3303 /* Assets.xcassets */,
 				365EB4341BC7CAEF001F3303 /* LaunchScreen.storyboard */,
@@ -586,6 +610,10 @@
 				366AAD3B1CE224EC00A4625D /* GameStateTableViewCell.m */,
 				365245461D0982A2008387F1 /* SystemConfigurationUIViewController.h */,
 				365245471D0982A2008387F1 /* SystemConfigurationUIViewController.m */,
+				3690933A1D50DD4B00FC34C2 /* GamePreparationViewController.h */,
+				3690933B1D50DD4B00FC34C2 /* GamePreparationViewController.m */,
+				36F452CB1D5A935C00B984EE /* GameJoinPageViewController.h */,
+				36F452CC1D5A935C00B984EE /* GameJoinPageViewController.m */,
 			);
 			name = RunningMan_1.0;
 			path = RunningMan_0.5;
@@ -633,6 +661,15 @@
 			name = GameList;
 			sourceTree = "<group>";
 		};
+		369093361D4CB23D00FC34C2 /* ZHPickView */ = {
+			isa = PBXGroup;
+			children = (
+				369093371D4CB23D00FC34C2 /* ZHPickView.h */,
+				369093381D4CB23D00FC34C2 /* ZHPickView.m */,
+			);
+			path = ZHPickView;
+			sourceTree = "<group>";
+		};
 		36D074841BC7D1C400032359 /* Socket */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,6 +684,10 @@
 		36D0748B1BC7D21E00032359 /* lbsInclude */ = {
 			isa = PBXGroup;
 			children = (
+				3639D7721D44A8FF008B38F5 /* CustomOverlay.h */,
+				3639D7731D44A8FF008B38F5 /* CustomOverlay.m */,
+				3639D76F1D44A886008B38F5 /* CustomOverlayRenderer.h */,
+				3639D7701D44A886008B38F5 /* CustomOverlayRenderer.m */,
 				363D6BEB1CBA3BA900595453 /* AnimatedAnnotationView.m */,
 				36B6EA051BD5F6A800F59C7C /* CustomCalloutView.h */,
 				36B6EA061BD5F6A800F59C7C /* CustomCalloutView.m */,
@@ -879,15 +920,16 @@
 				36D3EFC41C3977D300E98B2F /* PBHelper.m in Sources */,
 				361304411C26EB8700407D7B /* GameSelectionViewController_swift.swift in Sources */,
 				36CFB00D1C159625001611F2 /* LoginInputViewController.m in Sources */,
+				36F452CD1D5A935C00B984EE /* GameJoinPageViewController.m in Sources */,
 				36502ABC1CB25472008F1A1E /* ImageHandler.m in Sources */,
 				36D074931BC7D35E00032359 /* GameObject.m in Sources */,
 				36B6EA041BD5F37D00F59C7C /* CustomAnnotationView.m in Sources */,
-				365EB42E1BC7CAEF001F3303 /* ViewController.m in Sources */,
 				36C24FF41BCE5B4E00BE028B /* GameWaitingViewController.m in Sources */,
 				363F1E7F1C19C5A1009B5730 /* SocketIO.m in Sources */,
 				360F089B1CCC7A88002B5539 /* DWFParticleView.m in Sources */,
 				36D3EFB41C39779200E98B2F /* PomeloWS.m in Sources */,
 				366A4EA81C9582C0007095F7 /* GameInfoViewController.m in Sources */,
+				3639D7711D44A886008B38F5 /* CustomOverlayRenderer.m in Sources */,
 				363F1E801C19C5A1009B5730 /* SocketIOJSONSerialization.m in Sources */,
 				36D982351C3782FB0040BC4A /* PomeloProtocol.m in Sources */,
 				36D074831BC7D1B100032359 /* AsyncUdpSocket.m in Sources */,
@@ -895,9 +937,13 @@
 				360F089E1CCCA973002B5539 /* DWFViewController.m in Sources */,
 				36D074A31BC7DB2E00032359 /* LoginViewController.m in Sources */,
 				360F08B91CD05CE3002B5539 /* ItemHandler.m in Sources */,
+				3690933C1D50DD4B00FC34C2 /* GamePreparationViewController.m in Sources */,
+				3639D76E1D44A780008B38F5 /* PlaygroundSelectionViewController.m in Sources */,
+				3639D7741D44A8FF008B38F5 /* CustomOverlay.m in Sources */,
 				36D982341C3782FB0040BC4A /* Pomelo.m in Sources */,
 				365245481D0982A2008387F1 /* SystemConfigurationUIViewController.m in Sources */,
 				363F1E711C19C561009B5730 /* NSData+SRB64Additions.m in Sources */,
+				369093391D4CB23D00FC34C2 /* ZHPickView.m in Sources */,
 				36D27A591BEA2FA300E3B0DB /* LoginViewController_sf.swift in Sources */,
 				36D3EFC21C3977D300E98B2F /* PBDecoder.m in Sources */,
 				360F08A71CCD1699002B5539 /* NSData+Base64.m in Sources */,
