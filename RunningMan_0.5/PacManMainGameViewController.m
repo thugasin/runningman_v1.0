@@ -10,6 +10,7 @@
 #import "NRTC/include/NRTC/NRTC.h"
 #import "GameStateTableViewCell.h"
 #import "LMAlertView.h"
+#import "GameResultViewController.h"
 
 @interface PacManMainGameViewController ()
 
@@ -17,6 +18,7 @@
 @property (nonatomic,copy) PomeloWSCallback onMapUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback onPlayerItemUpdateCallback;
 @property (nonatomic,copy) PomeloWSCallback onStateUpdateCallback;
+@property (nonatomic,copy) PomeloWSCallback onStopCallback;
 @property (nonatomic,copy) PomeloWSCallback drawMap;
 
 
@@ -58,6 +60,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [self InitMapUpdate];
     [self InitStateUpdate];
     [self InitItemUpdate];
+    [self InitGameStopEvent];
 
     
     ImageHandler *imangeHandler = [ImageHandler GetImageHandler];
@@ -365,6 +368,50 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     };
 }
 
+-(void) InitGameStopEvent
+{
+    self.onStopCallback = ^(NSArray* gameResultInfo)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"GameResultView"];
+        ((GameResultViewController*)mainViewController).resultArray = [NSMutableArray arrayWithArray:gameResultInfo];
+        [self presentViewController:mainViewController animated:YES completion:^{
+        }];
+        
+        NSString* roleMessage = [NSString stringWithFormat:@"游戏结束！"];
+        LMAlertView *cardAlertView = [[LMAlertView alloc] initWithTitle:roleMessage message:nil delegate:self cancelButtonTitle:@"查看结果" otherButtonTitles:nil];
+        
+        [cardAlertView setSize:CGSizeMake(270.0, 167.0)];
+        
+        UIView *contentView = cardAlertView.contentView;
+        
+        CGFloat yOffset = 55.0;
+        
+        
+        UIImage *card1Image= [UIImage imageNamed:@"GameOver"];
+        UIGraphicsBeginImageContext( CGSizeMake(110.4, 63.6) );
+        [card1Image drawInRect:CGRectMake(0,0,110.4, 63.6)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        UIImageView *card1ImageView= [[UIImageView alloc] initWithImage:newImage];
+        
+        
+        card1ImageView.frame = CGRectMake(80, yOffset, card1ImageView.frame.size.width, card1ImageView.frame.size.height);
+        card1ImageView.layer.cornerRadius = 5.0;
+        card1ImageView.layer.masksToBounds = YES;
+        [contentView addSubview:card1ImageView];
+        
+        
+        [cardAlertView show];
+        
+        
+        
+        
+        
+    };
+}
+
 -(void) InitDrawMap
 {
     self.drawMap = ^(NSDictionary* mapInfo)
@@ -509,6 +556,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
     [pomelo onRoute:@"onMapUpdate" withCallback:self.onMapUpdateCallback];
     [pomelo onRoute:@"onStateUpdate" withCallback:self.onStateUpdateCallback];
     [pomelo onRoute:@"onPlayerItemUpdate" withCallback:self.onPlayerItemUpdateCallback];
+    [pomelo onRoute:@"onStop" withCallback:self.onStopCallback];
     
     _mapView.showsUserLocation = YES; //YES 为打开定位,NO 为关闭定位
     
@@ -691,6 +739,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         }
         
         NSDictionary *params = @{@"userid":UserName,
+                                 @"gameid":GameID,
                                  @"x":[NSString stringWithFormat:@"%f",userLocation.coordinate.latitude]
                                  ,@"y":[NSString stringWithFormat:@"%f",userLocation.coordinate.longitude]};
         
@@ -810,6 +859,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
         
         NSDictionary *params = @{@"userid":UserName,
+                                 @"gameid":GameID,
                                  @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
                                  ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
         
@@ -824,6 +874,7 @@ static NSString* CellTableIdentifier = @"CellTableIdentifier";
         mySelfAnnotation.coordinate = [_mapView convertPoint:[(UITouch *)[touches anyObject] locationInView:_mapView] toCoordinateFromView:_mapView];
         
         NSDictionary *params = @{@"userid":UserName,
+                                 @"gameid":GameID,
                                  @"x":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.latitude]
                                  ,@"y":[NSString stringWithFormat:@"%f",mySelfAnnotation.coordinate.longitude]};
         

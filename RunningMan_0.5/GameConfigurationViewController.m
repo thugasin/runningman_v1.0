@@ -36,7 +36,6 @@
     
     search.delegate = self;
     gamePosition.titleLabel.lineBreakMode = 0;
-    //   self.GamePicker.frame = CGRectMake(0, 480, 320, 216);
     
 //    [self.view addConstraint:[NSLayoutConstraint
 //                              constraintWithItem:_StartGameButton
@@ -186,10 +185,9 @@
                                         @"gamename":self.GameText.text,
                                         @"maxplayer":@20,
                              @"city":playerCity,
-                             @"x1":[NSString stringWithFormat:@"%f", gameCenterLocation.latitude-(gameRadius/(1.414*111000))],
-                             @"y1":[NSString stringWithFormat:@"%f", gameCenterLocation.longitude-(gameRadius/(1.414*111000))],
-                             @"x2":[NSString stringWithFormat:@"%f", gameCenterLocation.latitude+(gameRadius/(1.414*111000))],
-                             @"y2":[NSString stringWithFormat:@"%f", gameCenterLocation.longitude+(gameRadius/(1.414*111000))],
+                             @"radius":[NSString stringWithFormat:@"%d", gameRadius],
+                             @"centerlong":[NSString stringWithFormat:@"%f", gameCenterLocation.longitude],
+                             @"centerlati":[NSString stringWithFormat:@"%f", gameCenterLocation.latitude],
                              @"gametype":[NSString stringWithFormat:@"%@", @"Angel&deamon"]};
     pomelo = [PomeloWS GetPomelo];
     [pomelo requestWithRoute:@"game.gameHandler.create"
